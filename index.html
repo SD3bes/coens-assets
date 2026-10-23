@@ -1,0 +1,1158 @@
+<!-- Google Fonts: Syne & Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* CSS RESET FOR ELEMENTOR CANVAS */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --coens-navy: #081220;
+  --coens-navy-card: #0d1e38;
+  --coens-blue: #1E6FFF;
+  --coens-blue-hover: #004ecc;
+  --coens-gold: #F5A623;
+  --coens-white: #ffffff;
+  --coens-light: #f5f8ff;
+  --coens-gray-100: #f4f6fa;
+  --coens-gray-200: #e5e9f2;
+  --coens-gray-600: #62728d;
+  --coens-gray-800: #1b2533;
+  --coens-border: rgba(255, 255, 255, 0.1);
+  --coens-border-light: rgba(10, 22, 40, 0.08);
+  --coens-shadow: 0 16px 40px rgba(8, 18, 32, 0.08);
+  --coens-radius: 16px;
+}
+
+body, html {
+  font-family: 'Inter', sans-serif !important;
+  background-color: var(--coens-white) !important;
+  color: var(--coens-gray-800) !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+/* TOP TRUST BAR */
+.coens-top-bar {
+  background: #050b14;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.82rem;
+  padding: 10px 6%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.coens-top-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.coens-trust-list {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.coens-trust-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.coens-top-stores {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.coens-top-stores span {
+  color: var(--coens-gold);
+  font-weight: 600;
+}
+
+/* STICKY NAVIGATION */
+.coens-nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(8, 18, 32, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--coens-border);
+  padding: 16px 6%;
+}
+
+.coens-nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coens-logo {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--coens-white) !important;
+  letter-spacing: -0.5px;
+}
+
+.coens-logo span {
+  color: var(--coens-gold);
+}
+
+.coens-menu {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.coens-menu a {
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 6px 0;
+  position: relative;
+}
+
+.coens-menu a:hover,
+.coens-menu a.active {
+  color: var(--coens-white) !important;
+}
+
+.coens-menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--coens-blue);
+  border-radius: 2px;
+}
+
+.coens-btn-cta {
+  background: var(--coens-blue);
+  color: var(--coens-white) !important;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 11px 24px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(30, 111, 255, 0.35);
+}
+
+.coens-btn-cta:hover {
+  background: var(--coens-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(30, 111, 255, 0.45);
+}
+
+.coens-btn-ghost {
+  background: transparent;
+  color: var(--coens-white) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 10px 22px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.coens-btn-ghost:hover {
+  border-color: var(--coens-white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* HERO SECTION */
+.coens-hero {
+  background: linear-gradient(135deg, #050c17 0%, var(--coens-navy) 45%, #0a2754 100%);
+  padding: 100px 6% 80px;
+  color: var(--coens-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.coens-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 65% 70% at 75% 45%, rgba(30, 111, 255, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.coens-hero-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.coens-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(30, 111, 255, 0.18);
+  border: 1px solid rgba(30, 111, 255, 0.35);
+  color: #8bb8ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 22px;
+}
+
+.coens-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8bb8ff;
+}
+
+.coens-hero h1 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.2px;
+  color: var(--coens-white) !important;
+  margin-bottom: 20px;
+}
+
+.coens-hero h1 em {
+  font-style: normal;
+  color: var(--coens-gold);
+}
+
+.coens-hero-sub {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 34px;
+}
+
+/* SEARCH BAR FORM (PURE NATIVE HTML - ZERO JS NEEDED) */
+.coens-search-form {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  gap: 8px;
+  max-width: 580px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  margin-bottom: 16px;
+}
+
+.coens-search-input-wrap {
+  position: relative;
+  flex: 1;
+}
+
+.coens-search-input-wrap input {
+  width: 100% !important;
+  height: 52px !important;
+  background: var(--coens-white) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 0 18px 0 46px !important;
+  font-size: 0.95rem !important;
+  font-family: inherit !important;
+  color: var(--coens-navy) !important;
+  outline: none !important;
+}
+
+.coens-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--coens-gray-600);
+  font-size: 1.1rem;
+}
+
+.coens-btn-search {
+  background: var(--coens-blue);
+  color: var(--coens-white);
+  border: none;
+  padding: 0 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.coens-btn-search:hover {
+  background: var(--coens-blue-hover);
+}
+
+.coens-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 38px;
+}
+
+.coens-chip {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.coens-chip:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--coens-white);
+}
+
+/* STATS */
+.coens-hero-stats {
+  display: flex;
+  gap: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.coens-stat-num {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--coens-white);
+  line-height: 1;
+}
+
+.coens-stat-num span {
+  color: var(--coens-gold);
+}
+
+.coens-stat-label {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
+/* HERO VISUAL MOCKUP */
+.coens-hero-visual {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.coens-phone-card {
+  width: 280px;
+  height: 480px;
+  background: linear-gradient(160deg, #10213d 0%, #07101e 100%);
+  border-radius: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.coens-float-badge {
+  position: absolute;
+  background: rgba(8, 18, 32, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 12px 18px;
+  z-index: 3;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.coens-float-badge.left {
+  top: 18%;
+  left: -24px;
+}
+
+.coens-float-badge.right {
+  bottom: 22%;
+  right: -24px;
+}
+
+.coens-fb-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2px;
+}
+
+.coens-fb-val {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--coens-white);
+}
+
+.coens-fb-val.gold {
+  color: var(--coens-gold);
+}
+
+/* SECTION CONTAINER */
+.coens-section {
+  padding: 90px 6%;
+}
+
+.coens-section.light {
+  background: var(--coens-light);
+}
+
+.coens-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.coens-section-header {
+  margin-bottom: 50px;
+}
+
+.coens-section-header.center {
+  text-align: center;
+}
+
+.coens-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--coens-blue);
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.coens-title {
+  font-family: 'Syne', sans-serif !important;
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--coens-navy) !important;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+}
+
+.coens-sub {
+  color: var(--coens-gray-600);
+  font-size: 1rem;
+  max-width: 520px;
+  margin-top: 10px;
+}
+
+.coens-section-header.center .coens-sub {
+  margin: 10px auto 0;
+}
+
+/* SERVICES GRID */
+.coens-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.coens-card {
+  background: var(--coens-white);
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: var(--coens-radius);
+  padding: 36px 30px;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.coens-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--coens-blue);
+  box-shadow: var(--coens-shadow);
+}
+
+.coens-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coens-blue), var(--coens-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.coens-card:hover::after {
+  transform: scaleX(1);
+}
+
+.coens-card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: #eef4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 22px;
+}
+
+.coens-card h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: var(--coens-navy);
+  margin-bottom: 10px;
+}
+
+.coens-card p {
+  color: var(--coens-gray-600);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.coens-card-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--coens-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.coens-card-link:hover {
+  gap: 10px;
+}
+
+/* WHY COEN'S SECTION */
+.coens-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.coens-why-points {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.coens-why-point {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.coens-check-icon {
+  width: 32px;
+  height: 32px;
+  background: #eef4ff;
+  color: var(--coens-blue);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.coens-why-point h4 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.05rem;
+  color: var(--coens-navy);
+  margin-bottom: 4px;
+}
+
+.coens-why-point p {
+  color: var(--coens-gray-600);
+  font-size: 0.88rem;
+}
+
+.coens-why-box {
+  background: linear-gradient(135deg, var(--coens-navy) 0%, #0d2854 100%);
+  border-radius: 24px;
+  padding: 48px 40px;
+  color: var(--coens-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.coens-fact-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.coens-fact-row:last-child {
+  margin-bottom: 0;
+}
+
+.coens-fact-num {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--coens-gold);
+  line-height: 1;
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.coens-fact-text h4 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+  color: var(--coens-white);
+}
+
+.coens-fact-text p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.86rem;
+}
+
+/* LOCATIONS */
+.coens-stores-section {
+  background: var(--coens-navy);
+  color: var(--coens-white);
+  padding: 90px 6%;
+}
+
+.coens-stores-section .coens-title {
+  color: var(--coens-white) !important;
+}
+
+.coens-stores-section .coens-sub {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.coens-stores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.coens-store-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--coens-radius);
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.coens-store-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(30, 111, 255, 0.4);
+}
+
+.coens-store-card h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+  color: var(--coens-white);
+}
+
+.coens-store-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.88rem;
+  margin-bottom: 10px;
+}
+
+.coens-store-card .coens-btn-cta {
+  margin-top: 24px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* REPAIR PROMO BANNER */
+.coens-promo-banner {
+  background: linear-gradient(135deg, #0d2142 0%, #08172e 100%);
+  padding: 70px 6%;
+  color: var(--coens-white);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.coens-promo-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.coens-promo-text h2 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.coens-promo-text h2 span {
+  color: var(--coens-gold);
+}
+
+.coens-promo-text p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.98rem;
+  margin-top: 8px;
+  max-width: 520px;
+}
+
+.coens-promo-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* FOOTER */
+.coens-footer {
+  background: #040910;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 70px 6% 32px;
+  font-size: 0.88rem;
+}
+
+.coens-footer-grid {
+  max-width: 1240px;
+  margin: 0 auto 50px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.coens-footer-col h4 {
+  font-family: 'Syne', sans-serif !important;
+  color: var(--coens-white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.coens-footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.coens-footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.coens-footer-col a:hover {
+  color: var(--coens-white);
+}
+
+.coens-footer-bottom {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.82rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .coens-hero-grid,
+  .coens-why-grid {
+    grid-template-columns: 1fr;
+  }
+  .coens-hero-visual {
+    display: none;
+  }
+  .coens-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .coens-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .coens-footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .coens-search-form {
+    flex-direction: column;
+  }
+  .coens-btn-search {
+    padding: 14px;
+  }
+}
+</style>
+
+<!-- 1. TOP TRUST BAR -->
+<div class="coens-top-bar">
+  <div class="coens-top-inner">
+    <ul class="coens-trust-list">
+      <li>⚡ Klaar terwijl u wacht</li>
+      <li>🛡️ No cure, no pay</li>
+      <li>☕ Kop koffie staat altijd klaar</li>
+    </ul>
+    <div class="coens-top-stores">
+      <span>3 Winkels:</span> Bergeijk • Bladel • Valkenswaard
+    </div>
+  </div>
+</div>
+
+<!-- 2. NAVIGATION -->
+<nav class="coens-nav">
+  <div class="coens-nav-inner">
+    <a href="/" class="coens-logo">Coen<span>'s</span></a>
+    <ul class="coens-menu">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/reparaties/">Reparaties &amp; Merken</a></li>
+      <li><a href="/tweede-kansjes/">Tweede Kansjes</a></li>
+      <li><a href="/opsturen/">Toestel Opsturen</a></li>
+      <li><a href="/inruilen/">Inruilen</a></li>
+      <li><a href="/winkels/">Winkels &amp; Contact</a></li>
+    </ul>
+    <a href="/reparaties/" class="coens-btn-cta">Reparatie Kiezen</a>
+  </div>
+</nav>
+
+<!-- 3. HERO SECTION WITH NATIVE HTML SEARCH FORM -->
+<section class="coens-hero">
+  <div class="coens-hero-grid">
+    <div>
+      <div class="coens-eyebrow">Al meer dan 25 jaar telecomspecialist</div>
+      <h1>Telefoon, abonnement &amp; <em>meer</em> — zonder gedoe</h1>
+      <p class="coens-hero-sub">
+        Coen's is uw onafhankelijke telecom- en reparatiespecialist in de regio. Eerlijk advies, snelle reparaties en drie winkels altijd dichtbij.
+      </p>
+
+      <!-- NATIVE FORM: Zero JS, passes ModSecurity firewall instantly -->
+      <form action="/reparaties/" method="GET" class="coens-search-form">
+        <div class="coens-search-input-wrap">
+          <span class="coens-search-icon">🔍</span>
+          <input type="text" name="q" placeholder="Typ uw merk of model (bijv. iPhone 15, S24)..." required autocomplete="off">
+        </div>
+        <button type="submit" class="coens-btn-search">Zoeken</button>
+      </form>
+
+      <div class="coens-chips">
+        <span>Snel zoeken:</span>
+        <a href="/reparaties/?q=iPhone+15" class="coens-chip">iPhone 15</a>
+        <a href="/reparaties/?q=Galaxy+S24" class="coens-chip">Galaxy S24</a>
+        <a href="/reparaties/?q=Pixel+8" class="coens-chip">Pixel 8</a>
+        <a href="/reparaties/?q=Batterij" class="coens-chip">Batterij</a>
+        <a href="/reparaties/?q=Scherm" class="coens-chip">Scherm</a>
+      </div>
+
+      <div class="coens-hero-stats">
+        <div>
+          <div class="coens-stat-num">25<span>+</span></div>
+          <div class="coens-stat-label">Jaar ervaring</div>
+        </div>
+        <div>
+          <div class="coens-stat-num">3</div>
+          <div class="coens-stat-label">Vertrouwde filialen</div>
+        </div>
+        <div>
+          <div class="coens-stat-num">100<span>%</span></div>
+          <div class="coens-stat-label">Onafhankelijk advies</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="coens-hero-visual">
+      <div class="coens-float-badge left">
+        <div class="coens-fb-label">Reparatiestatus</div>
+        <div class="coens-fb-val gold">✓ Klaar binnen 30 min</div>
+      </div>
+      <div class="coens-phone-card">
+        <div style="width:50px; height:6px; background:rgba(255,255,255,0.2); border-radius:10px; margin:0 auto 20px;"></div>
+        <div style="text-align:center; margin:auto 0;">
+          <div style="font-size:3.5rem; margin-bottom:12px;">📱</div>
+          <div style="font-family:'Syne'; font-size:1.3rem; font-weight:800;">Coen's</div>
+          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); margin-top:4px;">Telecom &amp; Reparaties</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06); padding:12px; border-radius:12px; font-size:0.75rem; text-align:center;">
+          Klaar terwijl u wacht met koffie ☕
+        </div>
+      </div>
+      <div class="coens-float-badge right">
+        <div class="coens-fb-label">Beoordeling</div>
+        <div class="coens-fb-val">⭐ 9.5 / 10 Klanttevredenheid</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. SERVICES OVERVIEW -->
+<section class="coens-section light">
+  <div class="coens-container">
+    <div class="coens-section-header center">
+      <span class="coens-tag">Wat wij bieden</span>
+      <h2 class="coens-title">Alles voor uw toestel op één plek</h2>
+      <p class="coens-sub">Van razendsnelle reparatie tot nieuw abonnement — eerlijk en deskundig.</p>
+    </div>
+
+    <div class="coens-services-grid">
+      <div class="coens-card">
+        <div class="coens-card-icon">🔧</div>
+        <h3>Reparaties &amp; Merken</h3>
+        <p>Gebarsten scherm, slechte batterij of laadproblemen? Onze monteurs herstellen het vakkundig met 3 maanden garantie.</p>
+        <a href="/reparaties/" class="coens-card-link">Tarieven bekijken &rarr;</a>
+      </div>
+
+      <div class="coens-card">
+        <div class="coens-card-icon">📱</div>
+        <h3>Tweede Kansjes</h3>
+        <p>Gecertificeerde refurbished smartphones. Grondig gecontroleerd op meer dan 50 punten en met 2 jaar volledige garantie.</p>
+        <a href="/tweede-kansjes/" class="coens-card-link">Toestellen bekijken &rarr;</a>
+      </div>
+
+      <div class="coens-card">
+        <div class="coens-card-icon">🔄</div>
+        <h3>Toestel Inruilen</h3>
+        <p>Lever uw huidige smartphone in en ontvang direct contant geld of extra Coen's winkeltegoed (+10% bonus).</p>
+        <a href="/inruilen/" class="coens-card-link">Inruilwaarde berekenen &rarr;</a>
+      </div>
+
+      <div class="coens-card">
+        <div class="coens-card-icon">📦</div>
+        <h3>Toestel Opsturen</h3>
+        <p>Geen tijd om naar een van onze winkels te komen? Stuur uw toestel gratis en verzekerd op via PostNL.</p>
+        <a href="/opsturen/" class="coens-card-link">Online aanmelden &rarr;</a>
+      </div>
+
+      <div class="coens-card">
+        <div class="coens-card-icon">📋</div>
+        <h3>Abonnementen</h3>
+        <p>KPN, Odido, Vodafone en meer. Wij vergelijken alle providers onafhankelijk en vinden de deal die écht bij u past.</p>
+        <a href="/winkels/" class="coens-card-link">Advies in de winkel &rarr;</a>
+      </div>
+
+      <div class="coens-card">
+        <div class="coens-card-icon">💼</div>
+        <h3>Zakelijke Telefonie</h3>
+        <p>Complete ontzorging voor ZZP en MKB: bundelbeheer, hardware-uitrol en spoedreparaties voor uw medewerkers.</p>
+        <a href="/winkels/" class="coens-card-link">Zakelijk contact &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. WAAROM COEN'S -->
+<section class="coens-section">
+  <div class="coens-container">
+    <div class="coens-why-grid">
+      <div>
+        <span class="coens-tag">Waarom Coen's?</span>
+        <h2 class="coens-title">Onafhankelijk advies dat écht bij u past</h2>
+        <p class="coens-sub">
+          Wij zijn niet gebonden aan één telecomprovider of smartphonemerk. Dat betekent eerlijk advies in úw belang.
+        </p>
+
+        <ul class="coens-why-points">
+          <li class="coens-why-point">
+            <div class="coens-check-icon">✓</div>
+            <div>
+              <h4>Geen verkoopdruk</h4>
+              <p>Onze adviseurs werken niet op provisie. U krijgt het abonnement dat het beste bij uw situatie past.</p>
+            </div>
+          </li>
+          <li class="coens-why-point">
+            <div class="coens-check-icon">✓</div>
+            <div>
+              <h4>Snelle reparaties</h4>
+              <p>Veelvoorkomende scherm- en batterijvervangingen zijn al binnen 30 tot 45 minuten klaar.</p>
+            </div>
+          </li>
+          <li class="coens-why-point">
+            <div class="coens-check-icon">✓</div>
+            <div>
+              <h4>No Cure, No Pay</h4>
+              <p>Kunnen we het probleem onverhoopt niet oplossen? Dan betaalt u ook helemaal niets.</p>
+            </div>
+          </li>
+          <li class="coens-why-point">
+            <div class="coens-check-icon">✓</div>
+            <div>
+              <h4>Altijd dichtbij in de regio</h4>
+              <p>Met drie fysieke winkels in Bergeijk, Bladel en Valkenswaard heeft u altijd een vertrouwd aanspreekpunt.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="coens-why-box">
+        <div class="coens-fact-row">
+          <div class="coens-fact-num">25+</div>
+          <div class="coens-fact-text">
+            <h4>Jaar ervaring</h4>
+            <p>Sinds de eerste generatie mobiele telefoons tot het moderne 5G-tijdperk staan we voor u klaar.</p>
+          </div>
+        </div>
+        <div class="coens-fact-row">
+          <div class="coens-fact-num">3</div>
+          <div class="coens-fact-text">
+            <h4>Fysieke filialen</h4>
+            <p>Deskundig en vriendelijk personeel in Bergeijk, Bladel en Valkenswaard dat u persoonlijk helpt.</p>
+          </div>
+        </div>
+        <div class="coens-fact-row">
+          <div class="coens-fact-num">100%</div>
+          <div class="coens-fact-text">
+            <h4>Volledig onafhankelijk</h4>
+            <p>Geen contractverplichtingen met één provider — wij vergelijken alles transparant voor u.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. LOCATIONS SECTION -->
+<section class="coens-stores-section" id="winkels">
+  <div class="coens-container">
+    <div class="coens-section-header">
+      <span class="coens-tag" style="color:var(--coens-gold);">Onze Filialen</span>
+      <h2 class="coens-title">Drie winkels, altijd dichtbij</h2>
+      <p class="coens-sub">Loop gerust binnen zonder afspraak voor reparaties, advies of een nieuw toestel.</p>
+    </div>
+
+    <div class="coens-stores-grid">
+      <div class="coens-store-card">
+        <h3>Filiaal Bergeijk</h3>
+        <div class="coens-store-detail">📍 Centrum Bergeijk</div>
+        <div class="coens-store-detail">🕐 Ma t/m Za: 09:00 – 17:30 uur</div>
+        <div class="coens-store-detail">☕ Verse koffie &amp; klaar terwijl u wacht</div>
+        <a href="/winkels/" class="coens-btn-cta">Filiaal bekijken &rarr;</a>
+      </div>
+
+      <div class="coens-store-card">
+        <h3>Filiaal Bladel</h3>
+        <div class="coens-store-detail">📍 Sniederslaan, Bladel</div>
+        <div class="coens-store-detail">🕐 Ma t/m Za: 09:00 – 17:30 uur</div>
+        <div class="coens-store-detail">📦 Ook PostNL inleverpunt voor reparaties</div>
+        <a href="/winkels/" class="coens-btn-cta">Filiaal bekijken &rarr;</a>
+      </div>
+
+      <div class="coens-store-card">
+        <h3>Filiaal Valkenswaard</h3>
+        <div class="coens-store-detail">📍 Winkelhart Valkenswaard</div>
+        <div class="coens-store-detail">🕐 Ma t/m Za: 09:00 – 17:30 uur</div>
+        <div class="coens-store-detail">🔧 Scherm, batterij &amp; telecomadvies</div>
+        <a href="/winkels/" class="coens-btn-cta">Filiaal bekijken &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. REPAIR BANNER -->
+<section class="coens-promo-banner">
+  <div class="coens-promo-inner">
+    <div class="coens-promo-text">
+      <h2>Scherm gebarsten of batterij snel leeg?<br><span>Wij lossen het vandaag nog op.</span></h2>
+      <p>Reparaties voor Apple iPhone, Samsung Galaxy, Google Pixel en Xiaomi. Zonder afspraak direct geholpen.</p>
+    </div>
+    <div class="coens-promo-btns">
+      <a href="/reparaties/" class="coens-btn-cta">Bekijk Reparatietarieven</a>
+      <a href="/opsturen/" class="coens-btn-ghost">Toestel Opsturen</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FOOTER -->
+<footer class="coens-footer">
+  <div class="coens-footer-grid">
+    <div>
+      <a href="/" class="coens-logo">Coen<span>'s</span></a>
+      <p style="margin-top:14px; font-size:0.88rem; line-height:1.7; max-width:320px;">
+        Uw onafhankelijke telecomspecialist in de regio. Al meer dan 25 jaar eerlijk advies, scherpe deals en vakkundige reparaties.
+      </p>
+    </div>
+    <div class="coens-footer-col">
+      <h4>Diensten</h4>
+      <ul>
+        <li><a href="/reparaties/">Reparaties &amp; Merken</a></li>
+        <li><a href="/tweede-kansjes/">Tweede Kansjes</a></li>
+        <li><a href="/inruilen/">Toestel Inruilen</a></li>
+        <li><a href="/opsturen/">Toestel Opsturen</a></li>
+      </ul>
+    </div>
+    <div class="coens-footer-col">
+      <h4>Winkels</h4>
+      <ul>
+        <li><a href="/winkels/">Filiaal Bergeijk</a></li>
+        <li><a href="/winkels/">Filiaal Bladel</a></li>
+        <li><a href="/winkels/">Filiaal Valkenswaard</a></li>
+      </ul>
+    </div>
+    <div class="coens-footer-col">
+      <h4>Openingstijden</h4>
+      <p style="font-size:0.86rem; color:rgba(255,255,255,0.7); line-height:1.6;">
+        Maandag t/m Zaterdag:<br>
+        09:00 – 17:30 uur<br>
+        Zondag gesloten
+      </p>
+    </div>
+  </div>
+  <div class="coens-footer-bottom">
+    <span>&copy; 2026 Coen's – Uw onafhankelijke telecomspecialist</span>
+    <span>Onafhankelijk advies &bull; Originele onderdelen &bull; No cure, no pay</span>
+  </div>
+</footer>
