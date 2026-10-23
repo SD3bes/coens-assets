@@ -2,6 +2,8 @@
    COEN'S TELECOM - FULL MOUNTED CLIENT PLATFORM
    ======================================================== */
 (function() {
+  console.log("Coen's Platform Script Loaded Successfully!");
+
   // 1. INJECT GOOGLE FONTS
   if (!document.getElementById('coens-fonts')) {
     const fontPreconnect1 = document.createElement('link');
@@ -184,11 +186,8 @@
     }
   };
 
-  // 4. MOUNT HTML DOM
-  function mount() {
-    const root = document.getElementById('coens-app-root');
-    if (!root) return;
-
+  // 4. MOUNT FUNCTION
+  function mount(root) {
     root.innerHTML = `
       <div class="coens-top-bar">
         <div class="coens-top-inner">
@@ -287,7 +286,6 @@
     bindEvents();
   }
 
-  // 5. EVENT BINDING & INTERACTION
   function bindEvents() {
     function selectBrand(brandKey) {
       document.querySelectorAll('.coens-brand-card').forEach(c => {
@@ -394,9 +392,21 @@
     }
   }
 
+  // 5. RESILIENT POLLING INITIALIZER (Mounts even if DOM is still rendering)
+  let attempts = 0;
+  function startMount() {
+    const root = document.getElementById('coens-app-root');
+    if (root) {
+      mount(root);
+    } else if (attempts < 50) {
+      attempts++;
+      setTimeout(startMount, 50);
+    }
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mount);
+    document.addEventListener('DOMContentLoaded', startMount);
   } else {
-    mount();
+    startMount();
   }
 })();
