@@ -1,8 +1,8 @@
 /* ========================================================
-   COEN'S TELECOM - MASTER UNIFIED STYLESHEET
+   COEN'S TELECOM - MASTER PRODUCTION STYLESHEET (v16)
    ======================================================== */
 
-/* 1. RESET WORDPRESS GUTENBERG & ELIMINATE BLACK GAP LINES */
+/* 1. RESET WORDPRESS GUTENBERG & ELIMINATE GAP LINES */
 *, *::before, *::after {
   box-sizing: border-box !important;
   margin: 0;
@@ -23,7 +23,6 @@ html, body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Eliminate all theme gaps, default borders, and empty paragraphs that create black lines */
 .entry-content,
 .entry-content > *,
 .wp-site-blocks,
@@ -48,6 +47,8 @@ p:empty, br, hr, .wp-block-separator {
 .coens-site-wrapper {
   display: block;
   width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -66,7 +67,6 @@ p:empty, br, hr, .wp-block-separator {
   border: none !important;
 }
 
-/* Ensure the nav bar NEVER clips the mobile dropdown drawer */
 .coens-nav {
   overflow: visible !important;
 }
@@ -83,10 +83,12 @@ a {
   --coens-blue: #1E6FFF;
   --coens-blue-hover: #004ecc;
   --coens-gold: #F5A623;
+  --coens-green: #10b981;
+  --coens-red: #ef4444;
   --coens-white: #ffffff;
   --coens-light: #f4f7fc;
   --coens-gray-100: #f4f6fa;
-  --coens-gray-600: #62728d;
+  --coens-gray-600: #5a6a85;
   --coens-gray-800: #1b2533;
   --coens-border-light: rgba(10, 22, 40, 0.08);
   --coens-shadow: 0 16px 40px rgba(8, 18, 32, 0.08);
@@ -134,7 +136,7 @@ a {
   font-weight: 600;
 }
 
-/* 3. ROCK-SOLID NAVIGATION (STICKY + VISIBLE) */
+/* 3. STICKY NAVIGATION (PC + MOBILE) */
 .coens-nav {
   position: sticky !important;
   top: 0 !important;
@@ -204,7 +206,7 @@ a {
   gap: 8px;
 }
 
-/* DESKTOP NAV (PC & LAPTOPS >= 992px) */
+/* DESKTOP NAV (PC >= 992px) */
 @media (min-width: 992px) {
   .coens-mobile-nav {
     display: none !important;
@@ -251,119 +253,10 @@ a {
   }
 }
 
-/* MOBILE NAV (PHONES & TABLETS <= 991px) */
-@media (max-width: 991px) {
-  .coens-desktop-nav {
-    display: none !important;
-  }
-
-  .coens-mobile-nav {
-    display: block !important;
-    position: static !important;
-    margin: 0 !important;
-  }
-
-  /* Hamburger touch button */
-  summary.coens-hamburger {
-    list-style: none !important;
-    user-select: none !important;
-    -webkit-user-select: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-around !important;
-    width: 44px !important;
-    height: 44px !important;
-    padding: 10px 8px !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 10px !important;
-    cursor: pointer !important;
-    z-index: 9999999 !important;
-    outline: none !important;
-  }
-
-  summary.coens-hamburger::-webkit-details-marker,
-  summary.coens-hamburger::marker {
-    display: none !important;
-  }
-
-  summary.coens-hamburger span {
-    display: block !important;
-    height: 2.5px !important;
-    width: 100% !important;
-    background: #ffffff !important;
-    border-radius: 2px !important;
-    transition: transform 0.25s ease, opacity 0.25s ease !important;
-  }
-
-  /* Animate to 'X' when open */
-  details.coens-mobile-nav[open] summary.coens-hamburger span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg) !important;
-  }
-  details.coens-mobile-nav[open] summary.coens-hamburger span:nth-child(2) {
-    opacity: 0 !important;
-  }
-  details.coens-mobile-nav[open] summary.coens-hamburger span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg) !important;
-  }
-
-  /* Slide-down mobile drawer: positioned strictly below sticky nav */
-  .coens-mobile-drawer {
-    position: absolute !important;
-    top: calc(100% + 1px) !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    background: #081220 !important;
-    border-bottom: 3px solid var(--coens-blue) !important;
-    padding: 24px 6% 32px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95) !important;
-    z-index: 99999999 !important;
-    box-sizing: border-box !important;
-  }
-
-  .coens-mobile-links {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100% !important;
-  }
-
-  .coens-mobile-links a {
-    display: block !important;
-    width: 100% !important;
-    font-size: 1.05rem !important;
-    font-weight: 600 !important;
-    color: #ffffff !important;
-    padding: 13px 18px !important;
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-radius: 10px !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    box-sizing: border-box !important;
-  }
-
-  .coens-mobile-links a.active {
-    background: rgba(30, 111, 255, 0.25) !important;
-    border-color: var(--coens-blue) !important;
-  }
-
-  .coens-mobile-drawer .coens-btn-cta {
-    width: 100% !important;
-    min-height: 48px !important;
-    font-size: 1rem !important;
-  }
-}
-
 /* 4. HERO SECTION */
 .coens-hero {
   background: linear-gradient(135deg, #050c17 0%, #081220 50%, #0a2754 100%);
-  padding: 90px 6% 80px;
+  padding: 85px 6% 75px;
   color: #ffffff;
 }
 
@@ -394,7 +287,7 @@ a {
 
 .coens-hero h1 {
   font-family: 'Syne', sans-serif !important;
-  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.5rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -1px;
@@ -409,11 +302,11 @@ a {
 }
 
 .coens-hero-sub {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 1.05rem;
   line-height: 1.65;
-  max-width: 520px;
-  margin-bottom: 32px;
+  max-width: 560px;
+  margin-bottom: 30px;
 }
 
 .coens-search-form {
@@ -472,18 +365,25 @@ a {
   gap: 8px;
   flex-wrap: wrap;
   align-items: center;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 36px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 34px;
 }
 
 .coens-chip {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 4px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 6px 14px;
   border-radius: 20px;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.coens-chip:hover {
+  background: var(--coens-blue);
+  border-color: var(--coens-blue);
+  color: #ffffff;
 }
 
 .coens-hero-stats {
@@ -506,7 +406,7 @@ a {
 }
 
 .coens-stat-label {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.8rem;
   margin-top: 4px;
 }
@@ -566,9 +466,9 @@ a {
   color: var(--coens-gold);
 }
 
-/* 5. SERVICES SECTION */
+/* 5. GENERAL SECTIONS & SERVICES */
 .coens-section {
-  padding: 90px 6%;
+  padding: 85px 6%;
   background: #ffffff;
 }
 
@@ -601,7 +501,7 @@ a {
 
 .coens-title {
   font-family: 'Syne', sans-serif !important;
-  font-size: clamp(2rem, 3.4vw, 2.6rem);
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
   font-weight: 800;
   color: var(--coens-navy) !important;
   line-height: 1.2;
@@ -610,7 +510,7 @@ a {
 .coens-sub {
   color: var(--coens-gray-600);
   font-size: 0.98rem;
-  max-width: 520px;
+  max-width: 580px;
   margin-top: 8px;
 }
 
@@ -620,7 +520,7 @@ a {
 
 .coens-services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 26px;
 }
 
@@ -674,7 +574,7 @@ a {
   color: var(--coens-blue);
 }
 
-/* 6. WAAROM COEN'S (ZERO LINE-WRAP) */
+/* 6. WAAROM COEN'S */
 .coens-why-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -764,94 +664,261 @@ a {
   font-size: 0.86rem;
 }
 
-/* 7. REPAIR PAGE SPECIFIC COMPONENTS */
+/* ========================================================
+   7. REPARATIES PAGE: PROBLEMS, SOLUTIONS & BRAND ACCORDIONS
+   ======================================================== */
+.coens-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.coens-problem-card {
+  background: #ffffff;
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: 18px;
+  padding: 32px 28px;
+  box-shadow: 0 10px 30px rgba(8, 18, 32, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: all 0.25s ease;
+}
+
+.coens-problem-card:hover {
+  border-color: var(--coens-blue);
+  box-shadow: var(--coens-shadow);
+}
+
+.coens-prob-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  border-bottom: 1px solid var(--coens-border-light);
+  padding-bottom: 16px;
+}
+
+.coens-prob-title-group {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.coens-prob-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #eef4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.65rem;
+  flex-shrink: 0;
+}
+
+.coens-prob-title-group h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--coens-navy);
+  line-height: 1.25;
+}
+
+.coens-prob-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.coens-badge-price {
+  background: rgba(30, 111, 255, 0.12);
+  color: var(--coens-blue);
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.coens-badge-time {
+  background: #f4f6fa;
+  color: var(--coens-gray-600);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.coens-diag-block {
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.coens-diag-block strong {
+  display: block;
+  font-family: 'Syne', sans-serif !important;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.coens-diag-symptom {
+  background: #fff8f6;
+  border-left: 3.5px solid #ef4444;
+  color: #4a2121;
+}
+
+.coens-diag-symptom strong {
+  color: #dc2626;
+}
+
+.coens-diag-tip {
+  background: #fffbeb;
+  border-left: 3.5px solid var(--coens-gold);
+  color: #4d3808;
+}
+
+.coens-diag-tip strong {
+  color: #b45309;
+}
+
+.coens-diag-solution {
+  background: #f0fdf4;
+  border-left: 3.5px solid #10b981;
+  color: #134e32;
+}
+
+.coens-diag-solution strong {
+  color: #059669;
+}
+
+/* Brand & Model Interactive Accordions */
 .coens-brand-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-top: 40px;
 }
 
 .coens-brand-card {
   background: #ffffff;
   border: 1.5px solid var(--coens-border-light);
   border-radius: var(--coens-radius);
-  padding: 32px 24px;
-  text-align: center;
-  transition: all 0.25s ease;
+  padding: 30px 26px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 14px;
 }
 
-.coens-brand-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--coens-blue);
-  box-shadow: var(--coens-shadow);
+.coens-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .coens-brand-icon {
-  font-size: 3rem;
-  margin-bottom: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #081220;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  flex-shrink: 0;
 }
 
-.coens-brand-card h3 {
+.coens-brand-header h3 {
   font-family: 'Syne', sans-serif !important;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   color: var(--coens-navy);
-  margin-bottom: 6px;
 }
 
-.coens-brand-card p {
+.coens-brand-header p {
+  font-size: 0.86rem;
   color: var(--coens-gray-600);
-  font-size: 0.88rem;
-  margin-bottom: 20px;
 }
 
-.coens-price-table-card {
-  background: #ffffff;
-  border: 1.5px solid var(--coens-border-light);
-  border-radius: var(--coens-radius);
-  padding: 32px;
-  box-shadow: var(--coens-shadow);
+details.coens-model-accordion {
+  background: var(--coens-light);
+  border: 1px solid var(--coens-border-light);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-.coens-price-row {
+details.coens-model-accordion summary {
+  list-style: none !important;
+  padding: 14px 18px;
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--coens-blue);
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--coens-border-light);
+  user-select: none;
 }
 
-.coens-price-row:last-child {
+details.coens-model-accordion summary::-webkit-details-marker,
+details.coens-model-accordion summary::marker {
+  display: none !important;
+}
+
+details.coens-model-accordion summary::after {
+  content: '+ Bekijk modellen & richtprijzen';
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(30, 111, 255, 0.2);
+}
+
+details.coens-model-accordion[open] summary::after {
+  content: '✕ Sluiten';
+}
+
+.coens-model-list {
+  padding: 0 18px 16px;
+  border-top: 1px solid var(--coens-border-light);
+}
+
+.coens-model-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(10, 22, 40, 0.1);
+  font-size: 0.86rem;
+}
+
+.coens-model-item:last-child {
   border-bottom: none;
 }
 
-.coens-price-info h4 {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.05rem;
+.coens-model-item strong {
   color: var(--coens-navy);
-  margin-bottom: 2px;
 }
 
-.coens-price-info span {
-  font-size: 0.84rem;
-  color: var(--coens-gray-600);
-}
-
-.coens-price-val {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.25rem;
-  font-weight: 800;
+.coens-model-item span {
   color: var(--coens-blue);
-  white-space: nowrap;
+  font-weight: 700;
 }
 
 .coens-process-steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
   margin-top: 40px;
 }
 
@@ -859,29 +926,29 @@ a {
   background: #ffffff;
   border: 1.5px solid var(--coens-border-light);
   border-radius: var(--coens-radius);
-  padding: 32px 24px;
+  padding: 28px 22px;
 }
 
 .coens-step-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   background: var(--coens-blue);
   color: #ffffff;
   border-radius: 10px;
   font-family: 'Syne', sans-serif !important;
   font-weight: 800;
   font-size: 1.1rem;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 /* 8. STORES SECTION */
 .coens-stores-section {
   background: var(--coens-navy);
   color: #ffffff;
-  padding: 90px 6%;
+  padding: 85px 6%;
 }
 
 .coens-stores-section .coens-title {
@@ -894,7 +961,7 @@ a {
 
 .coens-stores-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 26px;
   margin-top: 44px;
 }
@@ -919,7 +986,7 @@ a {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.88rem;
   margin-bottom: 8px;
 }
@@ -958,10 +1025,10 @@ a {
 }
 
 .coens-promo-text p {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.96rem;
   margin-top: 6px;
-  max-width: 520px;
+  max-width: 540px;
 }
 
 .coens-promo-btns {
@@ -1019,32 +1086,178 @@ a {
   font-size: 0.82rem;
 }
 
-/* 11. RESPONSIVE POLISH (PHONES <= 640px) */
+/* ========================================================
+   11. MOBILE & TABLET MASTER RULES (<= 991px)
+   Fixes BOTH Mobile Nav AND Homepage/Repairs Mobile View!
+   ======================================================== */
+@media (max-width: 991px) {
+  .coens-desktop-nav {
+    display: none !important;
+  }
+
+  .coens-mobile-nav {
+    display: block !important;
+    position: static !important;
+    margin: 0 !important;
+  }
+
+  summary.coens-hamburger {
+    list-style: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    width: 44px !important;
+    height: 44px !important;
+    padding: 10px 8px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    z-index: 9999999 !important;
+    outline: none !important;
+  }
+
+  summary.coens-hamburger::-webkit-details-marker,
+  summary.coens-hamburger::marker {
+    display: none !important;
+  }
+
+  summary.coens-hamburger span {
+    display: block !important;
+    height: 2.5px !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    border-radius: 2px !important;
+    transition: transform 0.25s ease, opacity 0.25s ease !important;
+  }
+
+  details.coens-mobile-nav[open] summary.coens-hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg) !important;
+  }
+  details.coens-mobile-nav[open] summary.coens-hamburger span:nth-child(2) {
+    opacity: 0 !important;
+  }
+  details.coens-mobile-nav[open] summary.coens-hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg) !important;
+  }
+
+  .coens-mobile-drawer {
+    position: absolute !important;
+    top: calc(100% + 1px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: #081220 !important;
+    border-bottom: 3px solid var(--coens-blue) !important;
+    padding: 20px 5% 28px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95) !important;
+    z-index: 99999999 !important;
+  }
+
+  .coens-mobile-links {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .coens-mobile-links a {
+    display: block !important;
+    width: 100% !important;
+    font-size: 1.02rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    padding: 12px 16px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .coens-mobile-links a.active {
+    background: rgba(30, 111, 255, 0.25) !important;
+    border-color: var(--coens-blue) !important;
+  }
+
+  .coens-mobile-drawer .coens-btn-cta {
+    width: 100% !important;
+    min-height: 48px !important;
+    font-size: 1rem !important;
+  }
+
+  /* CRITICAL: COLLAPSE ALL MULTI-COLUMN GRIDS ON MOBILE/TABLET */
+  .coens-hero-grid,
+  .coens-why-grid,
+  .coens-problem-grid,
+  .coens-brand-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  /* Hide the large desktop phone illustration so it never squishes mobile text */
+  .coens-hero-visual {
+    display: none !important;
+  }
+
+  .coens-services-grid,
+  .coens-stores-grid,
+  .coens-process-steps {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .coens-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 30px !important;
+  }
+}
+
+/* ========================================================
+   12. SMARTPHONE VIEWPORT RULES (<= 640px)
+   ======================================================== */
 @media (max-width: 640px) {
   .coens-top-bar {
     display: none !important;
   }
 
+  .coens-nav {
+    padding: 12px 5% !important;
+  }
+
   .coens-hero {
-    padding: 44px 5% 40px !important;
+    padding: 40px 5% 38px !important;
+  }
+
+  .coens-eyebrow {
+    font-size: 0.72rem !important;
+    padding: 5px 12px !important;
+    margin-bottom: 14px !important;
   }
 
   .coens-hero h1 {
     font-size: 1.85rem !important;
-    line-height: 1.22 !important;
-    margin-bottom: 16px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 14px !important;
   }
 
   .coens-hero-sub {
-    font-size: 0.95rem !important;
+    font-size: 0.94rem !important;
     line-height: 1.55 !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 22px !important;
   }
 
   .coens-search-form {
     flex-direction: column !important;
     padding: 10px !important;
     gap: 10px !important;
+    width: 100% !important;
   }
 
   .coens-btn-search {
@@ -1053,56 +1266,106 @@ a {
     padding: 0 !important;
   }
 
+  .coens-chips {
+    gap: 6px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .coens-chip {
+    font-size: 0.76rem !important;
+    padding: 5px 11px !important;
+  }
+
   .coens-hero-stats {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 8px !important;
-    padding-top: 20px !important;
+    padding-top: 18px !important;
     text-align: center !important;
   }
 
   .coens-stat-num {
-    font-size: 1.6rem !important;
+    font-size: 1.55rem !important;
   }
 
   .coens-stat-label {
     font-size: 0.72rem !important;
-    line-height: 1.3 !important;
+    line-height: 1.25 !important;
   }
 
-  .coens-section {
-    padding: 56px 5% !important;
+  .coens-section,
+  .coens-stores-section,
+  .coens-promo-banner {
+    padding: 52px 5% !important;
+  }
+
+  .coens-section-header {
+    margin-bottom: 32px !important;
   }
 
   .coens-title {
-    font-size: 1.7rem !important;
+    font-size: 1.65rem !important;
+  }
+
+  /* Force 1-column stack for all cards on phones */
+  .coens-services-grid,
+  .coens-stores-grid,
+  .coens-process-steps,
+  .coens-problem-grid,
+  .coens-brand-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
   }
 
   .coens-card,
   .coens-store-card,
-  .coens-price-table-card {
+  .coens-problem-card,
+  .coens-brand-card,
+  .coens-process-step {
     padding: 22px 18px !important;
+  }
+
+  .coens-prob-top {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .coens-prob-badges {
+    flex-direction: row !important;
+    align-items: center !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
   }
 
   .coens-why-box {
     padding: 24px 18px !important;
     border-radius: 16px !important;
-    margin-top: 24px !important;
+    margin-top: 10px !important;
   }
 
   .coens-fact-row {
     display: grid !important;
-    grid-template-columns: 90px 1fr !important;
+    grid-template-columns: 92px 1fr !important;
     align-items: center !important;
-    gap: 14px !important;
+    gap: 12px !important;
     margin-bottom: 20px !important;
   }
 
   .coens-fact-num {
-    font-size: 1.85rem !important;
+    font-size: 1.8rem !important;
     min-width: unset !important;
     width: auto !important;
     white-space: nowrap !important;
+  }
+
+  .coens-fact-num span {
+    font-size: 1.2rem !important;
+  }
+
+  details.coens-model-accordion summary {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
   }
 
   .coens-footer-grid {
