@@ -1,6 +1,6 @@
 /* ========================================================
    COEN'S TELECOM - MASTER AGENCY STYLESHEET (coens-master.css)
-   PC + Mobile Navigation | Homepage | GSM-Paradise Repair Hub
+   Synchronized across all 7 pages | 100% PC & Mobile Ready
    ======================================================== */
 
 /* 1. RESET WORDPRESS GUTENBERG & ELIMINATE GAP LINES */
@@ -199,6 +199,28 @@ img {
   transform: translateY(-2px);
 }
 
+.coens-btn-whatsapp {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 11px 24px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.3);
+}
+
+.coens-btn-whatsapp:hover {
+  background: #059669 !important;
+  transform: translateY(-2px);
+}
+
 .coens-btn-ghost {
   background: transparent;
   color: #ffffff !important;
@@ -227,13 +249,13 @@ img {
   .coens-desktop-nav {
     display: flex !important;
     align-items: center !important;
-    gap: 32px !important;
+    gap: 28px !important;
   }
 
   .coens-menu {
     display: flex !important;
     list-style: none !important;
-    gap: 24px !important;
+    gap: 22px !important;
     align-items: center !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -241,7 +263,7 @@ img {
 
   .coens-menu a {
     color: rgba(255, 255, 255, 0.8) !important;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 500;
     padding: 6px 0;
     position: relative;
@@ -265,7 +287,7 @@ img {
   }
 }
 
-/* 4. HERO SECTION (HOMEPAGE & GSM PARADISE REPAIRS HERO) */
+/* 4. HERO SECTION */
 .coens-hero {
   background: linear-gradient(135deg, #050c17 0%, #081220 50%, #0a2754 100%);
   padding: 80px 6% 75px;
@@ -317,7 +339,7 @@ img {
   color: rgba(255, 255, 255, 0.78);
   font-size: 1.03rem;
   line-height: 1.65;
-  max-width: 560px;
+  max-width: 580px;
   margin-bottom: 28px;
 }
 
@@ -733,9 +755,7 @@ img {
   font-size: 0.86rem;
 }
 
-/* ========================================================
-   7. GSM PARADISE VISUAL BRAND LOGO GRID (alle-merken)
-   ======================================================== */
+/* 7. GSM PARADISE VISUAL BRAND LOGO GRID (alle-merken) */
 .alle-merken {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -802,9 +822,7 @@ img {
   border-radius: 20px;
 }
 
-/* ========================================================
-   8. VISUAL DEVICE PRODUCT CARDS & REPAIR TABLES
-   ======================================================== */
+/* 8. VISUAL DEVICE PRODUCT CARDS & REPAIR TABLES */
 .gsm-brand-section {
   background: #ffffff;
   border: 1.5px solid var(--coens-border-light);
@@ -866,7 +884,6 @@ img {
   color: var(--coens-gray-600);
 }
 
-/* Device Product Cards Grid (3 Columns on PC) */
 .gsm-device-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -892,16 +909,16 @@ img {
 
 .gsm-device-card-top {
   background: linear-gradient(180deg, #f8faff 0%, #eef3fb 100%);
-  padding: 24px 20px 18px;
+  padding: 22px 20px 16px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   border-bottom: 1px solid var(--coens-border-light);
 }
 
 .gsm-device-thumb {
-  width: 72px;
-  height: 88px;
+  width: 68px;
+  height: 82px;
   background: #ffffff;
   border-radius: 14px;
   border: 1px solid rgba(10, 22, 40, 0.08);
@@ -914,7 +931,7 @@ img {
 }
 
 .gsm-device-thumb img {
-  max-height: 72px;
+  max-height: 66px;
   width: auto;
   object-fit: contain;
 }
@@ -937,7 +954,7 @@ img {
   border: 1px solid rgba(10, 22, 40, 0.1);
   padding: 2px 8px;
   border-radius: 6px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .gsm-device-quickprice {
@@ -946,7 +963,6 @@ img {
   color: var(--coens-blue);
 }
 
-/* Repair Specification List Inside Each Device Card */
 .gsm-device-repairs {
   padding: 16px 20px 20px;
   display: flex;
@@ -985,13 +1001,12 @@ img {
 
 .gsm-rep-item-price {
   font-family: 'Syne', sans-serif !important;
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   font-weight: 800;
   color: var(--coens-blue);
   white-space: nowrap;
 }
 
-/* Expandable Full Tariff Drawer Inside Device Card */
 details.gsm-more-repairs {
   margin-top: 4px;
   border-top: 1px dashed rgba(10, 22, 40, 0.12);
@@ -1049,9 +1064,7 @@ details.gsm-more-repairs summary::marker {
   border-radius: 5px;
 }
 
-/* ========================================================
-   9. DIAGNOSTIC PROBLEMS & SOLUTIONS CARDS
-   ======================================================== */
+/* 9. DIAGNOSTIC PROBLEMS & SOLUTIONS CARDS */
 .coens-problem-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1169,7 +1182,6 @@ details.gsm-more-repairs summary::marker {
 }
 .coens-diag-solution strong { color: #059669; }
 
-/* Screen Quality Guide (GSM Paradise 4-Tier Comparison) */
 .gsm-quality-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1220,7 +1232,342 @@ details.gsm-more-repairs summary::marker {
   line-height: 1.6;
 }
 
-/* 10. STORES, PROMO BANNER & FOOTER */
+/* ========================================================
+   10. TWEEDE KANSJES (REFURBISHED) PAGE STYLES
+   ======================================================== */
+.tk-grade-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.tk-grade-card {
+  background: #ffffff;
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: 18px;
+  padding: 28px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(8, 18, 32, 0.04);
+}
+
+.tk-grade-card.gold-border {
+  border-color: var(--coens-gold);
+  background: linear-gradient(180deg, #fffdf7 0%, #ffffff 100%);
+}
+
+.tk-grade-pill {
+  align-self: flex-start;
+  font-family: 'Syne', sans-serif !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: #081220;
+  color: var(--coens-gold);
+}
+
+.tk-grade-card h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.25rem;
+  color: var(--coens-navy);
+}
+
+.tk-grade-card p {
+  font-size: 0.88rem;
+  color: var(--coens-gray-600);
+}
+
+.tk-spec-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 14px;
+}
+
+.tk-spec-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #f0f4fa;
+  color: var(--coens-navy);
+}
+
+.tk-spec-pill.green {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.tk-price-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 14px;
+  background: var(--coens-light);
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.tk-old-price {
+  font-size: 0.82rem;
+  color: var(--coens-gray-600);
+  text-decoration: line-through !important;
+}
+
+.tk-new-price {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--coens-blue);
+}
+
+/* ========================================================
+   11. TOESTEL OPSTUREN & INRUILEN PAGE STYLES
+   ======================================================== */
+.coens-step-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.coens-step-box {
+  background: #ffffff;
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: 18px;
+  padding: 28px 22px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(8, 18, 32, 0.03);
+}
+
+.coens-step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--coens-blue);
+  color: #ffffff;
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.coens-step-box h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.12rem;
+  color: var(--coens-navy);
+}
+
+.coens-step-box p {
+  font-size: 0.86rem;
+  color: var(--coens-gray-600);
+}
+
+.coens-two-col-panel {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.coens-form-card {
+  background: #ffffff;
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: 22px;
+  padding: 36px 32px;
+  box-shadow: var(--coens-shadow);
+}
+
+.coens-form-card h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.45rem;
+  color: var(--coens-navy);
+  margin-bottom: 6px;
+}
+
+.coens-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.coens-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.coens-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.coens-form-group label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--coens-navy);
+}
+
+.coens-form-group input,
+.coens-form-group select,
+.coens-form-group textarea {
+  width: 100% !important;
+  padding: 12px 15px !important;
+  border-radius: 10px !important;
+  border: 1.5px solid rgba(10, 22, 40, 0.14) !important;
+  background: #f9fbff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.92rem !important;
+  color: var(--coens-navy) !important;
+  outline: none !important;
+}
+
+.coens-form-group input:focus,
+.coens-form-group select:focus,
+.coens-form-group textarea:focus {
+  border-color: var(--coens-blue) !important;
+  background: #ffffff !important;
+}
+
+.coens-pakbon-card {
+  background: linear-gradient(145deg, #081220 0%, #0d274c 100%);
+  border-radius: 22px;
+  padding: 36px 30px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.coens-pakbon-card h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.35rem;
+  color: var(--coens-gold);
+  margin-bottom: 12px;
+}
+
+.coens-address-ticket {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px dashed rgba(245, 166, 35, 0.5);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 18px 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+/* Trade-In Value Table Cards */
+.inruil-bonus-banner {
+  background: linear-gradient(135deg, #081220 0%, #102a52 100%);
+  border-radius: 20px;
+  padding: 32px;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 36px;
+  border: 1px solid rgba(245, 166, 35, 0.3);
+}
+
+/* ========================================================
+   12. WINKELS & CONTACT PAGE STYLES
+   ======================================================== */
+.winkels-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.winkel-detail-card {
+  background: #ffffff;
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 35px rgba(8, 18, 32, 0.06);
+  transition: all 0.25s ease;
+}
+
+.winkel-detail-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--coens-blue);
+}
+
+.winkel-card-banner {
+  background: linear-gradient(135deg, #081220 0%, #0d2854 100%);
+  padding: 26px 24px;
+  color: #ffffff;
+  border-bottom: 3px solid var(--coens-gold);
+}
+
+.winkel-card-banner span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--coens-gold);
+  font-weight: 700;
+}
+
+.winkel-card-banner h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.45rem;
+  color: #ffffff;
+  margin-top: 4px;
+}
+
+.winkel-card-body {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.winkel-info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--coens-gray-800);
+}
+
+.winkel-info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.winkel-hours-box {
+  background: var(--coens-light);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 0.84rem;
+}
+
+.winkel-hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px dashed rgba(10, 22, 40, 0.08);
+}
+
+.winkel-hours-row:last-child {
+  border-bottom: none;
+}
+
+/* 13. STORES, PROMO BANNER & FOOTER */
 .coens-stores-section {
   background: var(--coens-navy);
   color: #ffffff;
@@ -1361,7 +1708,7 @@ details.gsm-more-repairs summary::marker {
 }
 
 /* ========================================================
-   11. TABLET & MOBILE RESPONSIVE RULES (<= 991px)
+   14. TABLET & MOBILE RESPONSIVE RULES (<= 991px)
    ======================================================== */
 @media (max-width: 991px) {
   .coens-desktop-nav {
@@ -1467,9 +1814,14 @@ details.gsm-more-repairs summary::marker {
 
   .coens-hero-grid,
   .coens-why-grid,
-  .coens-problem-grid {
+  .coens-problem-grid,
+  .coens-two-col-panel {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
+  }
+
+  .coens-hero-visual {
+    display: none !important;
   }
 
   .alle-merken {
@@ -1480,7 +1832,10 @@ details.gsm-more-repairs summary::marker {
   .gsm-device-grid,
   .gsm-quality-grid,
   .coens-services-grid,
-  .coens-stores-grid {
+  .coens-stores-grid,
+  .tk-grade-grid,
+  .coens-step-grid-4,
+  .winkels-showcase-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px !important;
   }
@@ -1492,7 +1847,7 @@ details.gsm-more-repairs summary::marker {
 }
 
 /* ========================================================
-   12. SMARTPHONE VIEWPORT RULES (<= 640px)
+   15. SMARTPHONE VIEWPORT RULES (<= 640px)
    ======================================================== */
 @media (max-width: 640px) {
   .coens-top-bar {
@@ -1553,12 +1908,18 @@ details.gsm-more-repairs summary::marker {
   .gsm-quality-grid,
   .coens-services-grid,
   .coens-stores-grid,
-  .coens-problem-grid {
+  .coens-problem-grid,
+  .tk-grade-grid,
+  .coens-step-grid-4,
+  .winkels-showcase-grid,
+  .coens-form-grid {
     grid-template-columns: 1fr !important;
     gap: 18px !important;
   }
 
-  .gsm-brand-section {
+  .gsm-brand-section,
+  .coens-form-card,
+  .coens-pakbon-card {
     padding: 22px 16px !important;
   }
 
