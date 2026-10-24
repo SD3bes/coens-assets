@@ -1,5 +1,6 @@
 /* ========================================================
-   COEN'S TELECOM - MASTER PRODUCTION STYLESHEET (v16)
+   COEN'S TELECOM - MASTER PRODUCTION STYLESHEET (v17)
+   Includes Working PC/Mobile Nav + Homepage + GSM Repair Hub
    ======================================================== */
 
 /* 1. RESET WORDPRESS GUTENBERG & ELIMINATE GAP LINES */
@@ -84,7 +85,6 @@ a {
   --coens-blue-hover: #004ecc;
   --coens-gold: #F5A623;
   --coens-green: #10b981;
-  --coens-red: #ef4444;
   --coens-white: #ffffff;
   --coens-light: #f4f7fc;
   --coens-gray-100: #f4f6fa;
@@ -510,7 +510,7 @@ a {
 .coens-sub {
   color: var(--coens-gray-600);
   font-size: 0.98rem;
-  max-width: 580px;
+  max-width: 620px;
   margin-top: 8px;
 }
 
@@ -665,283 +665,373 @@ a {
 }
 
 /* ========================================================
-   7. REPARATIES PAGE: PROBLEMS, SOLUTIONS & BRAND ACCORDIONS
+   7. GSM PARADISE STYLE: BRAND GRID, MODEL CATALOG & REPAIRS
    ======================================================== */
-.coens-problem-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+
+/* Customer 9.5 Rating Pill (GSM Paradise Style) */
+.gsm-rating-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 10px 18px;
+  border-radius: 12px;
+  margin-top: 8px;
 }
 
-.coens-problem-card {
+.gsm-stars {
+  color: var(--coens-gold);
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+}
+
+.gsm-rating-text {
+  font-size: 0.88rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* 5-Column Visual Brand Logo Grid */
+.gsm-brands-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.gsm-brand-tile {
   background: #ffffff;
   border: 1.5px solid var(--coens-border-light);
-  border-radius: 18px;
-  padding: 32px 28px;
-  box-shadow: 0 10px 30px rgba(8, 18, 32, 0.04);
+  border-radius: 16px;
+  padding: 28px 18px 22px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  transition: all 0.25s ease;
-}
-
-.coens-problem-card:hover {
-  border-color: var(--coens-blue);
-  box-shadow: var(--coens-shadow);
-}
-
-.coens-prob-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 14px;
-  border-bottom: 1px solid var(--coens-border-light);
-  padding-bottom: 16px;
-}
-
-.coens-prob-title-group {
-  display: flex;
-  gap: 14px;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+  transition: all 0.22s ease;
+  box-shadow: 0 6px 20px rgba(8, 18, 32, 0.03);
 }
 
-.coens-prob-icon {
-  width: 52px;
+.gsm-brand-tile:hover {
+  transform: translateY(-5px);
+  border-color: var(--coens-blue);
+  box-shadow: 0 16px 36px rgba(30, 111, 255, 0.12);
+}
+
+.gsm-brand-logo {
   height: 52px;
-  border-radius: 12px;
-  background: #eef4ff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.65rem;
-  flex-shrink: 0;
-}
-
-.coens-prob-title-group h3 {
   font-family: 'Syne', sans-serif !important;
-  font-size: 1.2rem;
   font-weight: 800;
+  font-size: 1.35rem;
   color: var(--coens-navy);
-  line-height: 1.25;
 }
 
-.coens-prob-badges {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-  flex-shrink: 0;
+.gsm-brand-logo svg {
+  height: 44px;
+  width: auto;
+  display: block;
 }
 
-.coens-badge-price {
-  background: rgba(30, 111, 255, 0.12);
-  color: var(--coens-blue);
+.gsm-brand-name {
   font-family: 'Syne', sans-serif !important;
-  font-weight: 800;
-  font-size: 0.85rem;
-  padding: 4px 12px;
-  border-radius: 20px;
-  white-space: nowrap;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--coens-navy);
 }
 
-.coens-badge-time {
-  background: #f4f6fa;
-  color: var(--coens-gray-600);
+.gsm-brand-count {
   font-size: 0.76rem;
-  font-weight: 600;
+  color: var(--coens-blue);
+  background: #eef4ff;
   padding: 3px 10px;
   border-radius: 20px;
-  white-space: nowrap;
+  font-weight: 600;
 }
 
-.coens-diag-block {
-  padding: 14px 16px;
-  border-radius: 12px;
-  font-size: 0.88rem;
-  line-height: 1.6;
-}
-
-.coens-diag-block strong {
-  display: block;
-  font-family: 'Syne', sans-serif !important;
-  font-size: 0.84rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-}
-
-.coens-diag-symptom {
-  background: #fff8f6;
-  border-left: 3.5px solid #ef4444;
-  color: #4a2121;
-}
-
-.coens-diag-symptom strong {
-  color: #dc2626;
-}
-
-.coens-diag-tip {
-  background: #fffbeb;
-  border-left: 3.5px solid var(--coens-gold);
-  color: #4d3808;
-}
-
-.coens-diag-tip strong {
-  color: #b45309;
-}
-
-.coens-diag-solution {
-  background: #f0fdf4;
-  border-left: 3.5px solid #10b981;
-  color: #134e32;
-}
-
-.coens-diag-solution strong {
-  color: #059669;
-}
-
-/* Brand & Model Interactive Accordions */
-.coens-brand-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.coens-brand-card {
+/* Brand Section Wrapper */
+.gsm-brand-showcase {
   background: #ffffff;
   border: 1.5px solid var(--coens-border-light);
-  border-radius: var(--coens-radius);
-  padding: 30px 26px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  border-radius: 22px;
+  padding: 36px 32px;
+  margin-bottom: 36px;
+  box-shadow: 0 12px 34px rgba(8, 18, 32, 0.04);
 }
 
-.coens-brand-header {
+.gsm-brand-showcase:last-child {
+  margin-bottom: 0;
+}
+
+.gsm-showcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 22px;
+  margin-bottom: 24px;
+  border-bottom: 1.5px solid var(--coens-border-light);
+}
+
+.gsm-showcase-title {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.coens-brand-icon {
-  width: 56px;
-  height: 56px;
+.gsm-showcase-badge {
+  width: 54px;
+  height: 54px;
   border-radius: 14px;
-  background: #081220;
+  background: var(--coens-navy);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800;
+  font-size: 1.3rem;
   flex-shrink: 0;
 }
 
-.coens-brand-header h3 {
+.gsm-showcase-title h3 {
   font-family: 'Syne', sans-serif !important;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: var(--coens-navy);
 }
 
-.coens-brand-header p {
-  font-size: 0.86rem;
+.gsm-showcase-title p {
+  font-size: 0.88rem;
   color: var(--coens-gray-600);
 }
 
-details.coens-model-accordion {
-  background: var(--coens-light);
-  border: 1px solid var(--coens-border-light);
-  border-radius: 12px;
-  overflow: hidden;
+/* Quick Model Chips List (Like GSM Paradise Menu/Model Grid) */
+.gsm-model-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
-details.coens-model-accordion summary {
+.gsm-model-pill {
+  background: var(--coens-light);
+  border: 1px solid rgba(10, 22, 40, 0.09);
+  color: var(--coens-navy);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 13px;
+  border-radius: 8px;
+}
+
+/* Expandable Device Repair Tables (GSM Paradise Device View) */
+.gsm-device-accordions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+details.gsm-device-box {
+  background: #ffffff;
+  border: 1.5px solid rgba(10, 22, 40, 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+details.gsm-device-box[open] {
+  border-color: var(--coens-blue);
+  box-shadow: 0 10px 28px rgba(30, 111, 255, 0.08);
+}
+
+details.gsm-device-box summary {
   list-style: none !important;
-  padding: 14px 18px;
-  font-family: 'Syne', sans-serif !important;
-  font-weight: 700;
-  font-size: 0.92rem;
-  color: var(--coens-blue);
+  padding: 18px 22px;
+  background: var(--coens-light);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 14px;
   user-select: none;
 }
 
-details.coens-model-accordion summary::-webkit-details-marker,
-details.coens-model-accordion summary::marker {
+details.gsm-device-box[open] summary {
+  background: #081220;
+  color: #ffffff;
+}
+
+details.gsm-device-box summary::-webkit-details-marker,
+details.gsm-device-box summary::marker {
   display: none !important;
 }
 
-details.coens-model-accordion summary::after {
-  content: '+ Bekijk modellen & richtprijzen';
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  background: #ffffff;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(30, 111, 255, 0.2);
-}
-
-details.coens-model-accordion[open] summary::after {
-  content: '✕ Sluiten';
-}
-
-.coens-model-list {
-  padding: 0 18px 16px;
-  border-top: 1px solid var(--coens-border-light);
-}
-
-.coens-model-item {
+.gsm-device-summary-left {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px dashed rgba(10, 22, 40, 0.1);
-  font-size: 0.86rem;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.coens-model-item:last-child {
+.gsm-device-summary-left strong {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.gsm-model-codes {
+  font-size: 0.78rem;
+  color: var(--coens-gray-600);
+  background: rgba(10, 22, 40, 0.06);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+details.gsm-device-box[open] .gsm-model-codes {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--coens-gold);
+}
+
+.gsm-summary-action {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--coens-blue);
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(30, 111, 255, 0.25);
+  white-space: nowrap;
+}
+
+details.gsm-device-box[open] .gsm-summary-action {
+  background: var(--coens-blue);
+  color: #ffffff;
+  border-color: var(--coens-blue);
+}
+
+/* GSM Paradise Repair Rows Inside Accordion */
+.gsm-repair-table {
+  padding: 8px 22px 18px;
+  background: #ffffff;
+}
+
+.gsm-repair-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--coens-border-light);
+}
+
+.gsm-repair-row:last-child {
   border-bottom: none;
 }
 
-.coens-model-item strong {
+.gsm-rep-name strong {
+  display: block;
+  font-family: 'Syne', sans-serif !important;
+  font-size: 0.96rem;
   color: var(--coens-navy);
 }
 
-.coens-model-item span {
-  color: var(--coens-blue);
-  font-weight: 700;
+.gsm-rep-name span {
+  font-size: 0.8rem;
+  color: var(--coens-gray-600);
 }
 
-.coens-process-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-}
-
-.coens-process-step {
-  background: #ffffff;
-  border: 1.5px solid var(--coens-border-light);
-  border-radius: var(--coens-radius);
-  padding: 28px 22px;
-}
-
-.coens-step-badge {
+.gsm-rep-time {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--coens-gray-800);
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
+  gap: 6px;
+}
+
+.gsm-branch-checks {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #059669;
+}
+
+.gsm-branch-checks span {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.gsm-rep-price {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--coens-blue);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Screen Quality Explanation Grid (In-Cell vs Soft OLED vs Origineel) */
+.gsm-quality-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.gsm-quality-card {
+  background: #ffffff;
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: 18px;
+  padding: 30px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gsm-quality-card.featured {
+  border-color: var(--coens-blue);
+  box-shadow: 0 16px 38px rgba(30, 111, 255, 0.1);
+}
+
+.gsm-quality-badge {
+  align-self: flex-start;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #eef4ff;
+  color: var(--coens-blue);
+}
+
+.gsm-quality-card.featured .gsm-quality-badge {
   background: var(--coens-blue);
   color: #ffffff;
-  border-radius: 10px;
+}
+
+.gsm-quality-card h3 {
   font-family: 'Syne', sans-serif !important;
-  font-weight: 800;
-  font-size: 1.1rem;
-  margin-bottom: 16px;
+  font-size: 1.22rem;
+  color: var(--coens-navy);
+}
+
+.gsm-quality-card p {
+  font-size: 0.88rem;
+  color: var(--coens-gray-600);
+  line-height: 1.65;
 }
 
 /* 8. STORES SECTION */
@@ -1088,7 +1178,6 @@ details.coens-model-accordion[open] summary::after {
 
 /* ========================================================
    11. MOBILE & TABLET MASTER RULES (<= 991px)
-   Fixes BOTH Mobile Nav AND Homepage/Repairs Mobile View!
    ======================================================== */
 @media (max-width: 991px) {
   .coens-desktop-nav {
@@ -1192,25 +1281,36 @@ details.coens-model-accordion[open] summary::after {
     font-size: 1rem !important;
   }
 
-  /* CRITICAL: COLLAPSE ALL MULTI-COLUMN GRIDS ON MOBILE/TABLET */
+  /* Collapse multi-column layouts cleanly on tablet/mobile */
   .coens-hero-grid,
   .coens-why-grid,
-  .coens-problem-grid,
-  .coens-brand-grid {
+  .gsm-quality-grid {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
   }
 
-  /* Hide the large desktop phone illustration so it never squishes mobile text */
   .coens-hero-visual {
     display: none !important;
   }
 
+  .gsm-brands-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 14px !important;
+  }
+
   .coens-services-grid,
-  .coens-stores-grid,
-  .coens-process-steps {
+  .coens-stores-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px !important;
+  }
+
+  .gsm-repair-row {
+    grid-template-columns: 1fr auto !important;
+    gap: 8px !important;
+  }
+
+  .gsm-branch-checks {
+    grid-column: 1 / -1 !important;
   }
 
   .coens-footer-grid {
@@ -1266,16 +1366,6 @@ details.coens-model-accordion[open] summary::after {
     padding: 0 !important;
   }
 
-  .coens-chips {
-    gap: 6px !important;
-    margin-bottom: 24px !important;
-  }
-
-  .coens-chip {
-    font-size: 0.76rem !important;
-    padding: 5px 11px !important;
-  }
-
   .coens-hero-stats {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
@@ -1307,40 +1397,44 @@ details.coens-model-accordion[open] summary::after {
     font-size: 1.65rem !important;
   }
 
-  /* Force 1-column stack for all cards on phones */
+  .gsm-brands-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .gsm-brand-tile {
+    padding: 20px 12px 16px !important;
+  }
+
   .coens-services-grid,
   .coens-stores-grid,
-  .coens-process-steps,
-  .coens-problem-grid,
-  .coens-brand-grid {
+  .gsm-quality-grid {
     grid-template-columns: 1fr !important;
     gap: 18px !important;
   }
 
-  .coens-card,
-  .coens-store-card,
-  .coens-problem-card,
-  .coens-brand-card,
-  .coens-process-step {
-    padding: 22px 18px !important;
+  .gsm-brand-showcase {
+    padding: 22px 16px !important;
   }
 
-  .coens-prob-top {
+  details.gsm-device-box summary {
     flex-direction: column !important;
     align-items: flex-start !important;
+    padding: 14px 16px !important;
   }
 
-  .coens-prob-badges {
-    flex-direction: row !important;
-    align-items: center !important;
+  .gsm-summary-action {
     width: 100% !important;
-    justify-content: flex-start !important;
+    text-align: center !important;
+  }
+
+  .gsm-repair-table {
+    padding: 6px 14px 14px !important;
   }
 
   .coens-why-box {
     padding: 24px 18px !important;
     border-radius: 16px !important;
-    margin-top: 10px !important;
   }
 
   .coens-fact-row {
@@ -1356,16 +1450,6 @@ details.coens-model-accordion[open] summary::after {
     min-width: unset !important;
     width: auto !important;
     white-space: nowrap !important;
-  }
-
-  .coens-fact-num span {
-    font-size: 1.2rem !important;
-  }
-
-  details.coens-model-accordion summary {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
   }
 
   .coens-footer-grid {
