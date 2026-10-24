@@ -1,5 +1,5 @@
 /* ========================================================
-   COEN'S TELECOM - MASTER RESPONSIVE STYLESHEET
+   COEN'S TELECOM - MASTER PRODUCTION STYLESHEET
    ======================================================== */
 
 /* 1. RESET WORDPRESS GUTENBERG & BROWSER GAPS */
@@ -36,6 +36,13 @@ html, body {
 
 p:empty, br {
   display: none !important;
+}
+
+.coens-site-root {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .coens-top-bar,
@@ -116,16 +123,16 @@ a {
   font-weight: 600;
 }
 
-/* 3. NAVIGATION (DESKTOP) */
+/* 3. NAVIGATION (STICKY BAR) */
 .coens-nav {
   position: sticky;
   top: 0;
-  z-index: 9999;
-  background: rgba(8, 18, 32, 0.96);
+  z-index: 99999;
+  background: rgba(8, 18, 32, 0.98);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  padding: 16px 6%;
+  padding: 14px 6%;
 }
 
 .coens-nav-inner {
@@ -184,30 +191,20 @@ a {
   gap: 8px;
 }
 
-/* DESKTOP BAR (>= 993px) */
+/* DESKTOP NAVIGATION (>= 993px) */
 @media (min-width: 993px) {
-  .coens-hamburger,
-  .coens-drawer-header,
-  .coens-drawer-footer {
+  .coens-mobile-nav {
     display: none !important;
   }
 
-  .coens-nav-drawer {
+  .coens-desktop-nav {
     display: flex !important;
-    position: static !important;
-    background: transparent !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-    border: none !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 28px !important;
-    width: auto !important;
+    align-items: center;
+    gap: 28px;
   }
 
   .coens-menu {
     display: flex !important;
-    flex-direction: row !important;
     list-style: none !important;
     gap: 28px !important;
     align-items: center !important;
@@ -237,6 +234,164 @@ a {
     height: 2px;
     background: var(--coens-blue);
     border-radius: 2px;
+  }
+}
+
+/* MOBILE NAVIGATION VIA NATIVE DETAILS (<= 992px) */
+@media (max-width: 992px) {
+  .coens-desktop-nav {
+    display: none !important;
+  }
+
+  .coens-mobile-nav {
+    display: block !important;
+  }
+
+  /* Reset default browser arrow marker */
+  summary.coens-hamburger {
+    list-style: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    width: 42px !important;
+    height: 42px !important;
+    padding: 10px 8px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    z-index: 100000 !important;
+  }
+
+  summary.coens-hamburger::-webkit-details-marker,
+  summary.coens-hamburger::marker {
+    display: none !important;
+  }
+
+  summary.coens-hamburger span {
+    display: block !important;
+    height: 2.5px !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    border-radius: 2px !important;
+    transition: transform 0.25s ease, opacity 0.25s ease !important;
+  }
+
+  /* Animate hamburger to an 'X' when open */
+  details.coens-mobile-nav[open] summary.coens-hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg) !important;
+  }
+  details.coens-mobile-nav[open] summary.coens-hamburger span:nth-child(2) {
+    opacity: 0 !important;
+  }
+  details.coens-mobile-nav[open] summary.coens-hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg) !important;
+  }
+
+  /* Mobile Full-Screen App Drawer */
+  .coens-mobile-drawer {
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: calc(100vh - 70px) !important;
+    height: calc(100dvh - 70px) !important;
+    background: #081220 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 24px 6% 36px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow-y: auto !important;
+    z-index: 99998 !important;
+  }
+
+  .coens-drawer-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-bottom: 14px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .coens-drawer-title {
+    font-family: 'Syne', sans-serif !important;
+    font-weight: 700 !important;
+    color: var(--coens-gold) !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .coens-mobile-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    list-style: none !important;
+    padding: 18px 0 !important;
+    margin: 0 !important;
+  }
+
+  .coens-mobile-menu a {
+    display: flex !important;
+    align-items: center !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding: 13px 16px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .coens-mobile-menu a.active {
+    background: rgba(30, 111, 255, 0.2) !important;
+    border-color: rgba(30, 111, 255, 0.45) !important;
+    color: #ffffff !important;
+  }
+
+  .coens-drawer-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding-top: 16px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .coens-drawer-footer .coens-btn-cta {
+    width: 100% !important;
+    min-height: 48px !important;
+  }
+
+  .coens-drawer-contact {
+    text-align: center !important;
+    font-size: 0.8rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  .coens-hero-grid,
+  .coens-why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+
+  .coens-hero-visual {
+    display: none !important;
+  }
+
+  .coens-services-grid,
+  .coens-stores-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .coens-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 30px !important;
   }
 }
 
@@ -644,436 +799,7 @@ a {
   font-size: 0.86rem;
 }
 
-/* 7. STORES SECTION */
-.coens-stores-section {
-  background: var(--coens-navy);
-  color: var(--coens-white);
-  padding: 90px 6%;
-}
-
-.coens-stores-section .coens-title {
-  color: var(--coens-white) !important;
-}
-
-.coens-stores-section .coens-sub {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.coens-stores-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 26px;
-  margin-top: 44px;
-}
-
-.coens-store-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--coens-radius);
-  padding: 32px 26px;
-  display: flex;
-  flex-direction: column;
-}
-
-.coens-store-card h3 {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.3rem;
-  color: var(--coens-white);
-  margin-bottom: 10px;
-}
-
-.coens-store-detail {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.88rem;
-  margin-bottom: 8px;
-}
-
-.coens-store-card .coens-btn-cta {
-  margin-top: 22px;
-  width: 100%;
-}
-
-/* 8. PROMO BANNER */
-.coens-promo-banner {
-  background: linear-gradient(135deg, #0d2142 0%, #08172e 100%);
-  padding: 70px 6%;
-  color: var(--coens-white);
-}
-
-.coens-promo-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 28px;
-}
-
-.coens-promo-text h2 {
-  font-family: 'Syne', sans-serif !important;
-  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
-  font-weight: 800;
-  line-height: 1.25;
-}
-
-.coens-promo-text h2 span {
-  color: var(--coens-gold);
-}
-
-.coens-promo-text p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.96rem;
-  margin-top: 6px;
-  max-width: 520px;
-}
-
-.coens-promo-btns {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* 9. FOOTER */
-.coens-footer {
-  background: #040910;
-  color: rgba(255, 255, 255, 0.65);
-  padding: 70px 6% 32px;
-  font-size: 0.88rem;
-}
-
-.coens-footer-grid {
-  max-width: 1240px;
-  margin: 0 auto 44px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-}
-
-.coens-footer-col h4 {
-  font-family: 'Syne', sans-serif !important;
-  color: var(--coens-white);
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.coens-footer-col ul {
-  list-style: none;
-}
-
-.coens-footer-col ul li {
-  margin-bottom: 8px;
-}
-
-.coens-footer-col a:hover {
-  color: var(--coens-white);
-}
-
-.coens-footer-bottom {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding-top: 26px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
-  font-size: 0.82rem;
-}
-
-/* ========================================================
-   10. MOBILE & TABLET MASTER OVERHAUL (max-width: 992px)
-   ======================================================== */
-@media (max-width: 992px) {
-  .coens-nav {
-    padding: 14px 5% !important;
-  }
-
-  .coens-hamburger {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-around !important;
-    width: 38px !important;
-    height: 38px !important;
-    padding: 8px !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 8px !important;
-    cursor: pointer !important;
-    z-index: 10001 !important;
-  }
-
-  .coens-hamburger span {
-    display: block !important;
-    height: 2.5px !important;
-    width: 100% !important;
-    background: #ffffff !important;
-    border-radius: 2px !important;
-  }
-
-  /* IMMERSIVE FULL-SCREEN APP DRAWER */
-  .coens-nav-drawer {
-    display: none !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    background: rgba(5, 11, 20, 0.98) !important;
-    backdrop-filter: blur(24px) !important;
-    -webkit-backdrop-filter: blur(24px) !important;
-    z-index: 9999999 !important;
-    padding: 24px 20px !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    overflow-y: auto !important;
-    box-sizing: border-box !important;
-  }
-
-  #coens-drawer:target {
-    display: flex !important;
-  }
-
-  .coens-drawer-header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-    padding-bottom: 16px !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  }
-
-  .coens-drawer-title {
-    font-family: 'Syne', sans-serif !important;
-    font-weight: 800 !important;
-    color: #ffffff !important;
-    font-size: 1.4rem !important;
-  }
-  .coens-drawer-title span {
-    color: var(--coens-gold) !important;
-  }
-
-  .coens-close-btn {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 38px !important;
-    height: 38px !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-radius: 50% !important;
-    color: #ffffff !important;
-    font-size: 1.5rem !important;
-    line-height: 1 !important;
-    text-decoration: none !important;
-  }
-
-  .coens-menu {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 10px !important;
-    padding: 24px 0 !important;
-    margin: 0 !important;
-    list-style: none !important;
-  }
-
-  .coens-menu li {
-    width: 100% !important;
-  }
-
-  .coens-menu a {
-    display: flex !important;
-    align-items: center !important;
-    width: 100% !important;
-    font-size: 1.1rem !important;
-    font-weight: 600 !important;
-    color: rgba(255, 255, 255, 0.9) !important;
-    padding: 14px 18px !important;
-    background: rgba(255, 255, 255, 0.04) !important;
-    border-radius: 12px !important;
-    border: 1px solid rgba(255, 255, 255, 0.06) !important;
-  }
-
-  .coens-menu a.active {
-    background: rgba(30, 111, 255, 0.2) !important;
-    border-color: rgba(30, 111, 255, 0.5) !important;
-    color: #ffffff !important;
-  }
-
-  .coens-drawer-footer {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 14px !important;
-    width: 100% !important;
-    padding-top: 16px !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  }
-
-  .coens-drawer-footer .coens-btn-cta {
-    width: 100% !important;
-    min-height: 50px !important;
-    font-size: 1rem !important;
-  }
-
-  .coens-drawer-contact {
-    text-align: center !important;
-    font-size: 0.8rem !important;
-    color: rgba(255, 255, 255, 0.6) !important;
-  }
-
-  /* LAYOUT GRIDS COLLAPSE CLEANLY ON MOBILE */
-  .coens-hero-grid,
-  .coens-why-grid {
-    grid-template-columns: 1fr !important;
-    gap: 36px !important;
-  }
-
-  .coens-hero-visual {
-    display: none !important;
-  }
-
-  .coens-services-grid,
-  .coens-stores-grid {
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-
-  .coens-footer-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 30px !important;
-  }
-}
-
-/* 11. PHONE SCREEN POLISH (<= 640px) */
-@media (max-width: 640px) {
-  .coens-top-bar {
-    display: none !important;
-  }
-
-  .coens-hero {
-    padding: 44px 5% 40px !important;
-  }
-
-  .coens-hero h1 {
-    font-size: 1.85rem !important;
-    line-height: 1.22 !important;
-    margin-bottom: 16px !important;
-  }
-
-  .coens-hero-sub {
-    font-size: 0.95rem !important;
-    line-height: 1.55 !important;
-    margin-bottom: 24px !important;
-  }
-
-  .coens-search-form {
-    flex-direction: column !important;
-    padding: 10px !important;
-    gap: 10px !important;
-  }
-
-  .coens-btn-search {
-    width: 100% !important;
-    height: 48px !important;
-    padding: 0 !important;
-  }
-
-  /* 3-COLUMN APP STATS DASHBOARD */
-  .coens-hero-stats {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px !important;
-    padding-top: 20px !important;
-    text-align: center !important;
-  }
-
-  .coens-stat-num {
-    font-size: 1.6rem !important;
-  }
-
-  .coens-stat-label {
-    font-size: 0.72rem !important;
-    line-height: 1.3 !important;
-  }
-
-  .coens-section {
-    padding: 56px 5% !important;
-  }
-
-  .coens-title {
-    font-size: 1.7rem !important;
-  }
-
-  .coens-card,
-  .coens-store-card {
-    padding: 24px 20px !important;
-  }
-
-  /* BULLETPROOF WHY COEN'S BOX (100% NEVER WRAPS) */
-  .coens-why-box {
-    padding: 24px 18px !important;
-    border-radius: 16px !important;
-    margin-top: 24px !important;
-  }
-
-  .coens-fact-row {
-    display: grid !important;
-    grid-template-columns: 88px 1fr !important;
-    align-items: center !important;
-    gap: 14px !important;
-    margin-bottom: 20px !important;
-  }
-
-  .coens-fact-num {
-    font-size: 1.85rem !important;
-    min-width: unset !important;
-    width: auto !important;
-    white-space: nowrap !important;
-    line-height: 1 !important;
-  }
-
-  .coens-fact-num span {
-    font-size: 1.25rem !important;
-    margin-left: 2px !important;
-  }
-
-  .coens-fact-text h4 {
-    font-size: 0.95rem !important;
-    line-height: 1.3 !important;
-  }
-
-  .coens-fact-text p {
-    font-size: 0.8rem !important;
-    line-height: 1.4 !important;
-  }
-
-  .coens-footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-  }
-
-  .coens-promo-btns,
-  .coens-promo-btns a {
-    width: 100% !important;
-  }
-
-  .coens-footer-bottom {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 10px !important;
-  }
-}
-/* ========================================================
-   REPARATIES PAGE STYLES
-   ======================================================== */
+/* 7. REPAIR PAGE SPECIFIC COMPONENTS */
 .coens-brand-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1169,7 +895,6 @@ a {
   border: 1.5px solid var(--coens-border-light);
   border-radius: var(--coens-radius);
   padding: 32px 24px;
-  position: relative;
 }
 
 .coens-step-badge {
@@ -1185,4 +910,265 @@ a {
   font-weight: 800;
   font-size: 1.1rem;
   margin-bottom: 18px;
+}
+
+/* 8. STORES SECTION */
+.coens-stores-section {
+  background: var(--coens-navy);
+  color: var(--coens-white);
+  padding: 90px 6%;
+}
+
+.coens-stores-section .coens-title {
+  color: var(--coens-white) !important;
+}
+
+.coens-stores-section .coens-sub {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.coens-stores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 26px;
+  margin-top: 44px;
+}
+
+.coens-store-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--coens-radius);
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.coens-store-card h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.3rem;
+  color: var(--coens-white);
+  margin-bottom: 10px;
+}
+
+.coens-store-detail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.88rem;
+  margin-bottom: 8px;
+}
+
+.coens-store-card .coens-btn-cta {
+  margin-top: 22px;
+  width: 100%;
+}
+
+/* 9. PROMO BANNER */
+.coens-promo-banner {
+  background: linear-gradient(135deg, #0d2142 0%, #08172e 100%);
+  padding: 70px 6%;
+  color: var(--coens-white);
+}
+
+.coens-promo-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.coens-promo-text h2 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.coens-promo-text h2 span {
+  color: var(--coens-gold);
+}
+
+.coens-promo-text p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.96rem;
+  margin-top: 6px;
+  max-width: 520px;
+}
+
+.coens-promo-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* 10. FOOTER */
+.coens-footer {
+  background: #040910;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 70px 6% 32px;
+  font-size: 0.88rem;
+}
+
+.coens-footer-grid {
+  max-width: 1240px;
+  margin: 0 auto 44px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.coens-footer-col h4 {
+  font-family: 'Syne', sans-serif !important;
+  color: var(--coens-white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.coens-footer-col ul {
+  list-style: none;
+}
+
+.coens-footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.coens-footer-col a:hover {
+  color: var(--coens-white);
+}
+
+.coens-footer-bottom {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.82rem;
+}
+
+/* 11. PHONE SCREEN POLISH (<= 640px) */
+@media (max-width: 640px) {
+  .coens-top-bar {
+    display: none !important;
+  }
+
+  .coens-hero {
+    padding: 44px 5% 40px !important;
+  }
+
+  .coens-hero h1 {
+    font-size: 1.85rem !important;
+    line-height: 1.22 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .coens-hero-sub {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .coens-search-form {
+    flex-direction: column !important;
+    padding: 10px !important;
+    gap: 10px !important;
+  }
+
+  .coens-btn-search {
+    width: 100% !important;
+    height: 48px !important;
+    padding: 0 !important;
+  }
+
+  .coens-hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    padding-top: 20px !important;
+    text-align: center !important;
+  }
+
+  .coens-stat-num {
+    font-size: 1.6rem !important;
+  }
+
+  .coens-stat-label {
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .coens-section {
+    padding: 56px 5% !important;
+  }
+
+  .coens-title {
+    font-size: 1.7rem !important;
+  }
+
+  .coens-card,
+  .coens-store-card,
+  .coens-price-table-card {
+    padding: 22px 18px !important;
+  }
+
+  .coens-why-box {
+    padding: 24px 18px !important;
+    border-radius: 16px !important;
+    margin-top: 24px !important;
+  }
+
+  .coens-fact-row {
+    display: grid !important;
+    grid-template-columns: 88px 1fr !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .coens-fact-num {
+    font-size: 1.85rem !important;
+    min-width: unset !important;
+    width: auto !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+  }
+
+  .coens-fact-num span {
+    font-size: 1.25rem !important;
+    margin-left: 2px !important;
+  }
+
+  .coens-fact-text h4 {
+    font-size: 0.95rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .coens-fact-text p {
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .coens-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .coens-promo-btns,
+  .coens-promo-btns a {
+    width: 100% !important;
+  }
+
+  .coens-footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 10px !important;
+  }
 }
