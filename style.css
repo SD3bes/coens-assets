@@ -1071,3 +1071,118 @@ a {
     gap: 10px !important;
   }
 }
+/* ========================================================
+   REPARATIES PAGE STYLES
+   ======================================================== */
+.coens-brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.coens-brand-card {
+  background: var(--coens-white);
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: var(--coens-radius);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coens-brand-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--coens-blue);
+  box-shadow: var(--coens-shadow);
+}
+
+.coens-brand-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.coens-brand-card h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.35rem;
+  color: var(--coens-navy);
+  margin-bottom: 6px;
+}
+
+.coens-brand-card p {
+  color: var(--coens-gray-600);
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+
+.coens-price-table-card {
+  background: var(--coens-white);
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: var(--coens-radius);
+  padding: 32px;
+  box-shadow: var(--coens-shadow);
+}
+
+.coens-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--coens-border-light);
+}
+
+.coens-price-row:last-child {
+  border-bottom: none;
+}
+
+.coens-price-info h4 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.05rem;
+  color: var(--coens-navy);
+  margin-bottom: 2px;
+}
+
+.coens-price-info span {
+  font-size: 0.84rem;
+  color: var(--coens-gray-600);
+}
+
+.coens-price-val {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--coens-blue);
+  white-space: nowrap;
+}
+
+.coens-process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.coens-process-step {
+  background: var(--coens-white);
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: var(--coens-radius);
+  padding: 32px 24px;
+  position: relative;
+}
+
+.coens-step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--coens-blue);
+  color: var(--coens-white);
+  border-radius: 10px;
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
