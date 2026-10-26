@@ -1,6 +1,6 @@
 /* ========================================================
-   COEN'S TELECOM - MASTER PRODUCTION STYLESHEET (v17)
-   Includes Working PC/Mobile Nav + Homepage + GSM Repair Hub
+   COEN'S TELECOM - MASTER STYLESHEET (style.css)
+   Optimized for PC (1240px+), Tablet (768px-1024px) & Mobile
    ======================================================== */
 
 /* 1. RESET WORDPRESS GUTENBERG & ELIMINATE GAP LINES */
@@ -75,7 +75,13 @@ p:empty, br, hr, .wp-block-separator {
 a {
   text-decoration: none !important;
   color: inherit;
-  transition: all 0.2s ease;
+  transition: all 0.22s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 :root {
@@ -85,6 +91,7 @@ a {
   --coens-blue-hover: #004ecc;
   --coens-gold: #F5A623;
   --coens-green: #10b981;
+  --coens-red: #ef4444;
   --coens-white: #ffffff;
   --coens-light: #f4f7fc;
   --coens-gray-100: #f4f6fa;
@@ -136,7 +143,7 @@ a {
   font-weight: 600;
 }
 
-/* 3. STICKY NAVIGATION (PC + MOBILE) */
+/* 3. STICKY NAVIGATION (PC + TABLET + MOBILE) */
 .coens-nav {
   position: sticky !important;
   top: 0 !important;
@@ -175,7 +182,7 @@ a {
   color: #ffffff !important;
   font-weight: 600;
   font-size: 0.88rem;
-  padding: 11px 24px;
+  padding: 11px 22px;
   border-radius: 9px;
   display: inline-flex;
   align-items: center;
@@ -192,6 +199,23 @@ a {
   transform: translateY(-2px);
 }
 
+.coens-btn-whatsapp {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 11px 22px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.3);
+}
+
 .coens-btn-ghost {
   background: transparent;
   color: #ffffff !important;
@@ -206,8 +230,8 @@ a {
   gap: 8px;
 }
 
-/* DESKTOP NAV (PC >= 992px) */
-@media (min-width: 992px) {
+/* DESKTOP NAV (>= 1025px so iPad/Tablet uses the clean touch drawer without cramping) */
+@media (min-width: 1025px) {
   .coens-mobile-nav {
     display: none !important;
   }
@@ -215,21 +239,21 @@ a {
   .coens-desktop-nav {
     display: flex !important;
     align-items: center !important;
-    gap: 32px !important;
+    gap: 24px !important;
   }
 
   .coens-menu {
     display: flex !important;
     list-style: none !important;
-    gap: 24px !important;
+    gap: 20px !important;
     align-items: center !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
   .coens-menu a {
-    color: rgba(255, 255, 255, 0.8) !important;
-    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.82) !important;
+    font-size: 0.9rem;
     font-weight: 500;
     padding: 6px 0;
     position: relative;
@@ -256,7 +280,7 @@ a {
 /* 4. HERO SECTION */
 .coens-hero {
   background: linear-gradient(135deg, #050c17 0%, #081220 50%, #0a2754 100%);
-  padding: 85px 6% 75px;
+  padding: 80px 6% 75px;
   color: #ffffff;
 }
 
@@ -287,12 +311,12 @@ a {
 
 .coens-hero h1 {
   font-family: 'Syne', sans-serif !important;
-  font-size: clamp(2.1rem, 4.2vw, 3.5rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -1px;
   color: #ffffff !important;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   word-break: break-word;
 }
 
@@ -303,10 +327,10 @@ a {
 
 .coens-hero-sub {
   color: rgba(255, 255, 255, 0.78);
-  font-size: 1.05rem;
+  font-size: 1.03rem;
   line-height: 1.65;
-  max-width: 560px;
-  margin-bottom: 30px;
+  max-width: 580px;
+  margin-bottom: 28px;
 }
 
 .coens-search-form {
@@ -357,7 +381,6 @@ a {
   font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.2s;
 }
 
 .coens-chips {
@@ -367,11 +390,11 @@ a {
   align-items: center;
   font-size: 0.82rem;
   color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 34px;
+  margin-bottom: 28px;
 }
 
 .coens-chip {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 6px 14px;
@@ -414,6 +437,7 @@ a {
 .coens-hero-visual {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
 }
 
@@ -430,9 +454,64 @@ a {
   justify-content: space-between;
 }
 
+.gsm-hero-showcase-card {
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.1) 0%, rgba(13, 30, 56, 0.9) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  border-radius: 28px;
+  padding: 26px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+  max-width: 440px;
+  width: 100%;
+}
+
+.gsm-hero-showcase-img {
+  width: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  margin-bottom: 18px;
+  background: #0d1e38;
+}
+
+.gsm-review-box {
+  background: rgba(8, 18, 32, 0.95);
+  border: 1px solid rgba(245, 166, 35, 0.35);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.gsm-stars {
+  color: var(--coens-gold);
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.gsm-review-box strong {
+  display: block;
+  font-family: 'Syne', sans-serif !important;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.gsm-score-badge {
+  background: var(--coens-gold);
+  color: #081220;
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800;
+  font-size: 1.25rem;
+  padding: 8px 14px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
 .coens-float-badge {
   position: absolute;
-  background: rgba(8, 18, 32, 0.9);
+  background: rgba(8, 18, 32, 0.92);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 14px;
@@ -440,54 +519,18 @@ a {
   z-index: 3;
 }
 
-.coens-float-badge.left {
-  top: 16%;
-  left: -20px;
-}
-
-.coens-float-badge.right {
-  bottom: 20%;
-  right: -20px;
-}
-
-.coens-fb-label {
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.coens-fb-val {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.coens-fb-val.gold {
-  color: var(--coens-gold);
-}
+.coens-float-badge.left { top: 16%; left: -20px; }
+.coens-float-badge.right { bottom: 20%; right: -20px; }
+.coens-fb-label { font-size: 0.72rem; color: rgba(255, 255, 255, 0.6); }
+.coens-fb-val { font-family: 'Syne', sans-serif !important; font-size: 0.95rem; font-weight: 700; color: #ffffff; }
+.coens-fb-val.gold { color: var(--coens-gold); }
 
 /* 5. GENERAL SECTIONS & SERVICES */
-.coens-section {
-  padding: 85px 6%;
-  background: #ffffff;
-}
-
-.coens-section.light {
-  background: var(--coens-light);
-}
-
-.coens-container {
-  max-width: 1240px;
-  margin: 0 auto;
-}
-
-.coens-section-header {
-  margin-bottom: 48px;
-}
-
-.coens-section-header.center {
-  text-align: center;
-}
+.coens-section { padding: 85px 6%; background: #ffffff; }
+.coens-section.light { background: var(--coens-light); }
+.coens-container { max-width: 1240px; margin: 0 auto; }
+.coens-section-header { margin-bottom: 48px; }
+.coens-section-header.center { text-align: center; }
 
 .coens-tag {
   font-size: 0.8rem;
@@ -510,13 +553,11 @@ a {
 .coens-sub {
   color: var(--coens-gray-600);
   font-size: 0.98rem;
-  max-width: 620px;
+  max-width: 640px;
   margin-top: 8px;
 }
 
-.coens-section-header.center .coens-sub {
-  margin: 8px auto 0;
-}
+.coens-section-header.center .coens-sub { margin: 8px auto 0; }
 
 .coens-services-grid {
   display: grid;
@@ -568,11 +609,7 @@ a {
   flex: 1;
 }
 
-.coens-card-link {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--coens-blue);
-}
+.coens-card-link { font-size: 0.9rem; font-weight: 600; color: var(--coens-blue); }
 
 /* 6. WAAROM COEN'S */
 .coens-why-grid {
@@ -582,12 +619,7 @@ a {
   align-items: center;
 }
 
-.coens-why-point {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  margin-bottom: 22px;
-}
+.coens-why-point { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px; }
 
 .coens-check-icon {
   width: 30px;
@@ -603,17 +635,8 @@ a {
   margin-top: 2px;
 }
 
-.coens-why-point h4 {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.05rem;
-  color: var(--coens-navy);
-  margin-bottom: 2px;
-}
-
-.coens-why-point p {
-  color: var(--coens-gray-600);
-  font-size: 0.88rem;
-}
+.coens-why-point h4 { font-family: 'Syne', sans-serif !important; font-size: 1.05rem; color: var(--coens-navy); margin-bottom: 2px; }
+.coens-why-point p { color: var(--coens-gray-600); font-size: 0.88rem; }
 
 .coens-why-box {
   background: linear-gradient(135deg, #081220 0%, #0d2854 100%);
@@ -622,16 +645,8 @@ a {
   color: #ffffff;
 }
 
-.coens-fact-row {
-  display: flex !important;
-  gap: 22px !important;
-  align-items: center !important;
-  margin-bottom: 28px !important;
-}
-
-.coens-fact-row:last-child {
-  margin-bottom: 0 !important;
-}
+.coens-fact-row { display: flex !important; gap: 22px !important; align-items: center !important; margin-bottom: 28px !important; }
+.coens-fact-row:last-child { margin-bottom: 0 !important; }
 
 .coens-fact-num {
   font-family: 'Syne', sans-serif !important;
@@ -647,539 +662,396 @@ a {
   align-items: baseline !important;
 }
 
-.coens-fact-num span {
-  font-size: 1.5rem !important;
-  margin-left: 2px !important;
-}
+.coens-fact-num span { font-size: 1.5rem !important; margin-left: 2px !important; }
+.coens-fact-text h4 { font-family: 'Syne', sans-serif !important; font-size: 1.05rem; color: #ffffff; margin-bottom: 2px; }
+.coens-fact-text p { color: rgba(255, 255, 255, 0.65); font-size: 0.86rem; }
 
-.coens-fact-text h4 {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.05rem;
-  color: #ffffff;
-  margin-bottom: 2px;
-}
-
-.coens-fact-text p {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.86rem;
-}
-
-/* ========================================================
-   7. GSM PARADISE STYLE: BRAND GRID, MODEL CATALOG & REPAIRS
-   ======================================================== */
-
-/* Customer 9.5 Rating Pill (GSM Paradise Style) */
-.gsm-rating-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  padding: 10px 18px;
-  border-radius: 12px;
-  margin-top: 8px;
-}
-
-.gsm-stars {
-  color: var(--coens-gold);
-  font-size: 1.05rem;
-  letter-spacing: 2px;
-}
-
-.gsm-rating-text {
-  font-size: 0.88rem;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-/* 5-Column Visual Brand Logo Grid */
-.gsm-brands-grid {
+/* 7. GSM PARADISE VISUAL BRAND LOGO GRID (alle-merken) */
+.alle-merken {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  gap: 22px;
 }
 
-.gsm-brand-tile {
+.alle-merken__item {
   background: #ffffff;
-  border: 1.5px solid var(--coens-border-light);
-  border-radius: 16px;
-  padding: 28px 18px 22px;
+  border: 1.5px solid rgba(10, 22, 40, 0.08);
+  border-radius: 18px;
+  padding: 28px 20px 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
-  gap: 14px;
-  transition: all 0.22s ease;
-  box-shadow: 0 6px 20px rgba(8, 18, 32, 0.03);
+  gap: 16px;
+  box-shadow: 0 8px 24px rgba(8, 18, 32, 0.04);
+  transition: all 0.25s ease;
 }
 
-.gsm-brand-tile:hover {
-  transform: translateY(-5px);
+.alle-merken__item:hover {
+  transform: translateY(-6px);
   border-color: var(--coens-blue);
-  box-shadow: 0 16px 36px rgba(30, 111, 255, 0.12);
+  box-shadow: 0 18px 40px rgba(30, 111, 255, 0.14);
 }
 
-.gsm-brand-logo {
-  height: 52px;
+.alle-merken__item__img {
+  height: 58px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Syne', sans-serif !important;
-  font-weight: 800;
-  font-size: 1.35rem;
-  color: var(--coens-navy);
+  padding: 4px 12px;
 }
 
-.gsm-brand-logo svg {
-  height: 44px;
+.alle-merken__item__img img {
+  max-height: 48px;
+  max-width: 130px;
   width: auto;
-  display: block;
+  height: auto;
+  object-fit: contain;
 }
 
-.gsm-brand-name {
+.alle-merken__item__title {
   font-family: 'Syne', sans-serif !important;
-  font-size: 1.02rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 800;
   color: var(--coens-navy);
 }
 
-.gsm-brand-count {
+.alle-merken__item__sub {
   font-size: 0.76rem;
+  font-weight: 600;
   color: var(--coens-blue);
   background: #eef4ff;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
-  font-weight: 600;
 }
 
-/* Brand Section Wrapper */
-.gsm-brand-showcase {
+/* 8. VISUAL DEVICE PRODUCT CARDS & REPAIR TABLES */
+.gsm-brand-section {
   background: #ffffff;
   border: 1.5px solid var(--coens-border-light);
-  border-radius: 22px;
-  padding: 36px 32px;
-  margin-bottom: 36px;
-  box-shadow: 0 12px 34px rgba(8, 18, 32, 0.04);
+  border-radius: 24px;
+  padding: 38px 34px;
+  margin-bottom: 44px;
+  box-shadow: 0 14px 38px rgba(8, 18, 32, 0.05);
 }
 
-.gsm-brand-showcase:last-child {
-  margin-bottom: 0;
-}
+.gsm-brand-section:last-child { margin-bottom: 0; }
 
-.gsm-showcase-header {
+.gsm-brand-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
-  padding-bottom: 22px;
-  margin-bottom: 24px;
+  gap: 20px;
+  padding-bottom: 24px;
+  margin-bottom: 30px;
   border-bottom: 1.5px solid var(--coens-border-light);
 }
 
-.gsm-showcase-title {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+.gsm-brand-bar-left { display: flex; align-items: center; gap: 18px; }
 
-.gsm-showcase-badge {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
-  background: var(--coens-navy);
-  color: #ffffff;
+.gsm-brand-bar-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--coens-light);
+  border: 1px solid var(--coens-border-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Syne', sans-serif !important;
-  font-weight: 800;
-  font-size: 1.3rem;
+  padding: 12px;
   flex-shrink: 0;
 }
 
-.gsm-showcase-title h3 {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--coens-navy);
+.gsm-brand-bar-logo img { max-height: 38px; max-width: 44px; object-fit: contain; }
+.gsm-brand-bar-left h3 { font-family: 'Syne', sans-serif !important; font-size: 1.55rem; font-weight: 800; color: var(--coens-navy); }
+.gsm-brand-bar-left p { font-size: 0.9rem; color: var(--coens-gray-600); }
+
+.gsm-device-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
-.gsm-showcase-title p {
-  font-size: 0.88rem;
-  color: var(--coens-gray-600);
-}
-
-/* Quick Model Chips List (Like GSM Paradise Menu/Model Grid) */
-.gsm-model-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.gsm-model-pill {
-  background: var(--coens-light);
-  border: 1px solid rgba(10, 22, 40, 0.09);
-  color: var(--coens-navy);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 6px 13px;
-  border-radius: 8px;
-}
-
-/* Expandable Device Repair Tables (GSM Paradise Device View) */
-.gsm-device-accordions {
+.gsm-device-card {
+  background: #ffffff;
+  border: 1.5px solid rgba(10, 22, 40, 0.09);
+  border-radius: 18px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(8, 18, 32, 0.03);
 }
 
-details.gsm-device-box {
-  background: #ffffff;
-  border: 1.5px solid rgba(10, 22, 40, 0.1);
-  border-radius: 14px;
-  overflow: hidden;
-  transition: all 0.2s ease;
-}
-
-details.gsm-device-box[open] {
+.gsm-device-card:hover {
   border-color: var(--coens-blue);
-  box-shadow: 0 10px 28px rgba(30, 111, 255, 0.08);
+  box-shadow: 0 16px 36px rgba(30, 111, 255, 0.1);
+  transform: translateY(-4px);
 }
 
-details.gsm-device-box summary {
-  list-style: none !important;
-  padding: 18px 22px;
-  background: var(--coens-light);
-  cursor: pointer;
+.gsm-device-card-top {
+  background: linear-gradient(180deg, #f8faff 0%, #eef3fb 100%);
+  padding: 20px 20px 16px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  user-select: none;
-}
-
-details.gsm-device-box[open] summary {
-  background: #081220;
-  color: #ffffff;
-}
-
-details.gsm-device-box summary::-webkit-details-marker,
-details.gsm-device-box summary::marker {
-  display: none !important;
-}
-
-.gsm-device-summary-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.gsm-device-summary-left strong {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.08rem;
-  font-weight: 800;
-}
-
-.gsm-model-codes {
-  font-size: 0.78rem;
-  color: var(--coens-gray-600);
-  background: rgba(10, 22, 40, 0.06);
-  padding: 3px 10px;
-  border-radius: 6px;
-  font-weight: 500;
-}
-
-details.gsm-device-box[open] .gsm-model-codes {
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--coens-gold);
-}
-
-.gsm-summary-action {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--coens-blue);
-  background: #ffffff;
-  padding: 6px 14px;
-  border-radius: 8px;
-  border: 1px solid rgba(30, 111, 255, 0.25);
-  white-space: nowrap;
-}
-
-details.gsm-device-box[open] .gsm-summary-action {
-  background: var(--coens-blue);
-  color: #ffffff;
-  border-color: var(--coens-blue);
-}
-
-/* GSM Paradise Repair Rows Inside Accordion */
-.gsm-repair-table {
-  padding: 8px 22px 18px;
-  background: #ffffff;
-}
-
-.gsm-repair-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr auto;
   align-items: center;
   gap: 16px;
-  padding: 14px 0;
   border-bottom: 1px solid var(--coens-border-light);
 }
 
-.gsm-repair-row:last-child {
-  border-bottom: none;
-}
-
-.gsm-rep-name strong {
-  display: block;
-  font-family: 'Syne', sans-serif !important;
-  font-size: 0.96rem;
-  color: var(--coens-navy);
-}
-
-.gsm-rep-name span {
-  font-size: 0.8rem;
-  color: var(--coens-gray-600);
-}
-
-.gsm-rep-time {
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: var(--coens-gray-800);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.gsm-branch-checks {
+.gsm-device-thumb {
+  width: 64px;
+  height: 76px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid rgba(10, 22, 40, 0.08);
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.gsm-device-thumb img { max-height: 60px; width: auto; object-fit: contain; }
+
+.gsm-device-meta h4 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--coens-navy);
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.gsm-device-code {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--coens-gray-600);
+  background: #ffffff;
+  border: 1px solid rgba(10, 22, 40, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.gsm-device-quickprice { font-size: 0.82rem; font-weight: 700; color: var(--coens-blue); }
+
+.gsm-device-repairs {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+  flex: 1;
+}
+
+.gsm-rep-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  font-size: 0.76rem;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--coens-light);
+  border-radius: 10px;
+  border: 1px solid rgba(10, 22, 40, 0.05);
+}
+
+.gsm-rep-item.highlight {
+  background: #eef4ff;
+  border-color: rgba(30, 111, 255, 0.25);
+}
+
+.gsm-rep-item-left strong { display: block; font-size: 0.85rem; font-weight: 700; color: var(--coens-navy); }
+.gsm-rep-item-left span { font-size: 0.74rem; color: var(--coens-gray-600); display: block; }
+
+.gsm-rep-item-price {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: var(--coens-blue);
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+details.gsm-more-repairs {
+  margin-top: 4px;
+  border-top: 1px dashed rgba(10, 22, 40, 0.12);
+  padding-top: 10px;
+}
+
+details.gsm-more-repairs summary {
+  list-style: none !important;
+  cursor: pointer;
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--coens-white);
+  background: var(--coens-navy);
+  padding: 10px 14px;
+  border-radius: 9px;
+  text-align: center;
+  user-select: none;
+}
+
+details.gsm-more-repairs summary:hover { background: var(--coens-blue); }
+details.gsm-more-repairs summary::-webkit-details-marker,
+details.gsm-more-repairs summary::marker { display: none !important; }
+
+.gsm-more-list { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
+
+.gsm-store-stock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 10px;
+  margin-top: 6px;
+  border-top: 1px solid rgba(10, 22, 40, 0.06);
+  font-size: 0.73rem;
   font-weight: 600;
   color: #059669;
 }
 
-.gsm-branch-checks span {
-  background: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  padding: 3px 8px;
-  border-radius: 6px;
-  white-space: nowrap;
-}
+.gsm-store-stock span { background: #ecfdf5; border: 1px solid #a7f3d0; padding: 2px 7px; border-radius: 5px; }
 
-.gsm-rep-price {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.18rem;
-  font-weight: 800;
-  color: var(--coens-blue);
-  text-align: right;
-  white-space: nowrap;
-}
+/* 9. DIAGNOSTIC PROBLEMS, TWEEDE KANSJES, OPSTUREN, INRUILEN & WINKELS */
+.coens-problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
 
-/* Screen Quality Explanation Grid (In-Cell vs Soft OLED vs Origineel) */
-.gsm-quality-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 36px;
-}
-
-.gsm-quality-card {
+.coens-problem-card {
   background: #ffffff;
   border: 1.5px solid var(--coens-border-light);
   border-radius: 18px;
-  padding: 30px 24px;
-  position: relative;
+  padding: 30px 26px;
+  box-shadow: 0 10px 30px rgba(8, 18, 32, 0.04);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
-.gsm-quality-card.featured {
-  border-color: var(--coens-blue);
-  box-shadow: 0 16px 38px rgba(30, 111, 255, 0.1);
+.coens-prob-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  border-bottom: 1px solid var(--coens-border-light);
+  padding-bottom: 14px;
 }
 
-.gsm-quality-badge {
-  align-self: flex-start;
-  font-size: 0.74rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
+.coens-prob-title-group { display: flex; gap: 14px; align-items: center; }
+
+.coens-prob-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: #eef4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.coens-prob-title-group h3 { font-family: 'Syne', sans-serif !important; font-size: 1.18rem; font-weight: 800; color: var(--coens-navy); }
+.coens-prob-badges { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
+
+.coens-badge-price {
+  background: rgba(30, 111, 255, 0.12);
+  color: var(--coens-blue);
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800;
+  font-size: 0.84rem;
   padding: 4px 12px;
   border-radius: 20px;
-  background: #eef4ff;
-  color: var(--coens-blue);
+  white-space: nowrap;
 }
 
-.gsm-quality-card.featured .gsm-quality-badge {
-  background: var(--coens-blue);
-  color: #ffffff;
-}
+.coens-badge-time { background: #f4f6fa; color: var(--coens-gray-600); font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+.coens-diag-block { padding: 13px 15px; border-radius: 11px; font-size: 0.87rem; line-height: 1.58; }
+.coens-diag-block strong { display: block; font-family: 'Syne', sans-serif !important; font-size: 0.82rem; text-transform: uppercase; margin-bottom: 3px; }
+.coens-diag-symptom { background: #fff8f6; border-left: 3.5px solid #ef4444; color: #4a2121; }
+.coens-diag-symptom strong { color: #dc2626; }
+.coens-diag-tip { background: #fffbeb; border-left: 3.5px solid var(--coens-gold); color: #4d3808; }
+.coens-diag-tip strong { color: #b45309; }
+.coens-diag-solution { background: #f0fdf4; border-left: 3.5px solid #10b981; color: #134e32; }
+.coens-diag-solution strong { color: #059669; }
 
-.gsm-quality-card h3 {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.22rem;
-  color: var(--coens-navy);
-}
+.tk-grade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 16px; }
+.tk-grade-card { background: #ffffff; border: 1.5px solid var(--coens-border-light); border-radius: 18px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; }
+.tk-grade-card.gold-border { border-color: var(--coens-gold); background: linear-gradient(180deg, #fffdf7 0%, #ffffff 100%); }
+.tk-grade-pill { align-self: flex-start; font-family: 'Syne', sans-serif !important; font-size: 0.78rem; font-weight: 800; padding: 5px 12px; border-radius: 20px; background: #081220; color: var(--coens-gold); }
+.tk-grade-card h3 { font-family: 'Syne', sans-serif !important; font-size: 1.25rem; color: var(--coens-navy); }
+.tk-grade-card p { font-size: 0.88rem; color: var(--coens-gray-600); }
+.tk-spec-pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 14px; }
+.tk-spec-pill { font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; background: #f0f4fa; color: var(--coens-navy); }
+.tk-spec-pill.green { background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; }
+.tk-price-box { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 14px; background: var(--coens-light); border-radius: 12px; margin-bottom: 14px; }
+.tk-old-price { font-size: 0.82rem; color: var(--coens-gray-600); text-decoration: line-through !important; }
+.tk-new-price { font-family: 'Syne', sans-serif !important; font-size: 1.45rem; font-weight: 800; color: var(--coens-blue); }
 
-.gsm-quality-card p {
-  font-size: 0.88rem;
-  color: var(--coens-gray-600);
-  line-height: 1.65;
-}
+.coens-step-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.coens-step-box { background: #ffffff; border: 1.5px solid var(--coens-border-light); border-radius: 18px; padding: 28px 22px; display: flex; flex-direction: column; gap: 10px; }
+.coens-step-number { width: 42px; height: 42px; border-radius: 12px; background: var(--coens-blue); color: #ffffff; font-family: 'Syne', sans-serif !important; font-weight: 800; font-size: 1.15rem; display: flex; align-items: center; justify-content: center; }
+.coens-step-box h3 { font-family: 'Syne', sans-serif !important; font-size: 1.12rem; color: var(--coens-navy); }
+.coens-step-box p { font-size: 0.86rem; color: var(--coens-gray-600); }
 
-/* 8. STORES SECTION */
-.coens-stores-section {
-  background: var(--coens-navy);
-  color: #ffffff;
-  padding: 85px 6%;
-}
+.coens-two-col-panel { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: start; }
+.coens-form-card { background: #ffffff; border: 1.5px solid var(--coens-border-light); border-radius: 22px; padding: 36px 32px; box-shadow: var(--coens-shadow); }
+.coens-form-card h3 { font-family: 'Syne', sans-serif !important; font-size: 1.45rem; color: var(--coens-navy); margin-bottom: 6px; }
+.coens-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+.coens-form-group { display: flex; flex-direction: column; gap: 6px; }
+.coens-form-group.full { grid-column: 1 / -1; }
+.coens-form-group label { font-size: 0.84rem; font-weight: 700; color: var(--coens-navy); }
+.coens-form-group input, .coens-form-group select, .coens-form-group textarea { width: 100% !important; padding: 12px 15px !important; border-radius: 10px !important; border: 1.5px solid rgba(10, 22, 40, 0.14) !important; background: #f9fbff !important; font-family: 'Inter', sans-serif !important; font-size: 0.92rem !important; color: var(--coens-navy) !important; outline: none !important; }
+.coens-pakbon-card { background: linear-gradient(145deg, #081220 0%, #0d274c 100%); border-radius: 22px; padding: 36px 30px; color: #ffffff; }
+.coens-pakbon-card h3 { font-family: 'Syne', sans-serif !important; font-size: 1.35rem; color: var(--coens-gold); margin-bottom: 12px; }
+.coens-address-ticket { background: rgba(255, 255, 255, 0.07); border: 1.5px dashed rgba(245, 166, 35, 0.5); border-radius: 14px; padding: 20px; margin: 18px 0; font-size: 0.92rem; line-height: 1.7; }
+.inruil-bonus-banner { background: linear-gradient(135deg, #081220 0%, #102a52 100%); border-radius: 20px; padding: 32px; color: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; margin-bottom: 36px; border: 1px solid rgba(245, 166, 35, 0.3); }
 
-.coens-stores-section .coens-title {
-  color: #ffffff !important;
-}
+.winkels-showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.winkel-detail-card { background: #ffffff; border: 1.5px solid var(--coens-border-light); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 12px 35px rgba(8, 18, 32, 0.06); }
+.winkel-card-banner { background: linear-gradient(135deg, #081220 0%, #0d2854 100%); padding: 26px 24px; color: #ffffff; border-bottom: 3px solid var(--coens-gold); }
+.winkel-card-banner span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--coens-gold); font-weight: 700; }
+.winkel-card-banner h3 { font-family: 'Syne', sans-serif !important; font-size: 1.45rem; color: #ffffff; margin-top: 4px; }
+.winkel-card-body { padding: 26px 24px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
+.winkel-info-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: var(--coens-gray-800); }
+.winkel-info-list li { display: flex; align-items: flex-start; gap: 10px; }
+.winkel-hours-box { background: var(--coens-light); border-radius: 12px; padding: 14px 16px; font-size: 0.84rem; }
+.winkel-hours-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px dashed rgba(10, 22, 40, 0.08); }
+.winkel-hours-row:last-child { border-bottom: none; }
 
-.coens-stores-section .coens-sub {
-  color: rgba(255, 255, 255, 0.65);
-}
+/* 10. STORES, PROMO BANNER & FOOTER */
+.coens-stores-section { background: var(--coens-navy); color: #ffffff; padding: 85px 6%; }
+.coens-stores-section .coens-title { color: #ffffff !important; }
+.coens-stores-section .coens-sub { color: rgba(255, 255, 255, 0.65); }
+.coens-stores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 44px; }
+.coens-store-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--coens-radius); padding: 32px 26px; display: flex; flex-direction: column; }
+.coens-store-card h3 { font-family: 'Syne', sans-serif !important; font-size: 1.3rem; color: #ffffff; margin-bottom: 10px; }
+.coens-store-detail { display: flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, 0.78); font-size: 0.88rem; margin-bottom: 8px; }
+.coens-store-card .coens-btn-cta { margin-top: 22px; width: 100%; }
 
-.coens-stores-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-  margin-top: 44px;
-}
+.coens-promo-banner { background: linear-gradient(135deg, #0d2142 0%, #08172e 100%); padding: 70px 6%; color: #ffffff; }
+.coens-promo-inner { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 28px; }
+.coens-promo-text h2 { font-family: 'Syne', sans-serif !important; font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 800; line-height: 1.25; }
+.coens-promo-text h2 span { color: var(--coens-gold); }
+.coens-promo-text p { color: rgba(255, 255, 255, 0.75); font-size: 0.96rem; margin-top: 6px; max-width: 540px; }
+.coens-promo-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
-.coens-store-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--coens-radius);
-  padding: 32px 26px;
-  display: flex;
-  flex-direction: column;
-}
-
-.coens-store-card h3 {
-  font-family: 'Syne', sans-serif !important;
-  font-size: 1.3rem;
-  color: #ffffff;
-  margin-bottom: 10px;
-}
-
-.coens-store-detail {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.88rem;
-  margin-bottom: 8px;
-}
-
-.coens-store-card .coens-btn-cta {
-  margin-top: 22px;
-  width: 100%;
-}
-
-/* 9. PROMO BANNER */
-.coens-promo-banner {
-  background: linear-gradient(135deg, #0d2142 0%, #08172e 100%);
-  padding: 70px 6%;
-  color: #ffffff;
-}
-
-.coens-promo-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 28px;
-}
-
-.coens-promo-text h2 {
-  font-family: 'Syne', sans-serif !important;
-  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
-  font-weight: 800;
-  line-height: 1.25;
-}
-
-.coens-promo-text h2 span {
-  color: var(--coens-gold);
-}
-
-.coens-promo-text p {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.96rem;
-  margin-top: 6px;
-  max-width: 540px;
-}
-
-.coens-promo-btns {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* 10. FOOTER */
-.coens-footer {
-  background: #040910;
-  color: rgba(255, 255, 255, 0.65);
-  padding: 70px 6% 32px;
-  font-size: 0.88rem;
-}
-
-.coens-footer-grid {
-  max-width: 1240px;
-  margin: 0 auto 44px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-}
-
-.coens-footer-col h4 {
-  font-family: 'Syne', sans-serif !important;
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.coens-footer-col ul {
-  list-style: none;
-}
-
-.coens-footer-col ul li {
-  margin-bottom: 8px;
-}
-
-.coens-footer-col a:hover {
-  color: #ffffff;
-}
-
-.coens-footer-bottom {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding-top: 26px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
-  font-size: 0.82rem;
-}
+.coens-footer { background: #040910; color: rgba(255, 255, 255, 0.65); padding: 70px 6% 32px; font-size: 0.88rem; }
+.coens-footer-grid { max-width: 1240px; margin: 0 auto 44px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+.coens-footer-col h4 { font-family: 'Syne', sans-serif !important; color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
+.coens-footer-col ul { list-style: none; }
+.coens-footer-col ul li { margin-bottom: 8px; }
+.coens-footer-col a:hover { color: #ffffff; }
+.coens-footer-bottom { max-width: 1240px; margin: 0 auto; padding-top: 26px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 0.82rem; }
 
 /* ========================================================
-   11. MOBILE & TABLET MASTER RULES (<= 991px)
+   11. TABLET & IPAD VIEWPORT RULES (<= 1024px)
+   Ensures zero menu cramping and clean 2-column grids
    ======================================================== */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
   .coens-desktop-nav {
     display: none !important;
   }
@@ -1281,10 +1153,10 @@ details.gsm-device-box[open] .gsm-summary-action {
     font-size: 1rem !important;
   }
 
-  /* Collapse multi-column layouts cleanly on tablet/mobile */
   .coens-hero-grid,
   .coens-why-grid,
-  .gsm-quality-grid {
+  .coens-problem-grid,
+  .coens-two-col-panel {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
   }
@@ -1293,24 +1165,19 @@ details.gsm-device-box[open] .gsm-summary-action {
     display: none !important;
   }
 
-  .gsm-brands-grid {
+  .alle-merken {
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 14px !important;
+    gap: 16px !important;
   }
 
+  .gsm-device-grid,
   .coens-services-grid,
-  .coens-stores-grid {
+  .coens-stores-grid,
+  .tk-grade-grid,
+  .coens-step-grid-4,
+  .winkels-showcase-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px !important;
-  }
-
-  .gsm-repair-row {
-    grid-template-columns: 1fr auto !important;
-    gap: 8px !important;
-  }
-
-  .gsm-branch-checks {
-    grid-column: 1 / -1 !important;
   }
 
   .coens-footer-grid {
@@ -1335,52 +1202,31 @@ details.gsm-device-box[open] .gsm-summary-action {
     padding: 40px 5% 38px !important;
   }
 
-  .coens-eyebrow {
-    font-size: 0.72rem !important;
-    padding: 5px 12px !important;
-    margin-bottom: 14px !important;
-  }
-
   .coens-hero h1 {
     font-size: 1.85rem !important;
     line-height: 1.2 !important;
-    margin-bottom: 14px !important;
-  }
-
-  .coens-hero-sub {
-    font-size: 0.94rem !important;
-    line-height: 1.55 !important;
-    margin-bottom: 22px !important;
   }
 
   .coens-search-form {
     flex-direction: column !important;
     padding: 10px !important;
     gap: 10px !important;
-    width: 100% !important;
   }
 
   .coens-btn-search {
     width: 100% !important;
     height: 48px !important;
-    padding: 0 !important;
   }
 
   .coens-hero-stats {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 8px !important;
-    padding-top: 18px !important;
     text-align: center !important;
   }
 
   .coens-stat-num {
     font-size: 1.55rem !important;
-  }
-
-  .coens-stat-label {
-    font-size: 0.72rem !important;
-    line-height: 1.25 !important;
   }
 
   .coens-section,
@@ -1389,67 +1235,46 @@ details.gsm-device-box[open] .gsm-summary-action {
     padding: 52px 5% !important;
   }
 
-  .coens-section-header {
-    margin-bottom: 32px !important;
-  }
-
-  .coens-title {
-    font-size: 1.65rem !important;
-  }
-
-  .gsm-brands-grid {
+  .alle-merken {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px !important;
   }
 
-  .gsm-brand-tile {
-    padding: 20px 12px 16px !important;
+  .alle-merken__item {
+    padding: 20px 14px 16px !important;
   }
 
+  .gsm-device-grid,
   .coens-services-grid,
   .coens-stores-grid,
-  .gsm-quality-grid {
+  .coens-problem-grid,
+  .tk-grade-grid,
+  .coens-step-grid-4,
+  .winkels-showcase-grid,
+  .coens-form-grid {
     grid-template-columns: 1fr !important;
     gap: 18px !important;
   }
 
-  .gsm-brand-showcase {
+  .gsm-brand-section,
+  .coens-form-card,
+  .coens-pakbon-card {
     padding: 22px 16px !important;
-  }
-
-  details.gsm-device-box summary {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    padding: 14px 16px !important;
-  }
-
-  .gsm-summary-action {
-    width: 100% !important;
-    text-align: center !important;
-  }
-
-  .gsm-repair-table {
-    padding: 6px 14px 14px !important;
   }
 
   .coens-why-box {
     padding: 24px 18px !important;
-    border-radius: 16px !important;
   }
 
   .coens-fact-row {
     display: grid !important;
     grid-template-columns: 92px 1fr !important;
-    align-items: center !important;
     gap: 12px !important;
-    margin-bottom: 20px !important;
   }
 
   .coens-fact-num {
     font-size: 1.8rem !important;
     min-width: unset !important;
-    width: auto !important;
-    white-space: nowrap !important;
   }
 
   .coens-footer-grid {
@@ -1465,6 +1290,5 @@ details.gsm-device-box[open] .gsm-summary-action {
   .coens-footer-bottom {
     flex-direction: column !important;
     text-align: center !important;
-    gap: 10px !important;
   }
 }
