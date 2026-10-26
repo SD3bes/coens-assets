@@ -39,11 +39,14 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* OFFICIAL LOGO PERFECT FIT FIX */
+/* ========================================================
+   COEN'S LOGO - TIGHT & COMPACT SIZING FIX
+   ======================================================== */
 .coens-logo {
   display: inline-flex !important;
   align-items: center !important;
-  height: 48px !important;
-  max-width: 220px !important;
+  height: 36px !important;
+  max-width: 160px !important;
   text-decoration: none !important;
   vertical-align: middle !important;
 }
@@ -51,7 +54,8 @@ img { max-width: 100%; height: auto; display: block; }
 .coens-logo img {
   height: 100% !important;
   width: auto !important;
-  max-height: 48px !important;
+  max-height: 36px !important;
+  max-width: 160px !important;
   object-fit: contain !important;
   display: block !important;
   border: none !important;
@@ -59,9 +63,24 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .coens-footer .coens-logo {
-  height: 42px !important;
-  max-width: 190px !important;
+  height: 32px !important;
+  max-width: 145px !important;
   margin-bottom: 4px;
+}
+
+.coens-footer .coens-logo img {
+  max-height: 32px !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .coens-logo {
+    height: 30px !important;
+    max-width: 130px !important;
+  }
+  .coens-logo img {
+    max-height: 30px !important;
+  }
 }
 
 /* TOP TRUST BAR */
