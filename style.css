@@ -46,21 +46,27 @@ img { max-width: 100%; height: auto; display: block; }
    COEN'S LOGO - ABSOLUTE ALIGNMENT FIX
    ======================================================== */
 .coens-logo {
-  display: flex !important;
-  align-items: center !important;
+  display: inline-block !important;
   flex-shrink: 0 !important;
   width: 170px !important;
   height: 40px !important;
   margin-right: 20px !important;
   text-decoration: none !important;
+  /* Render the official logo image on EVERY page, even where the
+     page markup still uses the old "Coen's" text node */
+  background-image: url("https://www.coens.nl/wp-content/uploads/2017/10/coens_for_dark_72dpi.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: left center !important;
+  background-size: contain !important;
+  font-size: 0 !important;   /* hides the fallback "Coen's" text */
+  line-height: 0 !important;
+  overflow: hidden !important;
 }
 
+/* Hide any inline <img> logo so pages that already have one
+   (e.g. the homepage) don't show the logo twice */
 .coens-logo img {
-  width: 100% !important;
-  height: auto !important;
-  max-height: 40px !important;
-  object-fit: contain !important;
-  display: block !important;
+  display: none !important;
 }
 
 .coens-nav-inner {
