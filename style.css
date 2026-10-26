@@ -1292,3 +1292,145 @@ details.gsm-more-repairs summary::marker { display: none !important; }
     text-align: center !important;
   }
 }
+/* ========================================================
+   LEGAL PAGES (DISCLAIMER, COOKIES, VOORWAARDEN) & VACATURES
+   ======================================================== */
+.coens-legal-card {
+  background: #ffffff;
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: 22px;
+  padding: 48px 44px;
+  max-width: 920px;
+  margin: 0 auto;
+  box-shadow: var(--coens-shadow);
+}
+
+.coens-legal-card h2 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--coens-navy);
+  margin: 32px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--coens-border-light);
+}
+
+.coens-legal-card h2:first-of-type {
+  margin-top: 20px;
+}
+
+.coens-legal-card p {
+  font-size: 0.95rem;
+  color: var(--coens-gray-800);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.coens-legal-list {
+  margin: 12px 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.94rem;
+  color: var(--coens-gray-800);
+}
+
+.coens-legal-list a {
+  color: var(--coens-blue) !important;
+  font-weight: 600;
+  text-decoration: underline !important;
+}
+
+/* Vacatures Job Cards */
+.coens-jobs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.coens-job-card {
+  background: #ffffff;
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: 22px;
+  padding: 38px 32px;
+  box-shadow: var(--coens-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.coens-job-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  background: #eef4ff;
+  color: var(--coens-blue);
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 5px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.coens-job-card h2 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.5rem;
+  color: var(--coens-navy);
+  line-height: 1.25;
+}
+
+.coens-job-card h3 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 1.05rem;
+  color: var(--coens-navy);
+  margin-top: 6px;
+}
+
+.coens-job-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--coens-gray-800);
+}
+
+.coens-job-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.coens-job-list li::before {
+  content: '✓';
+  color: var(--coens-blue);
+  font-weight: 800;
+}
+
+/* GDPR Checkbox Styling */
+.coens-gdpr-label {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  font-size: 0.84rem !important;
+  font-weight: 400 !important;
+  color: var(--coens-gray-600) !important;
+  cursor: pointer;
+}
+
+.coens-gdpr-label input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  margin-top: 2px !important;
+  flex-shrink: 0 !important;
+  accent-color: var(--coens-blue);
+}
+
+@media (max-width: 991px) {
+  .coens-jobs-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .coens-legal-card {
+    padding: 30px 22px !important;
+  }
+}
