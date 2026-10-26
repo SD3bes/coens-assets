@@ -42,24 +42,40 @@ img { max-width: 100%; height: auto; display: block; }
 /* ========================================================
    COEN'S LOGO - TIGHT & COMPACT SIZING FIX
    ======================================================== */
+/* ========================================================
+   COEN'S LOGO - ABSOLUTE ALIGNMENT FIX
+   ======================================================== */
 .coens-logo {
-  display: inline-flex !important;
+  display: flex !important;
   align-items: center !important;
-  height: 36px !important;
-  max-width: 160px !important;
+  flex-shrink: 0 !important;
+  width: 170px !important;
+  height: 40px !important;
+  margin-right: 20px !important;
   text-decoration: none !important;
-  vertical-align: middle !important;
 }
 
 .coens-logo img {
-  height: 100% !important;
-  width: auto !important;
-  max-height: 36px !important;
-  max-width: 160px !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 40px !important;
   object-fit: contain !important;
   display: block !important;
-  border: none !important;
-  box-shadow: none !important;
+}
+
+.coens-nav-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+}
+
+.coens-desktop-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+  flex: 1 !important;
+  justify-content: flex-end !important;
 }
 
 .coens-footer .coens-logo {
