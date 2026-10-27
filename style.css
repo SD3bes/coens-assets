@@ -1302,14 +1302,20 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 
   .coens-fact-row {
     display: grid !important;
-    grid-template-columns: 92px 1fr !important;
-    gap: 12px !important;
+    grid-template-columns: minmax(64px, max-content) 1fr !important;
+    gap: 14px !important;
+    align-items: center !important;
   }
 
   .coens-fact-num {
-    font-size: 1.8rem !important;
+    font-size: 1.7rem !important;
     min-width: unset !important;
+    width: auto !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.5px !important;
   }
+
+  .coens-fact-num span { font-size: 0.95rem !important; margin-left: 3px !important; }
 
   .coens-footer-grid {
     grid-template-columns: 1fr !important;
