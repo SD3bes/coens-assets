@@ -219,8 +219,40 @@
     if (cta) drawer.insertBefore(box, cta); else drawer.appendChild(box);
   }
 
+  /* ---------- 7. Dark / light theme toggle ---------- */
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    Array.prototype.forEach.call(document.querySelectorAll('.coens-theme-toggle'), function (b) {
+      b.textContent = t === 'dark' ? '☀️' : '🌙';
+      b.setAttribute('aria-label', t === 'dark' ? 'Schakel naar licht thema' : 'Schakel naar donker thema');
+      b.title = b.getAttribute('aria-label');
+    });
+  }
+  function themeToggle() {
+    var saved = null; try { saved = localStorage.getItem('coens-theme'); } catch (e) {}
+    var sys = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    var nav = document.querySelector('.coens-nav-inner');
+    if (nav && !nav.querySelector('.coens-theme-toggle')) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'coens-theme-toggle';
+      var mob = nav.querySelector('.coens-mobile-nav');
+      if (mob) nav.insertBefore(b, mob); else nav.appendChild(b);
+      b.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('coens-theme', next); } catch (e) {}
+        applyTheme(next);
+      });
+    }
+    applyTheme(saved || sys);
+    if (!saved && window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        var s2 = null; try { s2 = localStorage.getItem('coens-theme'); } catch (x) {}
+        if (!s2) applyTheme(e.matches ? 'dark' : 'light');
+      });
+    }
+  }
+
   ready(function () {
-    [stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema].forEach(function (fn) {
+    [themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema].forEach(function (fn) {
       try { fn(); } catch (e) { if (window.console) console.warn('coens-ui:', fn.name, e); }
     });
   });
