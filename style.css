@@ -261,8 +261,8 @@ img {
   gap: 8px;
 }
 
-/* DESKTOP NAV (>= 1280px: the full menu needs ~1300px, smaller screens use the drawer) */
-@media (min-width: 1280px) {
+/* DESKTOP NAV (>= 1140px: the 5-link menu needs ~1000px, smaller screens use the drawer) */
+@media (min-width: 1140px) {
   .coens-mobile-nav {
     display: none !important;
   }
@@ -1082,7 +1082,7 @@ details.gsm-more-repairs summary::marker { display: none !important; }
    11. TABLET & IPAD VIEWPORT RULES (<= 1024px)
    Ensures zero menu cramping and clean 2-column grids
    ======================================================== */
-@media (max-width: 1279px) {
+@media (max-width: 1139px) {
   .coens-desktop-nav {
     display: none !important;
   }
@@ -1473,19 +1473,16 @@ details.gsm-more-repairs summary::marker { display: none !important; }
    NAV FIX - small laptops and pages without a hamburger
    ======================================================== */
 
-/* Tighter desktop menu so all links fit from 1280px up */
-@media (min-width: 1280px) and (max-width: 1459px) {
-  .coens-nav { padding: 16px 24px !important; }
-  .coens-logo { width: 150px !important; margin-right: 12px !important; }
-  .coens-desktop-nav { gap: 16px !important; }
-  .coens-menu { gap: 14px !important; }
-  .coens-menu a { font-size: 0.85rem !important; }
-  .coens-desktop-nav .coens-btn-cta, .coens-desktop-nav .coens-btn-whatsapp, .coens-desktop-nav .coens-btn-ghost { padding: 10px 14px !important; font-size: 0.84rem !important; }
+/* Wide screens: spread the short menu out so the bar doesn't look empty */
+@media (min-width: 1300px) {
+  .coens-desktop-nav { gap: 36px !important; }
+  .coens-menu { gap: 34px !important; }
+  .coens-menu a { font-size: 0.95rem !important; padding: 8px 0 !important; }
 }
 
 /* Pages without a hamburger (e.g. Vacatures, Algemene voorwaarden):
    keep their short menu visible and let it wrap under the logo */
-@media (max-width: 1279px) {
+@media (max-width: 1139px) {
   .coens-nav-inner:not(:has(.coens-mobile-nav)) { flex-wrap: wrap !important; row-gap: 14px !important; }
   .coens-nav-inner:not(:has(.coens-mobile-nav)) .coens-desktop-nav {
     display: flex !important; flex-wrap: wrap !important; flex-basis: 100% !important;
