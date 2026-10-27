@@ -1473,14 +1473,13 @@ details.gsm-more-repairs summary::marker { display: none !important; }
    NAV FIX - small laptops and pages without a hamburger
    ======================================================== */
 
-/* Desktop layout: logo, then the links right next to it, button on the far right */
+/* Desktop layout: logo left, button right, links centred between them */
 @media (min-width: 1140px) {
   .coens-nav-inner { justify-content: flex-start !important; }
-  .coens-logo { margin-right: 44px !important; }
-  .coens-desktop-nav { flex: 1 !important; justify-content: flex-start !important; gap: 28px !important; }
-  .coens-desktop-nav > :last-child { margin-left: auto !important; }
-  .coens-desktop-nav > p { margin: 0 0 0 auto !important; display: flex !important; }
-  .coens-menu { gap: 28px !important; }
+  .coens-logo { margin-right: 24px !important; }
+  .coens-desktop-nav { flex: 1 !important; justify-content: flex-start !important; gap: 24px !important; }
+  .coens-menu { gap: 30px !important; margin: 0 auto !important; }
+  .coens-desktop-nav > p { margin: 0 !important; display: flex !important; }
   .coens-menu a { font-size: 0.93rem !important; padding: 8px 0 !important; }
 }
 
