@@ -1638,3 +1638,6 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 .coens-drawer-stores .coens-store-status { margin: 0; font-size: 0.7rem; padding: 4px 9px; white-space: nowrap; }
 .coens-drawer-stores a > span:first-child { white-space: nowrap; flex-shrink: 0; }
 .coens-drawer-stores .coens-store-status { font-size: 0.68rem; padding: 4px 8px; }
+
+/* --- Hide the empty paragraph WordPress wraps around the <link>/<script> tags at the top of each page (caused a 25px gap above the top bar) --- */
+p:has(> link[rel="stylesheet"]), p:has(> script:only-child), .entry-content > p:has(> link) { display: none !important; margin: 0 !important; padding: 0 !important; height: 0 !important; }
