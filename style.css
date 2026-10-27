@@ -1513,11 +1513,11 @@ details.gsm-more-repairs summary::marker { display: none !important; }
    ======================================================== */
 
 /* --- Repair wizard (hero) --- */
-.coens-hero-visual--wizard { display: flex !important; align-items: flex-start !important; }
+.coens-hero-visual--wizard { display: flex !important; align-items: center !important; }
 #coens-wizard {
   width: 100%; max-width: 460px; background: #ffffff; color: var(--coens-gray-800);
   border-radius: 22px; padding: 22px 22px 20px; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
-  min-height: 300px; font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 #coens-wizard .cw-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 #coens-wizard h3 { font-family: 'Syne', sans-serif !important; font-size: 1.1rem; color: var(--coens-navy); margin: 0; }
@@ -1528,7 +1528,7 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 #coens-wizard .cw-steps li.done span { background: var(--coens-navy); color: #fff; }
 #coens-wizard .cw-q { font-weight: 600; font-size: 0.95rem; color: var(--coens-navy); margin: 0 0 12px; }
 #coens-wizard .cw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-#coens-wizard .cw-opt { background: #fff; border: 1.5px solid var(--coens-border-light); border-radius: 14px; padding: 14px 8px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; font-family: inherit; transition: all .2s; }
+#coens-wizard .cw-opt { background: #fff; border: 1.5px solid var(--coens-border-light); border-radius: 14px; padding: 18px 8px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; font-family: inherit; transition: all .2s; }
 #coens-wizard .cw-opt:hover { border-color: var(--coens-blue); box-shadow: var(--coens-shadow); transform: translateY(-2px); }
 #coens-wizard .cw-opt .cw-ico { font-size: 1.5rem; }
 #coens-wizard .cw-opt strong { font-size: 0.9rem; color: var(--coens-navy); }
