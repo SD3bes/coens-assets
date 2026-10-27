@@ -1818,3 +1818,11 @@ html[data-theme="light"] .coens-drawer-app { background: #fff4d6 !important; bor
 html[data-theme="light"] .coens-drawer-app span { color: #8a6d3b; }
 .coens-footer-app { display: inline-block; margin-top: 12px; font-size: 0.86rem; font-weight: 600; color: var(--coens-gold) !important; text-decoration: none; }
 html[data-theme="light"] .coens-footer-app { color: #b36b00 !important; }
+
+/* --- Logged-in admins: keep the site below the WordPress admin bar (visitors are unaffected) --- */
+body.admin-bar { padding-top: 32px !important; }
+body.admin-bar .coens-nav { top: 32px !important; }
+@media (max-width: 782px) {
+  body.admin-bar { padding-top: 46px !important; }
+  body.admin-bar .coens-nav { top: 46px !important; }
+}
