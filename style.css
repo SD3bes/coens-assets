@@ -1810,3 +1810,11 @@ html[data-theme="light"] .coens-footer-bottom { border-top-color: rgba(8,18,32,0
 html[data-theme="light"] .coens-nav a:not(.coens-btn-cta):not(.coens-btn-whatsapp) { color: #3b4a63 !important; }
 html[data-theme="light"] .coens-nav a.active { color: var(--coens-navy) !important; }
 html[data-theme="light"] .coens-nav-inner:not(:has(.coens-mobile-nav)) .coens-menu a { color: #3b4a63 !important; }
+
+/* --- App links (drawer + footer) --- */
+.coens-drawer-app { display: flex !important; flex-direction: column; gap: 2px; margin-top: 10px; padding: 10px 12px !important; border-radius: 10px; background: rgba(245,166,35,0.14) !important; border: 1px solid rgba(245,166,35,0.35) !important; color: #fff !important; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+.coens-drawer-app span { font-weight: 500; font-size: 0.76rem; color: rgba(255,255,255,0.7); }
+html[data-theme="light"] .coens-drawer-app { background: #fff4d6 !important; border-color: rgba(245,166,35,0.5) !important; color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-drawer-app span { color: #8a6d3b; }
+.coens-footer-app { display: inline-block; margin-top: 12px; font-size: 0.86rem; font-weight: 600; color: var(--coens-gold) !important; text-decoration: none; }
+html[data-theme="light"] .coens-footer-app { color: #b36b00 !important; }
