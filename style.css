@@ -1636,3 +1636,5 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 .coens-drawer-stores a { display: flex !important; justify-content: space-between; align-items: center; gap: 10px; padding: 7px 0 !important; color: #ffffff !important; font-weight: 600; font-size: 0.9rem; text-decoration: none; border: none !important; background: none !important; }
 .coens-drawer-stores a + a { border-top: 1px solid rgba(255,255,255,0.08) !important; }
 .coens-drawer-stores .coens-store-status { margin: 0; font-size: 0.7rem; padding: 4px 9px; white-space: nowrap; }
+.coens-drawer-stores a > span:first-child { white-space: nowrap; flex-shrink: 0; }
+.coens-drawer-stores .coens-store-status { font-size: 0.68rem; padding: 4px 8px; }
