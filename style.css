@@ -1500,3 +1500,117 @@ details.gsm-more-repairs summary::marker { display: none !important; }
   }
   .coens-nav-inner:not(:has(.coens-mobile-nav)) .coens-menu a.active { color: #ffffff !important; }
 }
+
+/* ========================================================
+   UI ADD-ONS (ported from the rebuild): wizard, FAQ, steps,
+   store badges, sticky phone bar, Pulled vs OEM block
+   ======================================================== */
+
+/* --- Repair wizard (hero) --- */
+.coens-hero-visual--wizard { display: flex !important; align-items: flex-start !important; }
+#coens-wizard {
+  width: 100%; max-width: 460px; background: #ffffff; color: var(--coens-gray-800);
+  border-radius: 22px; padding: 22px 22px 20px; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  min-height: 300px; font-family: 'Inter', sans-serif;
+}
+#coens-wizard .cw-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+#coens-wizard h3 { font-family: 'Syne', sans-serif !important; font-size: 1.1rem; color: var(--coens-navy); margin: 0; }
+#coens-wizard .cw-steps { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
+#coens-wizard .cw-steps li { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; color: var(--coens-gray-600); }
+#coens-wizard .cw-steps li span { width: 22px; height: 22px; border-radius: 50%; background: var(--coens-gray-100); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.72rem; }
+#coens-wizard .cw-steps li.active span { background: var(--coens-gold); color: #fff; }
+#coens-wizard .cw-steps li.done span { background: var(--coens-navy); color: #fff; }
+#coens-wizard .cw-q { font-weight: 600; font-size: 0.95rem; color: var(--coens-navy); margin: 0 0 12px; }
+#coens-wizard .cw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+#coens-wizard .cw-opt { background: #fff; border: 1.5px solid var(--coens-border-light); border-radius: 14px; padding: 14px 8px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; font-family: inherit; transition: all .2s; }
+#coens-wizard .cw-opt:hover { border-color: var(--coens-blue); box-shadow: var(--coens-shadow); transform: translateY(-2px); }
+#coens-wizard .cw-opt .cw-ico { font-size: 1.5rem; }
+#coens-wizard .cw-opt strong { font-size: 0.9rem; color: var(--coens-navy); }
+#coens-wizard .cw-opt small { font-size: 0.72rem; color: var(--coens-gray-600); }
+#coens-wizard .cw-back { background: none; border: none; color: var(--coens-gray-600); font-size: 0.8rem; cursor: pointer; padding: 0; margin-bottom: 8px; font-family: inherit; }
+#coens-wizard .cw-back:hover { color: var(--coens-blue); }
+#coens-wizard .cw-search { width: 100%; border: 1.5px solid var(--coens-border-light); border-radius: 10px; padding: 10px 12px; font-size: 0.9rem; margin-bottom: 10px; font-family: inherit; }
+#coens-wizard .cw-search:focus { outline: none; border-color: var(--coens-blue); }
+#coens-wizard .cw-list { max-height: 230px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; padding-right: 2px; }
+#coens-wizard .cw-model { display: flex; justify-content: space-between; align-items: center; background: var(--coens-gray-100); border: 1px solid transparent; border-radius: 10px; padding: 10px 12px; font-size: 0.88rem; font-weight: 500; color: var(--coens-navy); cursor: pointer; text-align: left; font-family: inherit; }
+#coens-wizard .cw-model:hover { border-color: var(--coens-blue); background: #eef4ff; }
+#coens-wizard .cw-model span { color: var(--coens-gray-600); }
+#coens-wizard .cw-loading, #coens-wizard .cw-empty { color: var(--coens-gray-600); font-size: 0.88rem; }
+#coens-wizard .cw-prices { display: flex; flex-direction: column; gap: 6px; max-height: 250px; overflow-y: auto; }
+#coens-wizard .cw-price { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; background: var(--coens-gray-100); font-size: 0.86rem; }
+#coens-wizard .cw-price.hi { background: #fff6e3; border: 1px solid rgba(245, 166, 35, 0.4); }
+#coens-wizard .cw-price strong { display: block; color: var(--coens-navy); font-size: 0.86rem; }
+#coens-wizard .cw-price small { color: var(--coens-gray-600); font-size: 0.74rem; }
+#coens-wizard .cw-price b { color: var(--coens-blue); white-space: nowrap; }
+#coens-wizard .cw-note { font-size: 0.74rem; color: var(--coens-gray-600); margin: 10px 0 12px; }
+#coens-wizard .cw-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+#coens-wizard .cw-wa { font-size: 0.84rem; font-weight: 600; color: #0d8f5f; text-decoration: none; }
+.coens-chip--wa { background: rgba(16, 185, 129, 0.18) !important; border-color: rgba(16, 185, 129, 0.4) !important; }
+.coens-chip--wa:hover { background: #10b981 !important; border-color: #10b981 !important; }
+
+/* --- "Zo werkt het" steps --- */
+.coens-steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.coens-step { position: relative; background: #fff; border: 1.5px solid var(--coens-border-light); border-radius: var(--coens-radius); padding: 34px 28px 30px; }
+.coens-step-num { width: 44px; height: 44px; border-radius: 12px; background: var(--coens-navy); color: var(--coens-gold); font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.coens-step h3 { font-family: 'Syne', sans-serif !important; font-size: 1.1rem; color: var(--coens-navy); margin-bottom: 8px; }
+.coens-step p { color: var(--coens-gray-600); font-size: 0.92rem; line-height: 1.65; }
+
+/* --- FAQ --- */
+.coens-faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+.coens-faq details { background: #fff; border: 1.5px solid var(--coens-border-light); border-radius: 14px; padding: 0 22px; }
+.coens-faq details[open] { border-color: var(--coens-blue); }
+.coens-faq summary { list-style: none; cursor: pointer; padding: 18px 0; font-weight: 600; color: var(--coens-navy); font-size: 0.98rem; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+.coens-faq summary::-webkit-details-marker { display: none; }
+.coens-faq summary::after { content: "+"; font-size: 1.3rem; color: var(--coens-blue); flex-shrink: 0; line-height: 1; }
+.coens-faq details[open] summary::after { content: "\2013"; }
+.coens-faq .coens-faq-a { color: var(--coens-gray-600); font-size: 0.92rem; line-height: 1.7; padding: 0 0 18px; }
+.coens-faq-foot { text-align: center; color: var(--coens-gray-600); font-size: 0.9rem; margin-top: 22px; }
+.coens-faq-foot a { color: var(--coens-blue); font-weight: 600; }
+
+/* --- Store cards: open badge, parking tip, route button --- */
+.coens-store-status { display: inline-flex; align-items: center; gap: 7px; font-size: 0.78rem; font-weight: 600; padding: 5px 11px; border-radius: 20px; margin-bottom: 12px; width: fit-content; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.75); }
+.coens-store-status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.coens-store-status.is-open { background: rgba(16, 185, 129, 0.18); color: #34d399; }
+.coens-store-status.is-soon { background: rgba(245, 166, 35, 0.18); color: var(--coens-gold); }
+.coens-store-status.is-closed { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+.coens-store-tip { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin: 4px 0 0; line-height: 1.5; }
+.coens-store-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.coens-store-actions .coens-btn-cta { margin-top: 0 !important; width: auto !important; padding: 11px 12px; font-size: 0.84rem; }
+.coens-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 11px 12px; border-radius: 9px; border: 1.5px solid rgba(255,255,255,0.25); color: #fff !important; font-weight: 600; font-size: 0.84rem; text-decoration: none; white-space: nowrap; }
+.coens-btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+/* --- Pulled vs OEM explainer (price pages) --- */
+.coens-parts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.coens-part { background: #fff; border: 1.5px solid var(--coens-border-light); border-radius: var(--coens-radius); padding: 32px 28px; }
+.coens-part.gold { border-color: rgba(245, 166, 35, 0.6); box-shadow: 0 10px 30px rgba(245, 166, 35, 0.12); }
+.coens-part-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--coens-blue); }
+.coens-part.gold .coens-part-label { color: #c47d0a; }
+.coens-part h3 { font-family: 'Syne', sans-serif !important; font-size: 1.3rem; color: var(--coens-navy); margin: 6px 0 10px; }
+.coens-part > p { color: var(--coens-gray-600); font-size: 0.92rem; line-height: 1.65; margin-bottom: 16px; }
+.coens-part ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.coens-part li { font-size: 0.9rem; color: var(--coens-gray-800); padding-left: 24px; position: relative; }
+.coens-part li::before { content: "\2713"; position: absolute; left: 0; color: var(--coens-green); font-weight: 700; }
+.coens-parts-note { max-width: 820px; margin: 28px auto 0; text-align: center; color: var(--coens-gray-600); font-size: 0.9rem; line-height: 1.65; }
+
+/* --- Sticky phone bar --- */
+.coens-sticky-bar { display: none; }
+@media (max-width: 1024px) {
+  .coens-hero-visual--wizard { display: flex !important; margin-top: 8px; }
+  .coens-steps-grid, .coens-parts-grid { grid-template-columns: 1fr !important; }
+  .coens-sticky-bar {
+    display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 9990;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); background: rgba(255,255,255,0.96); backdrop-filter: blur(10px);
+    border-top: 1px solid var(--coens-border-light); box-shadow: 0 -8px 30px rgba(8, 18, 32, 0.12);
+  }
+  .coens-sticky-bar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 7px 4px; border-radius: 12px; font-size: 0.72rem; font-weight: 600; color: var(--coens-navy) !important; text-decoration: none; line-height: 1.1; }
+  .coens-sticky-bar .csb-ico { font-size: 1.1rem; }
+  .coens-sticky-bar .csb-primary { background: var(--coens-gold); color: var(--coens-navy) !important; box-shadow: 0 4px 14px rgba(245, 166, 35, 0.4); }
+  body.has-coens-sticky-bar .coens-footer { padding-bottom: 90px !important; }
+}
+@media (max-width: 600px) {
+  #coens-wizard { padding: 18px 16px 16px; border-radius: 18px; }
+  #coens-wizard .cw-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+  #coens-wizard .cw-grid { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  #coens-wizard .cw-opt { padding: 12px 4px; }
+  .coens-store-actions { grid-template-columns: 1fr; }
+}
