@@ -1722,3 +1722,16 @@ html[data-theme="dark"] .coens-sticky-bar .csb-primary { color: #081220 !importa
 html[data-theme="dark"] .coens-step-num { background: rgba(255,255,255,0.08) !important; color: var(--coens-gold) !important; }
 html[data-theme="dark"] .coens-why-point h4 { color: #ffffff !important; }
 html[data-theme="dark"] .coens-why-point p { color: rgba(255,255,255,0.74) !important; }
+
+/* Dark theme: page-specific leftovers found by the contrast check */
+html[data-theme="dark"] .gsm-device-card-top { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.1) !important; }
+html[data-theme="dark"] :is(.gsm-device-card-top, .gsm-device-meta) h4 { color: #ffffff !important; }
+html[data-theme="dark"] .gsm-device-quickprice { color: #8db8ff !important; }
+html[data-theme="dark"] .alle-merken__item__title { color: #ffffff !important; }
+html[data-theme="dark"] .alle-merken__item__sub { color: rgba(255,255,255,0.7) !important; }
+html[data-theme="dark"] .tk-grade-card :is(div, span, p) { color: rgba(255,255,255,0.82) !important; }
+html[data-theme="dark"] .tk-grade-card :is(h3, h4, strong) { color: #ffffff !important; }
+html[data-theme="dark"] .tk-new-price { color: var(--coens-gold) !important; }
+html[data-theme="dark"] .tk-old-price { color: rgba(255,255,255,0.5) !important; }
+html[data-theme="dark"] .tk-grade-card span:not([class]) { background: rgba(16,185,129,0.18) !important; color: #7ee2b8 !important; }
+html[data-theme="dark"] .gsm-more-list { background: transparent !important; }
