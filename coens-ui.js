@@ -15,7 +15,7 @@
     bar.innerHTML =
       '<a href="' + TEL + '"><span class="csb-ico">📞</span><span>Bellen</span></a>' +
       '<a href="' + WA + '" target="_blank" rel="noopener"><span class="csb-ico">💬</span><span>WhatsApp</span></a>' +
-      '<a href="/reparaties/#wizard" class="csb-primary"><span class="csb-ico">🔧</span><span>Reparatie kiezen</span></a>';
+      '<a href="/#coens-wizard" class="csb-primary"><span class="csb-ico">🔧</span><span>Reparatie kiezen</span></a>';
     document.body.appendChild(bar);
     document.body.classList.add('has-coens-sticky-bar');
   }
