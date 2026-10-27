@@ -102,7 +102,8 @@ html[data-theme="dark"] .ca-badge.is-closed { background: rgba(239,68,68,0.15); 
 /* Install banner */
 .ca-install { background: linear-gradient(135deg, #0d2854, #081220); color: #fff; border-radius: 16px; padding: 16px; margin-bottom: 14px; display: none; }
 .ca-install.show { display: block; }
-.ca-install strong { display: block; font-family: 'Syne', 'Inter', sans-serif; font-size: 1rem; margin-bottom: 4px; }
+.ca-install > strong { display: block; font-family: 'Syne', 'Inter', sans-serif; font-size: 1rem; margin-bottom: 4px; }
+.ca-install p strong { color: #fff; }
 .ca-install p { margin: 0 0 10px; font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
 .ca-install .ca-btn { width: auto; }
 .ca-install .ca-dismiss { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-left: 10px; cursor: pointer; }
