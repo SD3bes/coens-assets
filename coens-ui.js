@@ -215,8 +215,13 @@
       return '<a href="/winkels/#' + st[0] + '"><span>📍 ' + st[1] + '</span><span class="coens-store-status" data-coens-hours="">…</span></a>';
     }).join('');
     var cta = drawer.querySelector('.coens-btn-cta');
+    while (cta && cta.parentNode !== drawer) cta = cta.parentNode;
     if (cta) drawer.insertBefore(box, cta); else drawer.appendChild(box);
   }
 
-  ready(function () { stickyBar(); drawerStores(); openingHours(); wizard(); faqSchema(); businessSchema(); });
+  ready(function () {
+    [stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema].forEach(function (fn) {
+      try { fn(); } catch (e) { if (window.console) console.warn('coens-ui:', fn.name, e); }
+    });
+  });
 })();
