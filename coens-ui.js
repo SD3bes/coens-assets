@@ -220,17 +220,18 @@
   }
 
   /* ---------- 7. Dark / light theme toggle ---------- */
+  var ICON_SUN = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+  var ICON_MOON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
   function applyTheme(t) {
     document.documentElement.setAttribute('data-theme', t);
     Array.prototype.forEach.call(document.querySelectorAll('.coens-theme-toggle'), function (b) {
-      b.textContent = t === 'dark' ? '☀️' : '🌙';
+      b.innerHTML = (t === 'dark' ? ICON_SUN : ICON_MOON) + '<span class="ctt-label">' + (t === 'dark' ? 'Licht' : 'Donker') + '</span>';
       b.setAttribute('aria-label', t === 'dark' ? 'Schakel naar licht thema' : 'Schakel naar donker thema');
       b.title = b.getAttribute('aria-label');
     });
   }
   function themeToggle() {
     var saved = null; try { saved = localStorage.getItem('coens-theme'); } catch (e) {}
-    var sys = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     var nav = document.querySelector('.coens-nav-inner');
     if (nav && !nav.querySelector('.coens-theme-toggle')) {
       var b = document.createElement('button'); b.type = 'button'; b.className = 'coens-theme-toggle';
@@ -242,13 +243,8 @@
         applyTheme(next);
       });
     }
-    applyTheme(saved || sys);
-    if (!saved && window.matchMedia) {
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-        var s2 = null; try { s2 = localStorage.getItem('coens-theme'); } catch (x) {}
-        if (!s2) applyTheme(e.matches ? 'dark' : 'light');
-      });
-    }
+    // Light (the original design) is the default; dark only when the visitor chooses it.
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
   }
 
   ready(function () {
