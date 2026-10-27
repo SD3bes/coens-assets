@@ -1473,11 +1473,15 @@ details.gsm-more-repairs summary::marker { display: none !important; }
    NAV FIX - small laptops and pages without a hamburger
    ======================================================== */
 
-/* Wide screens: spread the short menu out so the bar doesn't look empty */
-@media (min-width: 1300px) {
-  .coens-desktop-nav { gap: 36px !important; }
-  .coens-menu { gap: 34px !important; }
-  .coens-menu a { font-size: 0.95rem !important; padding: 8px 0 !important; }
+/* Desktop layout: logo, then the links right next to it, button on the far right */
+@media (min-width: 1140px) {
+  .coens-nav-inner { justify-content: flex-start !important; }
+  .coens-logo { margin-right: 44px !important; }
+  .coens-desktop-nav { flex: 1 !important; justify-content: flex-start !important; gap: 28px !important; }
+  .coens-desktop-nav > :last-child { margin-left: auto !important; }
+  .coens-desktop-nav > p { margin: 0 0 0 auto !important; display: flex !important; }
+  .coens-menu { gap: 28px !important; }
+  .coens-menu a { font-size: 0.93rem !important; padding: 8px 0 !important; }
 }
 
 /* Pages without a hamburger (e.g. Vacatures, Algemene voorwaarden):
