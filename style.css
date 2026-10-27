@@ -1821,8 +1821,6 @@ html[data-theme="light"] .coens-footer-app { color: #b36b00 !important; }
 
 /* --- Logged-in admins: keep the site below the WordPress admin bar (visitors are unaffected) --- */
 body.admin-bar { padding-top: 32px !important; }
-body.admin-bar .coens-nav { top: 32px !important; }
 @media (max-width: 782px) {
   body.admin-bar { padding-top: 46px !important; }
-  body.admin-bar .coens-nav { top: 46px !important; }
 }
