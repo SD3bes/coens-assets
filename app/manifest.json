@@ -10,12 +10,50 @@
   "background_color": "#ffffff",
   "theme_color": "#081220",
   "icons": [
-    { "src": "https://www.coens.nl/wp-content/uploads/2021/01/coens_for_light_square.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "https://www.coens.nl/wp-content/uploads/2021/01/cropped-coens_for_light_square.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "https://cdn.jsdelivr.net/gh/SD3bes/coens-assets@341adb37f287848fdbbf1044937c7e67a88a4cac/app/icons/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/gh/SD3bes/coens-assets@341adb37f287848fdbbf1044937c7e67a88a4cac/app/icons/app-icon-512-play.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/gh/SD3bes/coens-assets@341adb37f287848fdbbf1044937c7e67a88a4cac/app/icons/app-icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ],
   "shortcuts": [
-    { "name": "Reparatieprijs", "url": "https://www.coens.nl/coens-app/?tab=prijzen" },
-    { "name": "Inruilwaarde", "url": "https://www.coens.nl/coens-app/?tab=inruilen" },
-    { "name": "Reparatie boeken", "url": "https://www.coens.nl/coens-app/?tab=boeken" }
+    {
+      "name": "Reparatieprijs",
+      "url": "https://www.coens.nl/coens-app/?tab=prijzen"
+    },
+    {
+      "name": "Inruilwaarde",
+      "url": "https://www.coens.nl/coens-app/?tab=inruilen"
+    },
+    {
+      "name": "Reparatie boeken",
+      "url": "https://www.coens.nl/coens-app/?tab=boeken"
+    }
+  ],
+  "id": "/coens-app/",
+  "categories": [
+    "shopping",
+    "utilities"
+  ],
+  "screenshots": [
+    {
+      "src": "https://cdn.jsdelivr.net/gh/SD3bes/coens-assets@341adb37f287848fdbbf1044937c7e67a88a4cac/app/icons/feature-graphic-1024x500.png",
+      "sizes": "1024x500",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
   ]
 }

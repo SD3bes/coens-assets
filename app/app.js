@@ -3,7 +3,7 @@
   'use strict';
   var PHONE = '0497-550560', TEL = 'tel:+31497550560', WA = 'https://wa.me/31497550560', MAIL = 'info@coens.nl';
   var MANIFEST = document.currentScript && document.currentScript.src ? document.currentScript.src.replace(/app\.js(\?.*)?$/, 'manifest.json') : '';
-  var ICON = 'https://www.coens.nl/wp-content/uploads/2021/01/coens_for_light_square.png';
+  var ICON = 'https://cdn.jsdelivr.net/gh/SD3bes/coens-assets@341adb37f287848fdbbf1044937c7e67a88a4cac/app/icons/apple-touch-icon-180.png';
 
   var STORES = [
     { id: 'bergeijk', name: "Coen's Bergeijk", street: 'Hof 31', zip: '5571 CB', city: 'Bergeijk', email: 'bergeijk@coens.nl', tip: 'Gratis parkeren (blauwe zone) voor de deur op het Hof.', dest: "Coen's Bergeijk, Hof 31, 5571 CB Bergeijk" },
