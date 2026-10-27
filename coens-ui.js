@@ -174,5 +174,35 @@
     document.head.appendChild(s);
   }
 
-  ready(function () { stickyBar(); openingHours(); wizard(); faqSchema(); });
+  /* ---------- 5. Business + store structured data (Organization, 3x MobilePhoneStore) ---------- */
+  function businessSchema() {
+    if (document.getElementById('coens-biz-ld')) return;
+    var hours = [
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:30' },
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '17:00' }
+    ];
+    function store(id, name, street, zip, city, email) {
+      return {
+        '@type': 'MobilePhoneStore', '@id': 'https://www.coens.nl/winkels/#' + id, name: "Coen's " + city,
+        url: 'https://www.coens.nl/winkels/#' + id, telephone: '+31497550560', email: email,
+        image: 'https://www.coens.nl/wp-content/uploads/2017/10/coens_for_dark_72dpi.png',
+        address: { '@type': 'PostalAddress', streetAddress: street, postalCode: zip, addressLocality: city, addressRegion: 'Noord-Brabant', addressCountry: 'NL' },
+        openingHoursSpecification: hours, priceRange: '€€', parentOrganization: { '@id': 'https://www.coens.nl/#organization' }
+      };
+    }
+    var data = { '@context': 'https://schema.org', '@graph': [
+      { '@type': 'Organization', '@id': 'https://www.coens.nl/#organization', name: "Coen's Telecom & More", alternateName: "Coen's",
+        url: 'https://www.coens.nl', telephone: '+31497550560', email: 'info@coens.nl', foundingDate: '1995',
+        logo: 'https://www.coens.nl/wp-content/uploads/2017/10/coens_for_dark_72dpi.png',
+        address: { '@type': 'PostalAddress', streetAddress: 'Hof 31', postalCode: '5571 CB', addressLocality: 'Bergeijk', addressCountry: 'NL' },
+        areaServed: ['Bergeijk', 'Bladel', 'Valkenswaard', 'De Kempen'] },
+      store('bergeijk', 'Bergeijk', 'Hof 31', '5571 CB', 'Bergeijk', 'bergeijk@coens.nl'),
+      store('bladel', 'Bladel', 'Sniederslaan 55 A', '5531 EH', 'Bladel', 'bladel@coens.nl'),
+      store('valkenswaard', 'Valkenswaard', 'Passage 1', '5554 AH', 'Valkenswaard', 'valkenswaard@coens.nl')
+    ] };
+    var s = document.createElement('script'); s.type = 'application/ld+json'; s.id = 'coens-biz-ld';
+    s.text = JSON.stringify(data); document.head.appendChild(s);
+  }
+
+  ready(function () { stickyBar(); openingHours(); wizard(); faqSchema(); businessSchema(); });
 })();

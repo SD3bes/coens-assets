@@ -1614,3 +1614,12 @@ details.gsm-more-repairs summary::marker { display: none !important; }
   #coens-wizard .cw-opt { padding: 12px 4px; }
   .coens-store-actions { grid-template-columns: 1fr; }
 }
+
+/* --- Light badge variant (Winkels page) and reCAPTCHA badge above the phone bar --- */
+.coens-store-status--light { background: #eef1f6; color: var(--coens-gray-600); margin: 0 0 10px; }
+.coens-store-status--light.is-open { background: #e6f4ea; color: #0f8a4f; }
+.coens-store-status--light.is-soon { background: #fff4d6; color: #b36b00; }
+.coens-store-status--light.is-closed { background: #fdecea; color: #c0392b; }
+@media (max-width: 1024px) {
+  body.has-coens-sticky-bar .grecaptcha-badge { bottom: 96px !important; }
+}
