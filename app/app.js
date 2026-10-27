@@ -215,7 +215,7 @@
 
   /* ---------- events ---------- */
   root.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-tab],[data-go],[data-brand],[data-model],[data-back],[data-book],[data-book-type],[data-tradein],[data-type],[data-sub],[data-advance],[data-remove],#ca-theme,#ca-install-btn,#ca-install-no]');
+    var t = e.target.closest('[data-tab],[data-go],[data-brand],[data-model],[data-back],[data-book],[data-book-type],[data-tradein],[data-type],[data-sub],[data-advance],[data-remove],#ca-theme,#ca-install-btn,#ca-install-no');
     if (!t) return;
     if (t.id === 'ca-theme') { var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', next); try { localStorage.setItem('coens-theme', next); } catch (x) {} t.textContent = next === 'dark' ? '☀' : '☾'; return; }
     if (t.id === 'ca-install-btn') { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(function () { deferredPrompt = null; installBanner(); }); } return; }
