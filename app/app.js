@@ -77,7 +77,8 @@
       (tickets.length ? '<div class="ca-card"><div class="ca-row"><strong>Mijn aanvragen</strong><button class="ca-btn ghost sm" data-go="boeken" data-sub="tickets">Bekijk</button></div><p class="ca-note" style="margin:6px 0 0">' + tickets.length + ' aanvraag' + (tickets.length > 1 ? 'en' : '') + ' · laatste: ' + esc(tickets[0].id) + '</p></div>' : '') +
       '<div class="ca-card"><div class="ca-row"><div><strong>Winkels</strong><div class="ca-note" style="margin:2px 0 0">Bergeijk · Bladel · Valkenswaard</div></div><span class="ca-badge ' + s.cls + '" style="margin:0">' + esc(s.text) + '</span></div>' +
       '<div class="ca-store-actions" style="margin-top:12px"><a class="ca-btn sm" href="' + TEL + '">📞 Bellen</a><a class="ca-btn wa sm" href="' + WA + '" target="_blank" rel="noopener">💬 WhatsApp</a></div></div>' +
-      '<div class="ca-card"><strong>Goed om te weten</strong><p class="ca-note" style="margin:6px 0 0">Scherm of accu meestal in 30–45 minuten klaar. No cure, no pay. 3 maanden garantie op het onderdeel en de montage. Geen afspraak nodig, binnenlopen mag altijd.</p></div>';
+      '<div class="ca-card"><strong>Goed om te weten</strong><p class="ca-note" style="margin:6px 0 0">Scherm of accu meestal in 30–45 minuten klaar. No cure, no pay. 3 maanden garantie op het onderdeel en de montage. Geen afspraak nodig, binnenlopen mag altijd.</p></div>' +
+      '<p class="ca-note" style="text-align:center;margin:4px 0 0"><a href="/privacy-app/" style="color:var(--muted)">Privacy</a> · <a href="/" style="color:var(--muted)">coens.nl</a> · Coen’s Trading Telecom B.V.</p>';
   }
 
   function viewPrijzen() {
@@ -206,7 +207,13 @@
     el.classList.add('show');
   }
   function setupHead() {
-    if (MANIFEST) { var l = document.createElement('link'); l.rel = 'manifest'; l.href = MANIFEST; l.crossOrigin = 'anonymous'; document.head.appendChild(l); }
+    // Prefer a same-origin manifest (uploaded to /coens-app/manifest.json for the store builds); fall back to the CDN copy.
+    var l = document.createElement('link'); l.rel = 'manifest'; l.href = MANIFEST; l.crossOrigin = 'anonymous'; document.head.appendChild(l);
+    fetch('/coens-app/manifest.json', { method: 'HEAD' }).then(function (r) { if (r.ok && /json/.test(r.headers.get('content-type') || '')) { l.removeAttribute('crossorigin'); l.href = '/coens-app/manifest.json'; } }).catch(function () {});
+    // Offline support: register the service worker when it has been uploaded to /coens-app/sw.js
+    if ('serviceWorker' in navigator) {
+      fetch('/coens-app/sw.js', { method: 'HEAD' }).then(function (r) { if (r.ok && /javascript/.test(r.headers.get('content-type') || '')) navigator.serviceWorker.register('/coens-app/sw.js', { scope: '/coens-app/' }).catch(function () {}); }).catch(function () {});
+    }
     [['apple-mobile-web-app-capable', 'yes'], ['apple-mobile-web-app-status-bar-style', 'black-translucent'], ['apple-mobile-web-app-title', "Coen's"], ['theme-color', '#081220'], ['mobile-web-app-capable', 'yes']].forEach(function (m) { var e = document.createElement('meta'); e.name = m[0]; e.content = m[1]; document.head.appendChild(e); });
     var ic = document.createElement('link'); ic.rel = 'apple-touch-icon'; ic.href = ICON; document.head.appendChild(ic);
     if (!document.querySelector('meta[name="viewport"]')) { var v = document.createElement('meta'); v.name = 'viewport'; v.content = 'width=device-width, initial-scale=1, viewport-fit=cover'; document.head.appendChild(v); }
