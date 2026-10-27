@@ -1740,3 +1740,70 @@ html[data-theme="dark"] .gsm-more-list { background: transparent !important; }
 html[data-theme="dark"] .gsm-store-stock span { background: rgba(16,185,129,0.18) !important; color: #7ee2b8 !important; }
 html[data-theme="dark"] .tk-price-box :is(div, span, small) { color: rgba(255,255,255,0.78) !important; }
 html[data-theme="dark"] .tk-price-box .tk-new-price { color: var(--coens-gold) !important; }
+
+/* ========================================================
+   LIGHT THEME: header, hero, stores and footer go light too
+   (html[data-theme="light"] is the default set by coens-ui.js)
+   ======================================================== */
+html[data-theme="light"] body { background: #f4f7fc !important; }
+
+/* Top bar */
+html[data-theme="light"] .coens-top-bar { background: #eef2f8 !important; color: #3b4a63 !important; border-bottom: 1px solid rgba(8,18,32,0.06); }
+html[data-theme="light"] .coens-top-stores span { color: #b36b00 !important; }
+
+/* Nav */
+html[data-theme="light"] .coens-nav { background: #ffffff !important; border-bottom: 1px solid rgba(8,18,32,0.08) !important; box-shadow: 0 6px 24px rgba(8,18,32,0.06); }
+html[data-theme="light"] .coens-logo, html[data-theme="light"] .coens-footer .coens-logo { background-image: url("https://www.coens.nl/wp-content/uploads/2017/10/coens_for_light_72dpi.png") !important; }
+html[data-theme="light"] .coens-menu a { color: #3b4a63 !important; }
+html[data-theme="light"] .coens-menu a:hover, html[data-theme="light"] .coens-menu a.active { color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-theme-toggle { border-color: rgba(8,18,32,0.18) !important; background: #f4f7fc !important; color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-theme-toggle:hover { background: #e6efff !important; border-color: var(--coens-blue) !important; }
+html[data-theme="light"] summary.coens-hamburger { background: #f4f7fc !important; border-color: rgba(8,18,32,0.15) !important; }
+html[data-theme="light"] summary.coens-hamburger span { background: var(--coens-navy) !important; }
+
+/* Mobile drawer */
+html[data-theme="light"] .coens-mobile-drawer { background: #ffffff !important; box-shadow: 0 25px 60px rgba(8,18,32,0.18) !important; }
+html[data-theme="light"] .coens-mobile-links a { color: var(--coens-navy) !important; background: #f4f7fc !important; border-color: rgba(8,18,32,0.08) !important; }
+html[data-theme="light"] .coens-mobile-links a.active { background: #e6efff !important; border-color: var(--coens-blue) !important; }
+html[data-theme="light"] .coens-drawer-stores { background: #f4f7fc !important; border-color: rgba(8,18,32,0.08) !important; }
+html[data-theme="light"] .coens-drawer-stores-title { color: #b36b00 !important; }
+html[data-theme="light"] .coens-drawer-stores a { color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-drawer-stores a + a { border-top-color: rgba(8,18,32,0.08) !important; }
+
+/* Status badges on light surfaces (drawer, stores section) */
+html[data-theme="light"] :is(.coens-drawer-stores, .coens-stores-section) .coens-store-status { background: #eef1f6; color: var(--coens-gray-600); }
+html[data-theme="light"] :is(.coens-drawer-stores, .coens-stores-section) .coens-store-status.is-open { background: #e6f4ea; color: #0f8a4f; }
+html[data-theme="light"] :is(.coens-drawer-stores, .coens-stores-section) .coens-store-status.is-soon { background: #fff4d6; color: #b36b00; }
+html[data-theme="light"] :is(.coens-drawer-stores, .coens-stores-section) .coens-store-status.is-closed { background: #fdecea; color: #c0392b; }
+
+/* Hero */
+html[data-theme="light"] .coens-hero { background: linear-gradient(135deg, #f4f7fc 0%, #ffffff 55%, #e8efff 100%) !important; color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-hero :is(h1, h2, h3, h4, p, li, span, div, small, strong, label):not(.coens-btn-cta):not(.coens-btn-whatsapp):not(.coens-eyebrow):not(.coens-chip):not(:is(.gsm-hero-showcase-card, #coens-wizard, .coens-address-ticket, .tk-grade-card, .coens-pakbon-card, .inruil-bonus-banner, .coens-btn-cta, .coens-btn-whatsapp, .coens-eyebrow, .coens-chip, .gsm-score-badge, .gsm-review-box) *) { color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-hero :is(p, li, small, .coens-hero-sub):not(:is(.gsm-hero-showcase-card, #coens-wizard, .coens-address-ticket, .tk-grade-card, .coens-pakbon-card, .inruil-bonus-banner, .gsm-review-box) *) { color: #3b4a63 !important; }
+html[data-theme="light"] .coens-hero h1 em { color: #e0911a !important; }
+html[data-theme="light"] .coens-eyebrow { background: rgba(30,111,255,0.1) !important; border-color: rgba(30,111,255,0.3) !important; color: var(--coens-blue) !important; }
+html[data-theme="light"] .coens-chips { color: #5a6a85 !important; }
+html[data-theme="light"] .coens-chip { background: #ffffff !important; border-color: rgba(8,18,32,0.15) !important; color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-chip:hover { background: var(--coens-blue) !important; border-color: var(--coens-blue) !important; color: #ffffff !important; }
+html[data-theme="light"] .coens-chip--wa { background: #e6f4ea !important; border-color: rgba(16,185,129,0.4) !important; color: #0f8a4f !important; }
+html[data-theme="light"] .coens-hero .coens-btn-ghost { border-color: rgba(8,18,32,0.25) !important; color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-hero a:not([class]) { color: var(--coens-blue) !important; }
+
+/* Stores section (homepage) */
+html[data-theme="light"] .coens-stores-section { background: #f4f7fc !important; color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-stores-section .coens-title { color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-stores-section .coens-sub { color: var(--coens-gray-600) !important; }
+html[data-theme="light"] .coens-stores-section .coens-tag { color: #b36b00 !important; }
+html[data-theme="light"] .coens-store-card { background: #ffffff !important; border-color: var(--coens-border-light) !important; box-shadow: var(--coens-shadow); }
+html[data-theme="light"] .coens-store-card h3 { color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-store-detail { color: #3b4a63 !important; }
+html[data-theme="light"] .coens-store-tip { color: var(--coens-gray-600) !important; }
+html[data-theme="light"] .coens-stores-section .coens-btn-ghost { border-color: rgba(8,18,32,0.2) !important; color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-stores-section .coens-btn-ghost:hover { background: #e6efff !important; border-color: var(--coens-blue) !important; }
+
+/* Footer */
+html[data-theme="light"] .coens-footer { background: #eef2f8 !important; color: #3b4a63 !important; border-top: 1px solid rgba(8,18,32,0.08) !important; }
+html[data-theme="light"] .coens-footer :is(p, span, li, a, div) { color: #3b4a63 !important; }
+html[data-theme="light"] .coens-footer :is(h4, h3, strong) { color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-footer a:hover { color: var(--coens-blue) !important; }
+html[data-theme="light"] .coens-footer-bottom { border-top-color: rgba(8,18,32,0.1) !important; }
