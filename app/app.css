@@ -26,7 +26,7 @@ p:has(> link), p:has(> script:only-child) { display: none !important; margin: 0 
 .ca-view { display: none; padding: 16px 16px 10px; animation: ca-in .18s ease; }
 .ca-view.active { display: block; }
 @keyframes ca-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-.ca-h1 { font-family: 'Syne', 'Inter', sans-serif; font-size: 1.45rem; font-weight: 800; color: var(--text); margin: 4px 0 4px; letter-spacing: -0.3px; }
+.ca-h1 { font-family: 'Inter', sans-serif; font-size: 1.45rem; font-weight: 800; color: var(--text); margin: 4px 0 4px; letter-spacing: -0.3px; }
 .ca-sub { color: var(--muted); font-size: 0.9rem; margin: 0 0 16px; line-height: 1.5; }
 .ca-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); margin-bottom: 12px; }
 .ca-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
@@ -76,7 +76,7 @@ html[data-theme="dark"] .ca-chip.active { background: var(--blue); border-color:
 
 /* Tickets */
 .ca-ticket { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; margin-bottom: 10px; }
-.ca-ticket .ca-tid { font-family: 'Syne', 'Inter', sans-serif; font-weight: 800; font-size: 1rem; }
+.ca-ticket .ca-tid { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1rem; }
 .ca-ticket .ca-tstatus { font-size: 0.74rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; background: rgba(30,111,255,0.12); color: var(--blue); }
 .ca-ticket .ca-tstatus.done { background: rgba(16,185,129,0.14); color: #0f8a4f; }
 .ca-ticket p { margin: 8px 0 0; font-size: 0.86rem; color: var(--muted); line-height: 1.5; }
@@ -87,7 +87,7 @@ html[data-theme="dark"] .ca-chip.active { background: var(--blue); border-color:
 .ca-tactions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
 
 /* Stores */
-.ca-store h3 { margin: 0 0 4px; font-family: 'Syne', 'Inter', sans-serif; font-size: 1.05rem; }
+.ca-store h3 { margin: 0 0 4px; font-family: 'Inter', sans-serif; font-size: 1.05rem; }
 .ca-store .ca-addr { color: var(--muted); font-size: 0.86rem; margin-bottom: 8px; }
 .ca-hours { width: 100%; font-size: 0.82rem; border-collapse: collapse; margin: 8px 0 12px; }
 .ca-hours td { padding: 4px 0; color: var(--muted); } .ca-hours td:last-child { text-align: right; color: var(--text); font-weight: 600; }
@@ -102,7 +102,7 @@ html[data-theme="dark"] .ca-badge.is-closed { background: rgba(239,68,68,0.15); 
 /* Install banner */
 .ca-install { background: linear-gradient(135deg, #0d2854, #081220); color: #fff; border-radius: 16px; padding: 16px; margin-bottom: 14px; display: none; }
 .ca-install.show { display: block; }
-.ca-install > strong { display: block; font-family: 'Syne', 'Inter', sans-serif; font-size: 1rem; margin-bottom: 4px; }
+.ca-install > strong { display: block; font-family: 'Inter', sans-serif; font-size: 1rem; margin-bottom: 4px; }
 .ca-install p strong { color: #fff; }
 .ca-install p { margin: 0 0 10px; font-size: 0.84rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
 .ca-install .ca-btn { width: auto; }

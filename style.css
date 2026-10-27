@@ -165,7 +165,7 @@ img {
 }
 
 .coens-logo {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 1.7rem;
   font-weight: 800;
   color: #ffffff !important;
@@ -341,7 +341,7 @@ img {
 }
 
 .coens-hero h1 {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: clamp(2.1rem, 4.2vw, 3.4rem);
   font-weight: 800;
   line-height: 1.15;
@@ -448,7 +448,7 @@ img {
 }
 
 .coens-stat-num {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 2rem;
   font-weight: 800;
   color: #ffffff;
@@ -524,7 +524,7 @@ img {
 
 .gsm-review-box strong {
   display: block;
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 0.95rem;
   color: #ffffff;
 }
@@ -532,7 +532,7 @@ img {
 .gsm-score-badge {
   background: var(--coens-gold);
   color: #081220;
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-weight: 800;
   font-size: 1.25rem;
   padding: 8px 14px;
@@ -553,7 +553,7 @@ img {
 .coens-float-badge.left { top: 16%; left: -20px; }
 .coens-float-badge.right { bottom: 20%; right: -20px; }
 .coens-fb-label { font-size: 0.72rem; color: rgba(255, 255, 255, 0.6); }
-.coens-fb-val { font-family: 'Syne', sans-serif !important; font-size: 0.95rem; font-weight: 700; color: #ffffff; }
+.coens-fb-val { font-family: 'Inter', sans-serif !important; font-size: 0.95rem; font-weight: 700; color: #ffffff; }
 .coens-fb-val.gold { color: var(--coens-gold); }
 
 /* 5. GENERAL SECTIONS & SERVICES */
@@ -574,7 +574,7 @@ img {
 }
 
 .coens-title {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: clamp(1.9rem, 3.4vw, 2.6rem);
   font-weight: 800;
   color: var(--coens-navy) !important;
@@ -625,7 +625,7 @@ img {
 }
 
 .coens-card h3 {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 1.24rem;
   font-weight: 700;
   color: var(--coens-navy);
@@ -666,7 +666,7 @@ img {
   margin-top: 2px;
 }
 
-.coens-why-point h4 { font-family: 'Syne', sans-serif !important; font-size: 1.05rem; color: var(--coens-navy); margin-bottom: 2px; }
+.coens-why-point h4 { font-family: 'Inter', sans-serif !important; font-size: 1.05rem; color: var(--coens-navy); margin-bottom: 2px; }
 .coens-why-point p { color: var(--coens-gray-600); font-size: 0.88rem; }
 
 .coens-why-box {
@@ -680,7 +680,7 @@ img {
 .coens-fact-row:last-child { margin-bottom: 0 !important; }
 
 .coens-fact-num {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 2.2rem !important;
   font-weight: 800 !important;
   color: var(--coens-gold) !important;
@@ -694,7 +694,7 @@ img {
 }
 
 .coens-fact-num span { font-size: 1.5rem !important; margin-left: 2px !important; }
-.coens-fact-text h4 { font-family: 'Syne', sans-serif !important; font-size: 1.05rem; color: #ffffff; margin-bottom: 2px; }
+.coens-fact-text h4 { font-family: 'Inter', sans-serif !important; font-size: 1.05rem; color: #ffffff; margin-bottom: 2px; }
 .coens-fact-text p { color: rgba(255, 255, 255, 0.65); font-size: 0.86rem; }
 
 /* 7. GSM PARADISE VISUAL BRAND LOGO GRID (alle-merken) */
@@ -743,7 +743,7 @@ img {
 }
 
 .alle-merken__item__title {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 1.05rem;
   font-weight: 800;
   color: var(--coens-navy);
@@ -797,7 +797,7 @@ img {
 }
 
 .gsm-brand-bar-logo img { max-height: 38px; max-width: 44px; object-fit: contain; }
-.gsm-brand-bar-left h3 { font-family: 'Syne', sans-serif !important; font-size: 1.55rem; font-weight: 800; color: var(--coens-navy); }
+.gsm-brand-bar-left h3 { font-family: 'Inter', sans-serif !important; font-size: 1.55rem; font-weight: 800; color: var(--coens-navy); }
 .gsm-brand-bar-left p { font-size: 0.9rem; color: var(--coens-gray-600); }
 
 .gsm-device-grid {
@@ -848,7 +848,7 @@ img {
 .gsm-device-thumb img { max-height: 60px; width: auto; object-fit: contain; }
 
 .gsm-device-meta h4 {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--coens-navy);
@@ -899,7 +899,7 @@ img {
 .gsm-rep-item-left span { font-size: 0.74rem; color: var(--coens-gray-600); display: block; }
 
 .gsm-rep-item-price {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 0.94rem;
   font-weight: 800;
   color: var(--coens-blue);
@@ -985,13 +985,13 @@ details.gsm-more-repairs summary::marker { display: none !important; }
   flex-shrink: 0;
 }
 
-.coens-prob-title-group h3 { font-family: 'Syne', sans-serif !important; font-size: 1.18rem; font-weight: 800; color: var(--coens-navy); }
+.coens-prob-title-group h3 { font-family: 'Inter', sans-serif !important; font-size: 1.18rem; font-weight: 800; color: var(--coens-navy); }
 .coens-prob-badges { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
 
 .coens-badge-price {
   background: rgba(30, 111, 255, 0.12);
   color: var(--coens-blue);
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-weight: 800;
   font-size: 0.84rem;
   padding: 4px 12px;
@@ -1001,7 +1001,7 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 
 .coens-badge-time { background: #f4f6fa; color: var(--coens-gray-600); font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
 .coens-diag-block { padding: 13px 15px; border-radius: 11px; font-size: 0.87rem; line-height: 1.58; }
-.coens-diag-block strong { display: block; font-family: 'Syne', sans-serif !important; font-size: 0.82rem; text-transform: uppercase; margin-bottom: 3px; }
+.coens-diag-block strong { display: block; font-family: 'Inter', sans-serif !important; font-size: 0.82rem; text-transform: uppercase; margin-bottom: 3px; }
 .coens-diag-symptom { background: #fff8f6; border-left: 3.5px solid #ef4444; color: #4a2121; }
 .coens-diag-symptom strong { color: #dc2626; }
 .coens-diag-tip { background: #fffbeb; border-left: 3.5px solid var(--coens-gold); color: #4d3808; }
@@ -1012,32 +1012,32 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 .tk-grade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 16px; }
 .tk-grade-card { background: #ffffff; border: 1.5px solid var(--coens-border-light); border-radius: 18px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; }
 .tk-grade-card.gold-border { border-color: var(--coens-gold); background: linear-gradient(180deg, #fffdf7 0%, #ffffff 100%); }
-.tk-grade-pill { align-self: flex-start; font-family: 'Syne', sans-serif !important; font-size: 0.78rem; font-weight: 800; padding: 5px 12px; border-radius: 20px; background: #081220; color: var(--coens-gold); }
-.tk-grade-card h3 { font-family: 'Syne', sans-serif !important; font-size: 1.25rem; color: var(--coens-navy); }
+.tk-grade-pill { align-self: flex-start; font-family: 'Inter', sans-serif !important; font-size: 0.78rem; font-weight: 800; padding: 5px 12px; border-radius: 20px; background: #081220; color: var(--coens-gold); }
+.tk-grade-card h3 { font-family: 'Inter', sans-serif !important; font-size: 1.25rem; color: var(--coens-navy); }
 .tk-grade-card p { font-size: 0.88rem; color: var(--coens-gray-600); }
 .tk-spec-pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 14px; }
 .tk-spec-pill { font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; background: #f0f4fa; color: var(--coens-navy); }
 .tk-spec-pill.green { background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; }
 .tk-price-box { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 14px; background: var(--coens-light); border-radius: 12px; margin-bottom: 14px; }
 .tk-old-price { font-size: 0.82rem; color: var(--coens-gray-600); text-decoration: line-through !important; }
-.tk-new-price { font-family: 'Syne', sans-serif !important; font-size: 1.45rem; font-weight: 800; color: var(--coens-blue); }
+.tk-new-price { font-family: 'Inter', sans-serif !important; font-size: 1.45rem; font-weight: 800; color: var(--coens-blue); }
 
 .coens-step-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
 .coens-step-box { background: #ffffff; border: 1.5px solid var(--coens-border-light); border-radius: 18px; padding: 28px 22px; display: flex; flex-direction: column; gap: 10px; }
-.coens-step-number { width: 42px; height: 42px; border-radius: 12px; background: var(--coens-blue); color: #ffffff; font-family: 'Syne', sans-serif !important; font-weight: 800; font-size: 1.15rem; display: flex; align-items: center; justify-content: center; }
-.coens-step-box h3 { font-family: 'Syne', sans-serif !important; font-size: 1.12rem; color: var(--coens-navy); }
+.coens-step-number { width: 42px; height: 42px; border-radius: 12px; background: var(--coens-blue); color: #ffffff; font-family: 'Inter', sans-serif !important; font-weight: 800; font-size: 1.15rem; display: flex; align-items: center; justify-content: center; }
+.coens-step-box h3 { font-family: 'Inter', sans-serif !important; font-size: 1.12rem; color: var(--coens-navy); }
 .coens-step-box p { font-size: 0.86rem; color: var(--coens-gray-600); }
 
 .coens-two-col-panel { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 36px; align-items: start; }
 .coens-form-card { background: #ffffff; border: 1.5px solid var(--coens-border-light); border-radius: 22px; padding: 36px 32px; box-shadow: var(--coens-shadow); }
-.coens-form-card h3 { font-family: 'Syne', sans-serif !important; font-size: 1.45rem; color: var(--coens-navy); margin-bottom: 6px; }
+.coens-form-card h3 { font-family: 'Inter', sans-serif !important; font-size: 1.45rem; color: var(--coens-navy); margin-bottom: 6px; }
 .coens-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
 .coens-form-group { display: flex; flex-direction: column; gap: 6px; }
 .coens-form-group.full { grid-column: 1 / -1; }
 .coens-form-group label { font-size: 0.84rem; font-weight: 700; color: var(--coens-navy); }
 .coens-form-group input, .coens-form-group select, .coens-form-group textarea { width: 100% !important; padding: 12px 15px !important; border-radius: 10px !important; border: 1.5px solid rgba(10, 22, 40, 0.14) !important; background: #f9fbff !important; font-family: 'Inter', sans-serif !important; font-size: 0.92rem !important; color: var(--coens-navy) !important; outline: none !important; }
 .coens-pakbon-card { background: linear-gradient(145deg, #081220 0%, #0d274c 100%); border-radius: 22px; padding: 36px 30px; color: #ffffff; }
-.coens-pakbon-card h3 { font-family: 'Syne', sans-serif !important; font-size: 1.35rem; color: var(--coens-gold); margin-bottom: 12px; }
+.coens-pakbon-card h3 { font-family: 'Inter', sans-serif !important; font-size: 1.35rem; color: var(--coens-gold); margin-bottom: 12px; }
 .coens-address-ticket { background: rgba(255, 255, 255, 0.07); border: 1.5px dashed rgba(245, 166, 35, 0.5); border-radius: 14px; padding: 20px; margin: 18px 0; font-size: 0.92rem; line-height: 1.7; }
 .inruil-bonus-banner { background: linear-gradient(135deg, #081220 0%, #102a52 100%); border-radius: 20px; padding: 32px; color: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; margin-bottom: 36px; border: 1px solid rgba(245, 166, 35, 0.3); }
 
@@ -1045,7 +1045,7 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 .winkel-detail-card { background: #ffffff; border: 1.5px solid var(--coens-border-light); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 12px 35px rgba(8, 18, 32, 0.06); }
 .winkel-card-banner { background: linear-gradient(135deg, #081220 0%, #0d2854 100%); padding: 26px 24px; color: #ffffff; border-bottom: 3px solid var(--coens-gold); }
 .winkel-card-banner span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--coens-gold); font-weight: 700; }
-.winkel-card-banner h3 { font-family: 'Syne', sans-serif !important; font-size: 1.45rem; color: #ffffff; margin-top: 4px; }
+.winkel-card-banner h3 { font-family: 'Inter', sans-serif !important; font-size: 1.45rem; color: #ffffff; margin-top: 4px; }
 .winkel-card-body { padding: 26px 24px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
 .winkel-info-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; color: var(--coens-gray-800); }
 .winkel-info-list li { display: flex; align-items: flex-start; gap: 10px; }
@@ -1059,20 +1059,20 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 .coens-stores-section .coens-sub { color: rgba(255, 255, 255, 0.65); }
 .coens-stores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 44px; }
 .coens-store-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--coens-radius); padding: 32px 26px; display: flex; flex-direction: column; }
-.coens-store-card h3 { font-family: 'Syne', sans-serif !important; font-size: 1.3rem; color: #ffffff; margin-bottom: 10px; }
+.coens-store-card h3 { font-family: 'Inter', sans-serif !important; font-size: 1.3rem; color: #ffffff; margin-bottom: 10px; }
 .coens-store-detail { display: flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, 0.78); font-size: 0.88rem; margin-bottom: 8px; }
 .coens-store-card .coens-btn-cta { margin-top: 22px; width: 100%; }
 
 .coens-promo-banner { background: linear-gradient(135deg, #0d2142 0%, #08172e 100%); padding: 70px 6%; color: #ffffff; }
 .coens-promo-inner { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 28px; }
-.coens-promo-text h2 { font-family: 'Syne', sans-serif !important; font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 800; line-height: 1.25; }
+.coens-promo-text h2 { font-family: 'Inter', sans-serif !important; font-size: clamp(1.8rem, 3.2vw, 2.4rem); font-weight: 800; line-height: 1.25; }
 .coens-promo-text h2 span { color: var(--coens-gold); }
 .coens-promo-text p { color: rgba(255, 255, 255, 0.75); font-size: 0.96rem; margin-top: 6px; max-width: 540px; }
 .coens-promo-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
 .coens-footer { background: #040910; color: rgba(255, 255, 255, 0.65); padding: 70px 6% 32px; font-size: 0.88rem; }
 .coens-footer-grid { max-width: 1240px; margin: 0 auto 44px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
-.coens-footer-col h4 { font-family: 'Syne', sans-serif !important; color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
+.coens-footer-col h4 { font-family: 'Inter', sans-serif !important; color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
 .coens-footer-col ul { list-style: none; }
 .coens-footer-col ul li { margin-bottom: 8px; }
 .coens-footer-col a:hover { color: #ffffff; }
@@ -1346,7 +1346,7 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 }
 
 .coens-legal-card h2 {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 1.4rem;
   font-weight: 800;
   color: var(--coens-navy);
@@ -1404,7 +1404,7 @@ details.gsm-more-repairs summary::marker { display: none !important; }
   align-self: flex-start;
   background: #eef4ff;
   color: var(--coens-blue);
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-weight: 800;
   font-size: 0.78rem;
   padding: 5px 14px;
@@ -1413,14 +1413,14 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 }
 
 .coens-job-card h2 {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 1.5rem;
   color: var(--coens-navy);
   line-height: 1.25;
 }
 
 .coens-job-card h3 {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Inter', sans-serif !important;
   font-size: 1.05rem;
   color: var(--coens-navy);
   margin-top: 6px;
@@ -1520,7 +1520,7 @@ details.gsm-more-repairs summary::marker { display: none !important; }
   font-family: 'Inter', sans-serif;
 }
 #coens-wizard .cw-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
-#coens-wizard h3 { font-family: 'Syne', sans-serif !important; font-size: 1.1rem; color: var(--coens-navy); margin: 0; }
+#coens-wizard h3 { font-family: 'Inter', sans-serif !important; font-size: 1.1rem; color: var(--coens-navy); margin: 0; }
 #coens-wizard .cw-steps { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
 #coens-wizard .cw-steps li { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; color: var(--coens-gray-600); }
 #coens-wizard .cw-steps li span { width: 22px; height: 22px; border-radius: 50%; background: var(--coens-gray-100); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.72rem; }
@@ -1557,8 +1557,8 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 /* --- "Zo werkt het" steps --- */
 .coens-steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .coens-step { position: relative; background: #fff; border: 1.5px solid var(--coens-border-light); border-radius: var(--coens-radius); padding: 34px 28px 30px; }
-.coens-step-num { width: 44px; height: 44px; border-radius: 12px; background: var(--coens-navy); color: var(--coens-gold); font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
-.coens-step h3 { font-family: 'Syne', sans-serif !important; font-size: 1.1rem; color: var(--coens-navy); margin-bottom: 8px; }
+.coens-step-num { width: 44px; height: 44px; border-radius: 12px; background: var(--coens-navy); color: var(--coens-gold); font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.coens-step h3 { font-family: 'Inter', sans-serif !important; font-size: 1.1rem; color: var(--coens-navy); margin-bottom: 8px; }
 .coens-step p { color: var(--coens-gray-600); font-size: 0.92rem; line-height: 1.65; }
 
 /* --- FAQ --- */
@@ -1591,7 +1591,7 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 .coens-part.gold { border-color: rgba(245, 166, 35, 0.6); box-shadow: 0 10px 30px rgba(245, 166, 35, 0.12); }
 .coens-part-label { font-size: 0.74rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--coens-blue); }
 .coens-part.gold .coens-part-label { color: #c47d0a; }
-.coens-part h3 { font-family: 'Syne', sans-serif !important; font-size: 1.3rem; color: var(--coens-navy); margin: 6px 0 10px; }
+.coens-part h3 { font-family: 'Inter', sans-serif !important; font-size: 1.3rem; color: var(--coens-navy); margin: 6px 0 10px; }
 .coens-part > p { color: var(--coens-gray-600); font-size: 0.92rem; line-height: 1.65; margin-bottom: 16px; }
 .coens-part ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .coens-part li { font-size: 0.9rem; color: var(--coens-gray-800); padding-left: 24px; position: relative; }
