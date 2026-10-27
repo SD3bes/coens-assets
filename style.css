@@ -1735,3 +1735,6 @@ html[data-theme="dark"] .tk-new-price { color: var(--coens-gold) !important; }
 html[data-theme="dark"] .tk-old-price { color: rgba(255,255,255,0.5) !important; }
 html[data-theme="dark"] .tk-grade-card span:not([class]) { background: rgba(16,185,129,0.18) !important; color: #7ee2b8 !important; }
 html[data-theme="dark"] .gsm-more-list { background: transparent !important; }
+html[data-theme="dark"] .gsm-store-stock span { background: rgba(16,185,129,0.18) !important; color: #7ee2b8 !important; }
+html[data-theme="dark"] .tk-price-box :is(div, span, small) { color: rgba(255,255,255,0.78) !important; }
+html[data-theme="dark"] .tk-price-box .tk-new-price { color: var(--coens-gold) !important; }
