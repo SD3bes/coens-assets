@@ -1,0 +1,21 @@
+{
+  "name": "Coen's Telecom & More",
+  "short_name": "Coen's",
+  "description": "Reparatieprijzen, inruilwaarde, reparatie boeken en openingstijden van Coen's in Bergeijk, Bladel en Valkenswaard.",
+  "lang": "nl",
+  "start_url": "https://www.coens.nl/app/?source=pwa",
+  "scope": "https://www.coens.nl/app/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#081220",
+  "icons": [
+    { "src": "https://www.coens.nl/wp-content/uploads/2021/01/coens_for_light_square.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "https://www.coens.nl/wp-content/uploads/2021/01/cropped-coens_for_light_square.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Reparatieprijs", "url": "https://www.coens.nl/app/?tab=prijzen" },
+    { "name": "Inruilwaarde", "url": "https://www.coens.nl/app/?tab=inruilen" },
+    { "name": "Reparatie boeken", "url": "https://www.coens.nl/app/?tab=boeken" }
+  ]
+}
