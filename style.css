@@ -1807,3 +1807,6 @@ html[data-theme="light"] .coens-footer :is(p, span, li, a, div) { color: #3b4a63
 html[data-theme="light"] .coens-footer :is(h4, h3, strong) { color: var(--coens-navy) !important; }
 html[data-theme="light"] .coens-footer a:hover { color: var(--coens-blue) !important; }
 html[data-theme="light"] .coens-footer-bottom { border-top-color: rgba(8,18,32,0.1) !important; }
+html[data-theme="light"] .coens-nav a:not(.coens-btn-cta):not(.coens-btn-whatsapp) { color: #3b4a63 !important; }
+html[data-theme="light"] .coens-nav a.active { color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-nav-inner:not(:has(.coens-mobile-nav)) .coens-menu a { color: #3b4a63 !important; }
