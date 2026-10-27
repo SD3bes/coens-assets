@@ -204,5 +204,19 @@
     s.text = JSON.stringify(data); document.head.appendChild(s);
   }
 
-  ready(function () { stickyBar(); openingHours(); wizard(); faqSchema(); businessSchema(); });
+  /* ---------- 6. Store status inside the hamburger drawer (phones / tablets) ---------- */
+  function drawerStores() {
+    var drawer = document.querySelector('.coens-mobile-drawer');
+    if (!drawer || drawer.querySelector('.coens-drawer-stores')) return;
+    var stores = [['bergeijk', 'Bergeijk'], ['bladel', 'Bladel'], ['valkenswaard', 'Valkenswaard']];
+    var box = document.createElement('div');
+    box.className = 'coens-drawer-stores';
+    box.innerHTML = '<div class="coens-drawer-stores-title">Onze winkels</div>' + stores.map(function (st) {
+      return '<a href="/winkels/#' + st[0] + '"><span>📍 ' + st[1] + '</span><span class="coens-store-status" data-coens-hours="">…</span></a>';
+    }).join('');
+    var cta = drawer.querySelector('.coens-btn-cta');
+    if (cta) drawer.insertBefore(box, cta); else drawer.appendChild(box);
+  }
+
+  ready(function () { stickyBar(); drawerStores(); openingHours(); wizard(); faqSchema(); businessSchema(); });
 })();
