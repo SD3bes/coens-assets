@@ -1824,3 +1824,32 @@ body.admin-bar { padding-top: 32px !important; }
 @media (max-width: 782px) {
   body.admin-bar { padding-top: 46px !important; }
 }
+
+/* ========================================================
+   NO ORANGE TEXT (customer request): gold stays only on
+   buttons/badge backgrounds; all gold-coloured text becomes
+   the normal text colour of its surroundings.
+   ======================================================== */
+.coens-hero h1 em, html[data-theme="light"] .coens-hero h1 em { color: inherit !important; }
+.coens-top-stores span, html[data-theme="light"] .coens-top-stores span { color: inherit !important; font-weight: 700; }
+.coens-logo span { color: inherit !important; }
+.coens-fact-num, .coens-stat-num span, .coens-fb-val.gold { color: #ffffff !important; }
+.coens-pakbon-card h3, .winkel-card-banner span, .coens-promo-text h2 span { color: inherit !important; }
+.gsm-stars { color: inherit !important; }
+.coens-step-num, html[data-theme="dark"] .coens-step-num { color: #ffffff !important; }
+.coens-part.gold .coens-part-label { color: var(--coens-blue) !important; }
+html[data-theme="dark"] .coens-part.gold .coens-part-label { color: #8db8ff !important; }
+.coens-drawer-stores-title { color: rgba(255,255,255,0.65) !important; }
+html[data-theme="light"] .coens-drawer-stores-title { color: var(--coens-gray-600) !important; }
+html[data-theme="light"] .coens-drawer-app span { color: var(--coens-gray-600) !important; }
+.coens-footer-app, html[data-theme="light"] .coens-footer-app { color: inherit !important; }
+.coens-stores-section .coens-tag, html[data-theme="light"] .coens-stores-section .coens-tag { color: var(--coens-blue) !important; }
+html[data-theme="dark"] .coens-stores-section .coens-tag { color: #8db8ff !important; }
+html[data-theme="dark"] .tk-new-price, html[data-theme="dark"] .tk-price-box .tk-new-price { color: #ffffff !important; }
+.tk-new-price { color: inherit !important; }
+/* "closing soon" badges: same soft background, normal text */
+.coens-store-status.is-soon { color: rgba(255,255,255,0.85) !important; }
+.coens-store-status--light.is-soon, html[data-theme="light"] :is(.coens-drawer-stores, .coens-stores-section) .coens-store-status.is-soon { color: var(--coens-gray-800) !important; }
+html[data-theme="dark"] .coens-store-status--light.is-soon { color: rgba(255,255,255,0.85) !important; }
+/* wizard: active step number stays readable on the gold circle */
+#coens-wizard .cw-steps li.active span { color: #081220 !important; }

@@ -116,3 +116,8 @@ html[data-theme="dark"] .ca-badge.is-closed { background: rgba(239,68,68,0.15); 
 .ca-toast { position: fixed; left: 50%; bottom: calc(90px + env(safe-area-inset-bottom)); transform: translateX(-50%); background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 12px; font-size: 0.85rem; z-index: 40; opacity: 0; transition: opacity .2s; pointer-events: none; }
 .ca-toast.show { opacity: 1; }
 .grecaptcha-badge { display: none !important; }
+
+/* No orange text (customer request) */
+.ca-head .ca-status.is-soon { color: rgba(255,255,255,0.85); }
+.ca-badge.is-soon { color: var(--text); }
+html[data-theme="dark"] .ca-badge.is-soon { color: rgba(255,255,255,0.85); }
