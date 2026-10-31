@@ -171,35 +171,25 @@ img {
   color: #ffffff !important;
   letter-spacing: -0.5px;
   white-space: nowrap;
-}
-
-.coens-logo span {
-  color: var(--coens-gold) !important;
-}
-
-/* ========================================================
-   COEN'S LOGO - official image on every page
-   ======================================================== */
-.coens-logo {
   display: inline-block !important;
   flex-shrink: 0 !important;
   width: 170px !important;
   height: 40px !important;
   margin-right: 20px !important;
   text-decoration: none !important;
-  /* Render the official logo image on EVERY page, even where the
-     page markup still uses the old "Coen's" text node */
   background-image: url("https://www.coens.nl/wp-content/uploads/2017/10/coens_for_dark_72dpi.png") !important;
   background-repeat: no-repeat !important;
   background-position: left center !important;
   background-size: contain !important;
-  font-size: 0 !important;   /* hides the fallback "Coen's" text */
+  font-size: 0 !important;
   line-height: 0 !important;
   overflow: hidden !important;
 }
 
-/* Hide any inline <img> logo so pages that already have one
-   (e.g. the homepage) don't show the logo twice */
+.coens-logo span {
+  color: var(--coens-gold) !important;
+}
+
 .coens-logo img { display: none !important; }
 
 .coens-footer .coens-logo { height: 32px !important; max-width: 145px !important; margin-bottom: 4px; }
@@ -261,7 +251,7 @@ img {
   gap: 8px;
 }
 
-/* DESKTOP NAV (>= 1140px: the 5-link menu needs ~1000px, smaller screens use the drawer) */
+/* DESKTOP NAV (>= 1140px) */
 @media (min-width: 1140px) {
   .coens-mobile-nav {
     display: none !important;
@@ -1080,7 +1070,6 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 
 /* ========================================================
    11. TABLET & IPAD VIEWPORT RULES (<= 1024px)
-   Ensures zero menu cramping and clean 2-column grids
    ======================================================== */
 @media (max-width: 1139px) {
   .coens-desktop-nav {
@@ -1183,7 +1172,6 @@ details.gsm-more-repairs summary::marker { display: none !important; }
     min-height: 48px !important;
     font-size: 1rem !important;
   }
-
 }
 
 @media (max-width: 1024px) {
@@ -1332,8 +1320,9 @@ details.gsm-more-repairs summary::marker { display: none !important; }
     text-align: center !important;
   }
 }
+
 /* ========================================================
-   LEGAL PAGES (DISCLAIMER, COOKIES, VOORWAARDEN) & VACATURES
+   13. LEGAL PAGES & VACATURES
    ======================================================== */
 .coens-legal-card {
   background: #ffffff;
@@ -1381,7 +1370,6 @@ details.gsm-more-repairs summary::marker { display: none !important; }
   text-decoration: underline !important;
 }
 
-/* Vacatures Job Cards */
 .coens-jobs-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1447,7 +1435,6 @@ details.gsm-more-repairs summary::marker { display: none !important; }
   font-weight: 800;
 }
 
-/* GDPR Checkbox Styling */
 .coens-gdpr-label {
   display: flex !important;
   align-items: flex-start !important;
@@ -1478,8 +1465,6 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 /* ========================================================
    NAV FIX - small laptops and pages without a hamburger
    ======================================================== */
-
-/* Desktop layout: logo left, button right, links centred between them */
 @media (min-width: 1140px) {
   .coens-nav-inner { justify-content: flex-start !important; }
   .coens-logo { margin-right: 24px !important; }
@@ -1489,8 +1474,6 @@ details.gsm-more-repairs summary::marker { display: none !important; }
   .coens-menu a { font-size: 0.93rem !important; padding: 8px 0 !important; }
 }
 
-/* Pages without a hamburger (e.g. Vacatures, Algemene voorwaarden):
-   keep their short menu visible and let it wrap under the logo */
 @media (max-width: 1139px) {
   .coens-nav-inner:not(:has(.coens-mobile-nav)) { flex-wrap: wrap !important; row-gap: 14px !important; }
   .coens-nav-inner:not(:has(.coens-mobile-nav)) .coens-desktop-nav {
@@ -1508,11 +1491,8 @@ details.gsm-more-repairs summary::marker { display: none !important; }
 }
 
 /* ========================================================
-   UI ADD-ONS (ported from the rebuild): wizard, FAQ, steps,
-   store badges, sticky phone bar, Pulled vs OEM block
+   UI ADD-ONS: wizard, FAQ, steps, store badges, sticky bar
    ======================================================== */
-
-/* --- Repair wizard (hero) --- */
 .coens-hero-visual--wizard { display: flex !important; align-items: center !important; }
 #coens-wizard {
   width: 100%; max-width: 460px; background: #ffffff; color: var(--coens-gray-800);
@@ -1621,7 +1601,6 @@ details.gsm-more-repairs summary::marker { display: none !important; }
   .coens-store-actions { grid-template-columns: 1fr; }
 }
 
-/* --- Light badge variant (Winkels page) and reCAPTCHA badge above the phone bar --- */
 .coens-store-status--light { background: #eef1f6; color: var(--coens-gray-600); margin: 0 0 10px; }
 .coens-store-status--light.is-open { background: #e6f4ea; color: #0f8a4f; }
 .coens-store-status--light.is-soon { background: #fff4d6; color: #b36b00; }
@@ -1630,26 +1609,18 @@ details.gsm-more-repairs summary::marker { display: none !important; }
   body.has-coens-sticky-bar .grecaptcha-badge { bottom: 96px !important; }
 }
 
-/* --- Store status block in the hamburger drawer --- */
 .coens-drawer-stores { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px 14px; }
 .coens-drawer-stores-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--coens-gold); margin-bottom: 6px; }
 .coens-drawer-stores a { display: flex !important; justify-content: space-between; align-items: center; gap: 10px; padding: 7px 0 !important; color: #ffffff !important; font-weight: 600; font-size: 0.9rem; text-decoration: none; border: none !important; background: none !important; }
 .coens-drawer-stores a + a { border-top: 1px solid rgba(255,255,255,0.08) !important; }
-.coens-drawer-stores .coens-store-status { margin: 0; font-size: 0.7rem; padding: 4px 9px; white-space: nowrap; }
+.coens-drawer-stores .coens-store-status { margin: 0; font-size: 0.68rem; padding: 4px 8px; white-space: nowrap; }
 .coens-drawer-stores a > span:first-child { white-space: nowrap; flex-shrink: 0; }
-.coens-drawer-stores .coens-store-status { font-size: 0.68rem; padding: 4px 8px; }
 
-/* --- Hide the empty paragraph WordPress wraps around the <link>/<script> tags at the top of each page (caused a 25px gap above the top bar) --- */
 p:has(> link[rel="stylesheet"]), p:has(> script:only-child), .entry-content > p:has(> link) { display: none !important; margin: 0 !important; padding: 0 !important; height: 0 !important; }
 
 /* ========================================================
-   DARK / LIGHT THEME
-   Light = the original look. Dark is applied with
-   html[data-theme="dark"], set by coens-ui.js (toggle in nav,
-   saved in localStorage, defaults to the system preference).
+   14. DARK / LIGHT THEME SYSTEM
    ======================================================== */
-
-/* Toggle button */
 .coens-theme-toggle {
   height: 40px; padding: 0 14px 0 10px; border-radius: 20px; flex-shrink: 0; margin-left: 12px; gap: 7px;
   border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); color: #fff;
@@ -1661,7 +1632,7 @@ p:has(> link[rel="stylesheet"]), p:has(> script:only-child), .entry-content > p:
 @media (max-width: 600px) { .coens-theme-toggle { padding: 0 10px; } .coens-theme-toggle .ctt-label { display: none; } }
 @media (max-width: 1139px) { .coens-theme-toggle { margin-left: auto; margin-right: 10px; } .coens-nav-inner:has(.coens-mobile-nav) .coens-theme-toggle { margin-left: auto; } }
 
-/* ---------- Surfaces ---------- */
+/* ---------- Dark Theme ---------- */
 html[data-theme="dark"] body { background: #081220 !important; color: #e6ebf5 !important; }
 html[data-theme="dark"] .coens-section { background: #081220 !important; color: #e6ebf5; }
 html[data-theme="dark"] .coens-section.light { background: #0b1730 !important; }
@@ -1674,7 +1645,6 @@ html[data-theme="dark"] .coens-section :is(p, li, dd, dt, td, th, label, small, 
 html[data-theme="dark"] .coens-section :is(.coens-tag, .coens-card-link, .coens-part-label, .coens-faq-foot a, .cw-wa, .coens-parts-note a, a:not([class]), .gsm-rep-item-price, .cw-price b) { color: #8db8ff !important; }
 html[data-theme="dark"] .coens-section :is(.coens-btn-cta, .coens-btn-cta *, .coens-btn-whatsapp, .coens-btn-whatsapp *) { color: #ffffff !important; }
 
-/* Cards and panels */
 html[data-theme="dark"] :is(.coens-card, .coens-step, .coens-faq details, .coens-part, .coens-part.gold, .gsm-device-card, .gsm-brand-section,
   .coens-problem-card, .tk-grade-card, .coens-step-box, .coens-form-card, .winkel-detail-card, .coens-job-card, .coens-legal-card,
   .alle-merken__item, .gsm-device-thumb, .coens-sticky-bar) {
@@ -1686,7 +1656,6 @@ html[data-theme="dark"] :is(.coens-card, .coens-step, .coens-problem-card, .tk-g
 html[data-theme="dark"] :is(.coens-card, .coens-step, .coens-problem-card, .tk-grade-card, .coens-job-card, .coens-legal-card, .winkel-detail-card, .coens-form-card, .gsm-device-card, .alle-merken__item) :is(p, li, span, label, td, dd, dt, small) { color: rgba(255,255,255,0.74) !important; }
 html[data-theme="dark"] :is(.coens-legal-card, .winkel-detail-card, .coens-job-card) a:not(.coens-btn-cta):not(.coens-btn-whatsapp) { color: #8db8ff !important; }
 
-/* Sub-tiles inside cards */
 html[data-theme="dark"] :is(.gsm-rep-item, .coens-card-icon, .coens-prob-icon, .tk-price-box, .winkel-hours-box, .gsm-brand-bar-logo, .tk-spec-pill,
   .alle-merken__item__sub, .coens-job-badge, .gsm-device-code, .coens-store-status--light) { background: rgba(255,255,255,0.06) !important; color: #e6ebf5 !important; border-color: rgba(255,255,255,0.1) !important; }
 html[data-theme="dark"] .gsm-rep-item.highlight { background: rgba(79,141,255,0.16) !important; }
@@ -1700,11 +1669,9 @@ html[data-theme="dark"] .coens-store-status--light.is-open { background: rgba(16
 html[data-theme="dark"] .coens-store-status--light.is-soon { background: rgba(245,166,35,0.18) !important; color: #f5a623 !important; }
 html[data-theme="dark"] .coens-store-status--light.is-closed { background: rgba(239,68,68,0.15) !important; color: #f87171 !important; }
 
-/* Forms */
 html[data-theme="dark"] :is(input, select, textarea):not([type="submit"]):not([type="button"]) { background: #0b1730 !important; color: #ffffff !important; border-color: rgba(255,255,255,0.18) !important; }
 html[data-theme="dark"] :is(input, textarea)::placeholder { color: rgba(255,255,255,0.4) !important; }
 
-/* Wizard */
 html[data-theme="dark"] #coens-wizard { background: #11223f !important; color: #e6ebf5; box-shadow: 0 30px 70px rgba(0,0,0,0.6); }
 html[data-theme="dark"] #coens-wizard :is(h3, .cw-q, .cw-opt strong, .cw-model, .cw-price strong) { color: #ffffff !important; }
 html[data-theme="dark"] #coens-wizard :is(.cw-steps li, .cw-opt small, .cw-back, .cw-price small, .cw-loading, .cw-empty, .cw-note) { color: rgba(255,255,255,0.65) !important; }
@@ -1715,17 +1682,14 @@ html[data-theme="dark"] #coens-wizard .cw-steps li.active span { background: var
 html[data-theme="dark"] #coens-wizard .cw-steps li.done span { background: #4f8dff !important; color: #fff !important; }
 html[data-theme="dark"] #coens-wizard .cw-search { color: #fff !important; }
 
-/* Sticky phone bar */
 html[data-theme="dark"] .coens-sticky-bar { background: rgba(11,23,48,0.96) !important; border-top-color: rgba(255,255,255,0.1) !important; }
 html[data-theme="dark"] .coens-sticky-bar a { color: #ffffff !important; }
 html[data-theme="dark"] .coens-sticky-bar .csb-primary { color: #081220 !important; }
 
-/* Step numbers, check icons */
 html[data-theme="dark"] .coens-step-num { background: rgba(255,255,255,0.08) !important; color: var(--coens-gold) !important; }
 html[data-theme="dark"] .coens-why-point h4 { color: #ffffff !important; }
 html[data-theme="dark"] .coens-why-point p { color: rgba(255,255,255,0.74) !important; }
 
-/* Dark theme: page-specific leftovers found by the contrast check */
 html[data-theme="dark"] .gsm-device-card-top { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.1) !important; }
 html[data-theme="dark"] :is(.gsm-device-card-top, .gsm-device-meta) h4 { color: #ffffff !important; }
 html[data-theme="dark"] .gsm-device-quickprice { color: #8db8ff !important; }
@@ -1741,17 +1705,12 @@ html[data-theme="dark"] .gsm-store-stock span { background: rgba(16,185,129,0.18
 html[data-theme="dark"] .tk-price-box :is(div, span, small) { color: rgba(255,255,255,0.78) !important; }
 html[data-theme="dark"] .tk-price-box .tk-new-price { color: var(--coens-gold) !important; }
 
-/* ========================================================
-   LIGHT THEME: header, hero, stores and footer go light too
-   (html[data-theme="light"] is the default set by coens-ui.js)
-   ======================================================== */
+/* ---------- Light Theme ---------- */
 html[data-theme="light"] body { background: #f4f7fc !important; }
 
-/* Top bar */
 html[data-theme="light"] .coens-top-bar { background: #eef2f8 !important; color: #3b4a63 !important; border-bottom: 1px solid rgba(8,18,32,0.06); }
 html[data-theme="light"] .coens-top-stores span { color: #b36b00 !important; }
 
-/* Nav */
 html[data-theme="light"] .coens-nav { background: #ffffff !important; border-bottom: 1px solid rgba(8,18,32,0.08) !important; box-shadow: 0 6px 24px rgba(8,18,32,0.06); }
 html[data-theme="light"] .coens-logo, html[data-theme="light"] .coens-footer .coens-logo { background-image: url("https://www.coens.nl/wp-content/uploads/2017/10/coens_for_light_72dpi.png") !important; }
 html[data-theme="light"] .coens-menu a { color: #3b4a63 !important; }
@@ -1761,7 +1720,6 @@ html[data-theme="light"] .coens-theme-toggle:hover { background: #e6efff !import
 html[data-theme="light"] summary.coens-hamburger { background: #f4f7fc !important; border-color: rgba(8,18,32,0.15) !important; }
 html[data-theme="light"] summary.coens-hamburger span { background: var(--coens-navy) !important; }
 
-/* Mobile drawer */
 html[data-theme="light"] .coens-mobile-drawer { background: #ffffff !important; box-shadow: 0 25px 60px rgba(8,18,32,0.18) !important; }
 html[data-theme="light"] .coens-mobile-links a { color: var(--coens-navy) !important; background: #f4f7fc !important; border-color: rgba(8,18,32,0.08) !important; }
 html[data-theme="light"] .coens-mobile-links a.active { background: #e6efff !important; border-color: var(--coens-blue) !important; }
@@ -1770,16 +1728,14 @@ html[data-theme="light"] .coens-drawer-stores-title { color: #b36b00 !important;
 html[data-theme="light"] .coens-drawer-stores a { color: var(--coens-navy) !important; }
 html[data-theme="light"] .coens-drawer-stores a + a { border-top-color: rgba(8,18,32,0.08) !important; }
 
-/* Status badges on light surfaces (drawer, stores section) */
 html[data-theme="light"] :is(.coens-drawer-stores, .coens-stores-section) .coens-store-status { background: #eef1f6; color: var(--coens-gray-600); }
 html[data-theme="light"] :is(.coens-drawer-stores, .coens-stores-section) .coens-store-status.is-open { background: #e6f4ea; color: #0f8a4f; }
 html[data-theme="light"] :is(.coens-drawer-stores, .coens-stores-section) .coens-store-status.is-soon { background: #fff4d6; color: #b36b00; }
 html[data-theme="light"] :is(.coens-drawer-stores, .coens-stores-section) .coens-store-status.is-closed { background: #fdecea; color: #c0392b; }
 
-/* Hero */
 html[data-theme="light"] .coens-hero { background: linear-gradient(135deg, #f4f7fc 0%, #ffffff 55%, #e8efff 100%) !important; color: var(--coens-navy) !important; }
-html[data-theme="light"] .coens-hero :is(h1, h2, h3, h4, p, li, span, div, small, strong, label):not(.coens-btn-cta):not(.coens-btn-whatsapp):not(.coens-eyebrow):not(.coens-chip):not(:is(.gsm-hero-showcase-card, #coens-wizard, .coens-address-ticket, .tk-grade-card, .coens-pakbon-card, .inruil-bonus-banner, .coens-btn-cta, .coens-btn-whatsapp, .coens-eyebrow, .coens-chip, .gsm-score-badge, .gsm-review-box) *) { color: var(--coens-navy) !important; }
-html[data-theme="light"] .coens-hero :is(p, li, small, .coens-hero-sub):not(:is(.gsm-hero-showcase-card, #coens-wizard, .coens-address-ticket, .tk-grade-card, .coens-pakbon-card, .inruil-bonus-banner, .gsm-review-box) *) { color: #3b4a63 !important; }
+html[data-theme="light"] .coens-hero :is(h1, h2, h3, h4, p, li, span, div, small, strong, label):not(.coens-btn-cta):not(.coens-btn-whatsapp):not(.coens-eyebrow):not(.coens-chip):not(:is(.gsm-hero-showcase-card, #coens-wizard, #coens-advies-wizard, .coens-address-ticket, .tk-grade-card, .coens-pakbon-card, .inruil-bonus-banner, .coens-btn-cta, .coens-btn-whatsapp, .coens-eyebrow, .coens-chip, .gsm-score-badge, .gsm-review-box) *) { color: var(--coens-navy) !important; }
+html[data-theme="light"] .coens-hero :is(p, li, small, .coens-hero-sub):not(:is(.gsm-hero-showcase-card, #coens-wizard, #coens-advies-wizard, .coens-address-ticket, .tk-grade-card, .coens-pakbon-card, .inruil-bonus-banner, .gsm-review-box) *) { color: #3b4a63 !important; }
 html[data-theme="light"] .coens-hero h1 em { color: #e0911a !important; }
 html[data-theme="light"] .coens-eyebrow { background: rgba(30,111,255,0.1) !important; border-color: rgba(30,111,255,0.3) !important; color: var(--coens-blue) !important; }
 html[data-theme="light"] .coens-chips { color: #5a6a85 !important; }
@@ -1789,7 +1745,6 @@ html[data-theme="light"] .coens-chip--wa { background: #e6f4ea !important; borde
 html[data-theme="light"] .coens-hero .coens-btn-ghost { border-color: rgba(8,18,32,0.25) !important; color: var(--coens-navy) !important; }
 html[data-theme="light"] .coens-hero a:not([class]) { color: var(--coens-blue) !important; }
 
-/* Stores section (homepage) */
 html[data-theme="light"] .coens-stores-section { background: #f4f7fc !important; color: var(--coens-navy) !important; }
 html[data-theme="light"] .coens-stores-section .coens-title { color: var(--coens-navy) !important; }
 html[data-theme="light"] .coens-stores-section .coens-sub { color: var(--coens-gray-600) !important; }
@@ -1801,7 +1756,6 @@ html[data-theme="light"] .coens-store-tip { color: var(--coens-gray-600) !import
 html[data-theme="light"] .coens-stores-section .coens-btn-ghost { border-color: rgba(8,18,32,0.2) !important; color: var(--coens-navy) !important; }
 html[data-theme="light"] .coens-stores-section .coens-btn-ghost:hover { background: #e6efff !important; border-color: var(--coens-blue) !important; }
 
-/* Footer */
 html[data-theme="light"] .coens-footer { background: #eef2f8 !important; color: #3b4a63 !important; border-top: 1px solid rgba(8,18,32,0.08) !important; }
 html[data-theme="light"] .coens-footer :is(p, span, li, a, div) { color: #3b4a63 !important; }
 html[data-theme="light"] .coens-footer :is(h4, h3, strong) { color: var(--coens-navy) !important; }
@@ -1811,7 +1765,6 @@ html[data-theme="light"] .coens-nav a:not(.coens-btn-cta):not(.coens-btn-whatsap
 html[data-theme="light"] .coens-nav a.active { color: var(--coens-navy) !important; }
 html[data-theme="light"] .coens-nav-inner:not(:has(.coens-mobile-nav)) .coens-menu a { color: #3b4a63 !important; }
 
-/* --- App links (drawer + footer) --- */
 .coens-drawer-app { display: flex !important; flex-direction: column; gap: 2px; margin-top: 10px; padding: 10px 12px !important; border-radius: 10px; background: rgba(245,166,35,0.14) !important; border: 1px solid rgba(245,166,35,0.35) !important; color: #fff !important; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
 .coens-drawer-app span { font-weight: 500; font-size: 0.76rem; color: rgba(255,255,255,0.7); }
 html[data-theme="light"] .coens-drawer-app { background: #fff4d6 !important; border-color: rgba(245,166,35,0.5) !important; color: var(--coens-navy) !important; }
@@ -1819,16 +1772,13 @@ html[data-theme="light"] .coens-drawer-app span { color: #8a6d3b; }
 .coens-footer-app { display: inline-block; margin-top: 12px; font-size: 0.86rem; font-weight: 600; color: var(--coens-gold) !important; text-decoration: none; }
 html[data-theme="light"] .coens-footer-app { color: #b36b00 !important; }
 
-/* --- Logged-in admins: keep the site below the WordPress admin bar (visitors are unaffected) --- */
 body.admin-bar { padding-top: 32px !important; }
 @media (max-width: 782px) {
   body.admin-bar { padding-top: 46px !important; }
 }
 
 /* ========================================================
-   NO ORANGE TEXT (customer request): gold stays only on
-   buttons/badge backgrounds; all gold-coloured text becomes
-   the normal text colour of its surroundings.
+   NO ORANGE TEXT OVERRIDES
    ======================================================== */
 .coens-hero h1 em, html[data-theme="light"] .coens-hero h1 em { color: inherit !important; }
 .coens-top-stores span, html[data-theme="light"] .coens-top-stores span { color: inherit !important; font-weight: 700; }
@@ -1847,9 +1797,511 @@ html[data-theme="light"] .coens-drawer-app span { color: var(--coens-gray-600) !
 html[data-theme="dark"] .coens-stores-section .coens-tag { color: #8db8ff !important; }
 html[data-theme="dark"] .tk-new-price, html[data-theme="dark"] .tk-price-box .tk-new-price { color: #ffffff !important; }
 .tk-new-price { color: inherit !important; }
-/* "closing soon" badges: same soft background, normal text */
 .coens-store-status.is-soon { color: rgba(255,255,255,0.85) !important; }
 .coens-store-status--light.is-soon, html[data-theme="light"] :is(.coens-drawer-stores, .coens-stores-section) .coens-store-status.is-soon { color: var(--coens-gray-800) !important; }
 html[data-theme="dark"] .coens-store-status--light.is-soon { color: rgba(255,255,255,0.85) !important; }
-/* wizard: active step number stays readable on the gold circle */
 #coens-wizard .cw-steps li.active span { color: #081220 !important; }
+
+/* ========================================================
+   15. HOMEPAGE ABONNEMENTEN & WIZARD (PDF EXACT MATCH + DARK/LIGHT)
+   ======================================================== */
+
+/* Hero Blue Accent & Secondary Button */
+.coens-hero h1 span.coens-blue-accent,
+html[data-theme="light"] .coens-hero h1 span.coens-blue-accent {
+  color: var(--coens-blue) !important;
+}
+html[data-theme="dark"] .coens-hero h1 span.coens-blue-accent {
+  color: #60a5fa !important;
+}
+
+.coens-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  color: var(--coens-navy) !important;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 11px 22px;
+  border-radius: 9px;
+  border: 1.5px solid rgba(10, 22, 40, 0.16);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.coens-btn-outline:hover {
+  border-color: var(--coens-blue);
+  color: var(--coens-blue) !important;
+}
+html[data-theme="dark"] .coens-btn-outline {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+html[data-theme="dark"] .coens-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-color: #ffffff !important;
+}
+
+.coens-hero-quicklinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 18px;
+}
+.coens-hero-quicklinks a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.coens-hero-quicklinks a:hover {
+  color: var(--coens-blue) !important;
+}
+html[data-theme="light"] .coens-hero-quicklinks,
+html[data-theme="light"] .coens-hero-quicklinks a {
+  color: #475569 !important;
+}
+html[data-theme="light"] .coens-hero-quicklinks a:hover {
+  color: var(--coens-blue) !important;
+}
+
+/* Advies Wizard Box */
+#coens-advies-wizard {
+  width: 100%;
+  max-width: 470px;
+}
+.coens-wiz-card {
+  background: #ffffff;
+  color: var(--coens-navy);
+  border-radius: 20px;
+  padding: 26px;
+  box-shadow: 0 20px 50px rgba(8, 18, 32, 0.12);
+  border: 1.5px solid var(--coens-border-light);
+  text-align: left;
+}
+.coens-wiz-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.coens-wiz-head-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.coens-wiz-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #eef4ff;
+  color: var(--coens-blue) !important;
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.coens-wiz-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--coens-navy) !important;
+  margin: 0;
+  line-height: 1.2;
+}
+.coens-wiz-sub {
+  font-size: 0.78rem;
+  color: var(--coens-gray-600) !important;
+  display: block;
+  margin-top: 2px;
+}
+.coens-wiz-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--coens-gray-800) !important;
+  margin: 0 0 8px;
+}
+.coens-wiz-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.coens-wiz-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.coens-wiz-btn {
+  appearance: none;
+  background: #f8fafc;
+  border: 1.5px solid rgba(10, 22, 40, 0.12);
+  border-radius: 10px;
+  padding: 10px 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--coens-navy) !important;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  transition: all 0.16s ease;
+}
+.coens-wiz-btn:hover {
+  border-color: var(--coens-blue);
+  background: #eef4ff;
+}
+.coens-wiz-btn.is-active {
+  background: #eef4ff !important;
+  border-color: var(--coens-blue) !important;
+  color: var(--coens-blue) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 0 1px var(--coens-blue);
+}
+.coens-wiz-foot {
+  font-size: 0.75rem;
+  color: var(--coens-gray-600) !important;
+  text-align: center;
+  margin: 12px 0 0;
+}
+
+/* Dark theme for Advies Wizard */
+html[data-theme="dark"] .coens-wiz-card {
+  background: #11223f !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55) !important;
+}
+html[data-theme="dark"] .coens-wiz-badge {
+  background: rgba(30, 111, 255, 0.2) !important;
+  color: #8db8ff !important;
+}
+html[data-theme="dark"] .coens-wiz-title,
+html[data-theme="dark"] .coens-wiz-label {
+  color: #ffffff !important;
+}
+html[data-theme="dark"] .coens-wiz-sub,
+html[data-theme="dark"] .coens-wiz-foot {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+html[data-theme="dark"] .coens-wiz-btn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+}
+html[data-theme="dark"] .coens-wiz-btn:hover {
+  border-color: #60a5fa !important;
+  background: rgba(30, 111, 255, 0.18) !important;
+}
+html[data-theme="dark"] .coens-wiz-btn.is-active {
+  background: rgba(30, 111, 255, 0.28) !important;
+  border-color: #60a5fa !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 1px #60a5fa !important;
+}
+
+/* 4-Column Key Facts Strip */
+.coens-facts-strip {
+  background: #ffffff;
+  border-top: 1px solid var(--coens-border-light);
+  border-bottom: 1px solid var(--coens-border-light);
+  padding: 28px 6%;
+}
+.coens-facts-strip-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.coens-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-right: 18px;
+  border-right: 1px solid var(--coens-border-light);
+}
+.coens-strip-item:last-child {
+  border-right: none;
+}
+.coens-strip-big {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--coens-navy);
+  line-height: 1;
+  white-space: nowrap;
+}
+.coens-strip-meta {
+  font-size: 0.84rem;
+  line-height: 1.35;
+  color: var(--coens-gray-600);
+}
+.coens-strip-meta strong {
+  display: block;
+  color: var(--coens-navy);
+  font-weight: 700;
+}
+html[data-theme="dark"] .coens-facts-strip {
+  background: #0b1730 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+html[data-theme="dark"] .coens-strip-item {
+  border-right-color: rgba(255, 255, 255, 0.1) !important;
+}
+html[data-theme="dark"] .coens-strip-big,
+html[data-theme="dark"] .coens-strip-meta strong {
+  color: #ffffff !important;
+}
+html[data-theme="dark"] .coens-strip-meta {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Onze Providers 5-Pill Row */
+.coens-prov-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+.coens-prov-pill {
+  appearance: none;
+  background: #ffffff;
+  border: 1.5px solid var(--coens-border-light);
+  border-radius: 14px;
+  padding: 22px 16px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  font-family: inherit;
+  color: var(--coens-navy);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.coens-prov-pill:hover {
+  border-color: var(--coens-blue);
+  transform: translateY(-3px);
+  box-shadow: var(--coens-shadow);
+}
+.coens-prov-pill.is-active {
+  border-color: var(--coens-blue) !important;
+  background: #eef4ff !important;
+  color: var(--coens-blue) !important;
+  box-shadow: 0 8px 24px rgba(30, 111, 255, 0.15);
+}
+html[data-theme="dark"] .coens-prov-pill {
+  background: #11223f !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+html[data-theme="dark"] .coens-prov-pill.is-active {
+  background: rgba(30, 111, 255, 0.25) !important;
+  border-color: #60a5fa !important;
+  color: #ffffff !important;
+}
+
+/* Circular Blue Step Number */
+.coens-step-num--blue {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: var(--coens-blue) !important;
+  color: #ffffff !important;
+  font-size: 0.95rem !important;
+}
+
+/* Toestellen 4-Card Grid + Featured Blue Card */
+.coens-toestellen-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.coens-card.is-featured-blue,
+html[data-theme="dark"] .coens-card.is-featured-blue,
+html[data-theme="light"] .coens-card.is-featured-blue {
+  background: var(--coens-blue) !important;
+  border-color: var(--coens-blue) !important;
+  color: #ffffff !important;
+}
+.coens-card.is-featured-blue .coens-card-icon,
+html[data-theme="dark"] .coens-card.is-featured-blue .coens-card-icon {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+}
+.coens-card.is-featured-blue h3,
+.coens-card.is-featured-blue .coens-card-link,
+html[data-theme="dark"] .coens-card.is-featured-blue h3,
+html[data-theme="dark"] .coens-card.is-featured-blue .coens-card-link {
+  color: #ffffff !important;
+}
+.coens-card.is-featured-blue p,
+html[data-theme="dark"] .coens-card.is-featured-blue p {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* Dark Navy Reparatie Banner */
+.coens-repair-banner {
+  background: #081220 !important;
+  border-radius: 22px;
+  padding: 48px 44px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 40px;
+  align-items: center;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.coens-repair-banner .coens-tag {
+  color: #60a5fa !important;
+}
+.coens-repair-banner h2 {
+  font-size: clamp(1.75rem, 3vw, 2.3rem);
+  font-weight: 800;
+  color: #ffffff !important;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+.coens-repair-banner p {
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.coens-repair-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.coens-rep-mini-card {
+  background: #ffffff !important;
+  border-radius: 14px;
+  padding: 24px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.coens-rep-mini-card:hover {
+  transform: translateY(-3px);
+}
+.coens-rep-mini-card svg {
+  color: var(--coens-blue) !important;
+  margin-bottom: 4px;
+}
+.coens-rep-mini-card h3 {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #081220 !important;
+  margin: 0 !important;
+}
+.coens-rep-mini-card span {
+  font-size: 0.78rem !important;
+  color: #5a6a85 !important;
+}
+html[data-theme="dark"] .coens-repair-banner {
+  background: #11223f !important;
+}
+html[data-theme="dark"] .coens-rep-mini-card {
+  background: #081220 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+html[data-theme="dark"] .coens-rep-mini-card h3 {
+  color: #ffffff !important;
+}
+html[data-theme="dark"] .coens-rep-mini-card span {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 4-Column Stores Grid (3 Stores + 1 Blue WhatsApp Card) */
+.coens-stores-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 40px;
+}
+.coens-store-card.is-wa-featured,
+html[data-theme="light"] .coens-store-card.is-wa-featured,
+html[data-theme="dark"] .coens-store-card.is-wa-featured {
+  background: var(--coens-blue) !important;
+  border-color: var(--coens-blue) !important;
+  color: #ffffff !important;
+  justify-content: space-between;
+}
+.coens-store-card.is-wa-featured h3,
+html[data-theme="light"] .coens-store-card.is-wa-featured h3 {
+  color: #ffffff !important;
+}
+.coens-store-card.is-wa-featured p,
+html[data-theme="light"] .coens-store-card.is-wa-featured p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.coens-btn-white-blue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff !important;
+  color: var(--coens-blue) !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 12px 18px;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 20px;
+}
+.coens-btn-white-blue:hover {
+  background: #f0f6ff !important;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .coens-facts-strip-inner,
+  .coens-toestellen-grid,
+  .coens-stores-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .coens-strip-item:nth-child(2) {
+    border-right: none;
+  }
+  .coens-prov-row {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .coens-repair-banner {
+    grid-template-columns: 1fr !important;
+    padding: 34px 28px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .coens-facts-strip-inner,
+  .coens-toestellen-grid,
+  .coens-stores-grid-4,
+  .coens-repair-cards {
+    grid-template-columns: 1fr !important;
+  }
+  .coens-strip-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--coens-border-light);
+    padding-bottom: 14px;
+  }
+  .coens-strip-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .coens-wiz-grid-4,
+  .coens-prov-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
