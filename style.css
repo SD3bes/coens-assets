@@ -2880,3 +2880,11 @@ html[data-theme="dark"] .coens-footer :is(p, li, span, a:not(:hover)):not(.coens
 .coens-drawer-stores-title { font-size: 0.78rem; }
 .coens-nav .coens-theme-toggle { font-size: 0.78rem; }
 .winkel-info-list li, .winkel-hours-box, .coens-contact-bg label, .coens-form-card label { font-size: 1rem; }
+
+/* Split section headings: size with the column and wrap, never overlap (translated words are longer) */
+.ln-h { overflow-wrap: anywhere; word-break: normal; }
+.ln-split-item { min-width: 0; }
+.ln-split-item .ln-h.lg { font-size: clamp(1.9rem, 3.4vw, 4rem); line-height: .95; }
+.ln-split-item.has-left { padding-left: min(19vw, 290px); }
+.ln-split-item.has-right { padding-right: min(19vw, 290px); }
+@media (max-width: 900px) { .ln-split-item .ln-h.lg { font-size: clamp(2rem, 7vw, 3.4rem); } }
