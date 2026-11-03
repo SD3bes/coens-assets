@@ -2797,7 +2797,7 @@ html:not([data-theme="dark"]) .coens-nav .coens-mobile-drawer .coens-mobile-link
 
 /* ===== 4 Nov 2026: grid cleanup, brand logos, normal accent font, nav WhatsApp icon ===== */
 /* WordPress wpautop wraps HTML comments / blank lines in <p>; those stole grid cells and staggered the cards */
-:where(.gsm-device-grid, .alle-merken, .tk-grade-grid, .coens-step-grid-4, .coens-problem-grid, .coens-parts-grid, .ln-tiles, .coens-prov-row, .winkels-showcase-grid, .ln-store-grid, .coens-wiz-grid-4, .coens-wiz-grid-3, .coens-form-grid, .coens-footer-grid, .coens-hero-grid, .coens-why-grid, .coens-services-grid, .coens-stores-grid, .coens-steps-grid, .coens-menu, .coens-mobile-links, .tk-spec-pills, .coens-brands-row, .coens-stores-grid-4, .coens-toestellen-grid, .coens-facts-strip, .gsm-brand-bar, .gsm-device-card-top, .gsm-device-repairs, .ln-hero-collage, .coens-hero-grid) > p { display: none !important; }
+:where(.gsm-device-grid, .alle-merken, .tk-grade-grid, .coens-step-grid-4, .coens-problem-grid, .coens-parts-grid, .ln-tiles, .coens-prov-row, .winkels-showcase-grid, .ln-store-grid, .coens-wiz-grid-4, .coens-wiz-grid-3, .coens-form-grid, .coens-footer-grid, .coens-hero-grid, .coens-why-grid, .coens-services-grid, .coens-stores-grid, .coens-steps-grid, .coens-menu, .coens-mobile-links, .tk-spec-pills, .coens-brands-row, .coens-stores-grid-4, .coens-toestellen-grid, .coens-facts-strip, .gsm-brand-bar, .gsm-device-card-top, .gsm-device-repairs, .ln-hero-collage, .coens-hero-grid) > p:not(:has(*)) { display: none !important; }
 .coens-nav-inner > p:empty, .coens-site-wrapper section > p:empty, .coens-site-wrapper .coens-container > p:empty { display: none !important; }
 
 /* Reparaties: brand grid, 4 per row, simple cards */
@@ -2888,3 +2888,10 @@ html[data-theme="dark"] .coens-footer :is(p, li, span, a:not(:hover)):not(.coens
 .ln-split-item.has-left { padding-left: min(19vw, 290px); }
 .ln-split-item.has-right { padding-right: min(19vw, 290px); }
 @media (max-width: 900px) { .ln-split-item .ln-h.lg { font-size: clamp(2rem, 7vw, 3.4rem); } }
+
+/* Reparaties: the send-in card is a blue button-style card */
+.alle-merken__item--post { background: var(--coens-blue) !important; border-color: var(--coens-blue) !important; }
+.alle-merken__item--post:hover { background: var(--coens-blue-hover, #155fe0) !important; border-color: var(--coens-blue-hover, #155fe0) !important; }
+.alle-merken__item--post .alle-merken__item__title { color: #ffffff !important; }
+.alle-merken__item--post .alle-merken__item__sub { background: rgba(255,255,255,0.2) !important; color: #ffffff !important; }
+html[data-theme="dark"] .alle-merken__item--post .alle-merken__item__img { background: transparent; }
