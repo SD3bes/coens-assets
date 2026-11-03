@@ -2797,7 +2797,7 @@ html:not([data-theme="dark"]) .coens-nav .coens-mobile-drawer .coens-mobile-link
 
 /* ===== 4 Nov 2026: grid cleanup, brand logos, normal accent font, nav WhatsApp icon ===== */
 /* WordPress wpautop wraps HTML comments / blank lines in <p>; those stole grid cells and staggered the cards */
-:where(.gsm-device-grid, .alle-merken, .tk-grade-grid, .coens-step-grid-4, .coens-problem-grid, .coens-parts-grid, .ln-tiles, .coens-prov-row, .winkels-showcase-grid, .ln-store-grid, .coens-wiz-grid-4, .coens-wiz-grid-3, .coens-form-grid, .coens-footer-grid, .coens-hero-grid, .coens-why-grid, .coens-services-grid, .coens-stores-grid, .coens-steps-grid, .coens-menu, .coens-mobile-links, .tk-spec-pills, .coens-brands-row, .coens-stores-grid-4, .coens-toestellen-grid, .coens-facts-strip, .gsm-brand-bar, .gsm-device-card-top, .gsm-device-repairs, .ln-hero-collage, .coens-hero-grid) > p:not(:has(*)) { display: none !important; }
+:where(.gsm-device-grid, .alle-merken, .tk-grade-grid, .coens-step-grid-4, .coens-problem-grid, .coens-parts-grid, .ln-tiles, .coens-prov-row, .winkels-showcase-grid, .ln-store-grid, .coens-wiz-grid-4, .coens-wiz-grid-3, .coens-form-grid, .coens-footer-grid, .coens-hero-grid, .coens-why-grid, .coens-services-grid, .coens-stores-grid, .coens-steps-grid, .coens-menu, .coens-mobile-links, .tk-spec-pills, .coens-brands-row, .coens-stores-grid-4, .coens-toestellen-grid, .coens-facts-strip, .gsm-brand-bar, .gsm-device-card-top, .gsm-device-repairs, .ln-hero-collage, .coens-hero-grid) > p:not(:has(:not(br))) { display: none !important; }
 .coens-nav-inner > p:empty, .coens-site-wrapper section > p:empty, .coens-site-wrapper .coens-container > p:empty { display: none !important; }
 
 /* Reparaties: brand grid, 4 per row, simple cards */
