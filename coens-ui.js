@@ -364,8 +364,33 @@
     Array.prototype.forEach.call(els, function (e) { io.observe(e); });
   }
 
+  /* ---------- 13. LN homepage effects: preloader + collage parallax + hero status ---------- */
+  function landoFx() {
+    var hero = document.querySelector('.ln-hero');
+    if (!hero) return;
+    // preloader (once per session)
+    var seen = false; try { seen = sessionStorage.getItem('coens-loaded') === '1'; } catch (e) {}
+    if (!seen) {
+      var l = document.createElement('div'); l.className = 'ln-loader';
+      l.innerHTML = '<img src="https://www.coens.nl/wp-content/uploads/2017/10/coens_for_dark_72dpi.png" alt="Coen\u2019s"><span>Telecom &amp; More</span>';
+      document.body.appendChild(l);
+      var hide = function () { l.classList.add('done'); try { sessionStorage.setItem('coens-loaded', '1'); } catch (e) {} setTimeout(function () { l.remove(); }, 700); };
+      if (document.readyState === 'complete') setTimeout(hide, 900); else window.addEventListener('load', function () { setTimeout(hide, 700); });
+      setTimeout(hide, 3500);
+    }
+    // collage parallax on pointer move
+    var figs = hero.querySelectorAll('.ln-collage figure');
+    if (figs.length && window.matchMedia('(hover: hover)').matches) {
+      hero.addEventListener('mousemove', function (e) {
+        var r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        Array.prototype.forEach.call(figs, function (f, i) { var d = (i + 1) * 6; f.style.transform = 'translate(' + (x * d) + 'px,' + (y * d) + 'px)'; });
+      });
+      hero.addEventListener('mouseleave', function () { Array.prototype.forEach.call(figs, function (f) { f.style.transform = ''; }); });
+    }
+  }
+
   ready(function () {
-    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact, cf7Forms, reveal].forEach(function (fn) {
+    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact, cf7Forms, reveal, landoFx].forEach(function (fn) {
       try { fn(); } catch (e) { if (window.console) console.warn('coens-ui:', fn.name, e); }
     });
   });
