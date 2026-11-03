@@ -389,8 +389,55 @@
     }
   }
 
+
+  /* ---------- 14. Nav 2.0: capsule on scroll, sliding pill, progress line, hide on scroll down ---------- */
+  function navFx() {
+    var nav = document.querySelector('.coens-nav');
+    if (!nav) return;
+    var inner = nav.querySelector('.coens-nav-inner');
+    var bar = document.createElement('div'); bar.className = 'coens-nav-progress'; nav.appendChild(bar);
+    var menu = nav.querySelector('.coens-desktop-nav .coens-menu');
+    var glider = null, active = null;
+    if (menu) {
+      glider = document.createElement('li'); glider.className = 'coens-menu-glider'; glider.setAttribute('aria-hidden', 'true'); menu.appendChild(glider);
+      active = menu.querySelector('a.active');
+      var moveTo = function (a) {
+        if (!a) { glider.classList.remove('on'); return; }
+        var mr = menu.getBoundingClientRect(), r = a.getBoundingClientRect();
+        glider.style.left = (r.left - mr.left) + 'px'; glider.style.width = r.width + 'px'; glider.classList.add('on');
+      };
+      var links = menu.querySelectorAll('a');
+      Array.prototype.forEach.call(links, function (a) {
+        a.addEventListener('mouseenter', function () { Array.prototype.forEach.call(links, function (x) { x.classList.remove('is-lit'); }); a.classList.add('is-lit'); moveTo(a); });
+        a.addEventListener('focus', function () { a.classList.add('is-lit'); moveTo(a); });
+        a.addEventListener('blur', function () { a.classList.remove('is-lit'); moveTo(active); });
+      });
+      menu.addEventListener('mouseleave', function () { Array.prototype.forEach.call(links, function (x) { x.classList.remove('is-lit'); }); moveTo(active); });
+      var rest = function () { glider.style.transition = 'none'; moveTo(active); setTimeout(function () { glider.style.transition = ''; }, 50); };
+      rest(); window.addEventListener('resize', rest); window.addEventListener('load', rest);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(rest);
+    }
+    var last = window.pageYOffset || 0, ticking = false;
+    var update = function () {
+      ticking = false;
+      var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, Math.max(0, y / h * 100)) : 0) + '%';
+      nav.classList.toggle('is-scrolled', y > 60);
+      var drawer = nav.querySelector('details.coens-mobile-nav');
+      var open = drawer && drawer.open;
+      if (!open) {
+        if (y > 320 && y > last + 6) nav.classList.add('is-hidden');
+        else if (y < last - 6 || y <= 320) nav.classList.remove('is-hidden');
+      } else nav.classList.remove('is-hidden');
+      last = y;
+    };
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }, { passive: true });
+    update();
+  }
+
   ready(function () {
-    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact, cf7Forms, reveal, landoFx].forEach(function (fn) {
+    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact, cf7Forms, reveal, landoFx, navFx].forEach(function (fn) {
       try { fn(); } catch (e) { if (window.console) console.warn('coens-ui:', fn.name, e); }
     });
   });

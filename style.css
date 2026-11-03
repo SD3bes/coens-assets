@@ -2675,3 +2675,103 @@ html:not([data-theme="dark"]) .coens-mobile-drawer { background: var(--ln-cream)
 html:not([data-theme="dark"]) .coens-mobile-links a { background: #fff !important; color: var(--ln-ink) !important; border-color: var(--ln-line) !important; }
 /* photo hero on Winkels: giant type too */
 .coens-hero--photo h1 { text-transform: uppercase; }
+
+
+/* ========================================================
+   NAV 2.0 - floating capsule, sliding pill, progress line
+   ======================================================== */
+.coens-nav { transition: padding .35s ease, background .35s ease, transform .4s cubic-bezier(.65,0,.35,1) !important; overflow: visible !important; }
+.coens-nav .coens-nav-inner { transition: background .35s ease, box-shadow .35s ease, border-radius .35s ease, padding .35s ease, border-color .35s ease; border: 1px solid transparent; border-radius: 999px; padding: 4px 0; }
+/* scroll progress line */
+.coens-nav-progress { position: absolute; left: 0; top: 0; height: 3px; width: 0; background: var(--ln-neon); z-index: 2; pointer-events: none; transition: width .12s linear; box-shadow: 0 0 12px rgba(63,216,255,.8); }
+/* capsule once the page scrolls */
+.coens-nav.is-scrolled { background: transparent !important; border-bottom-color: transparent !important; padding: 10px 4% !important; }
+html:not([data-theme="dark"]) .coens-nav.is-scrolled { background: transparent !important; }
+.coens-nav.is-scrolled .coens-nav-inner { background: rgba(243,241,234,0.9); -webkit-backdrop-filter: blur(16px) saturate(1.3); backdrop-filter: blur(16px) saturate(1.3); border-color: var(--ln-line); padding: 6px 8px 6px 20px; box-shadow: 0 18px 50px rgba(11,18,32,0.16); }
+html[data-theme="dark"] .coens-nav.is-scrolled .coens-nav-inner { background: rgba(11,18,32,0.86); border-color: rgba(255,255,255,0.12); }
+.coens-nav.is-scrolled .coens-nav-progress { display: none; }
+/* hide on scroll down, show on scroll up */
+.coens-nav.is-hidden { transform: translateY(-120%) !important; }
+/* logo */
+.coens-nav .coens-logo { transition: transform .3s ease; }
+.coens-nav .coens-logo:hover { transform: scale(1.04) rotate(-1deg); }
+/* menu: uppercase labels + sliding ink pill */
+@media (min-width: 1140px) {
+  .coens-nav .coens-menu { position: relative !important; gap: 6px !important; isolation: isolate; }
+  .coens-nav .coens-menu > li { position: relative; z-index: 1; }
+  .coens-nav .coens-menu a { text-transform: uppercase; font-size: 0.72rem !important; font-weight: 800 !important; letter-spacing: 1.8px; padding: 10px 16px !important; border-radius: 999px; transition: color .25s ease; display: inline-block; }
+  .coens-nav .coens-menu a.active::after { display: none !important; }
+  html:not([data-theme="dark"]) .coens-nav .coens-menu a.active, html:not([data-theme="dark"]) .coens-nav .coens-menu a.is-lit { color: #f3f1ea !important; }
+  html[data-theme="dark"] .coens-nav .coens-menu a.active, html[data-theme="dark"] .coens-nav .coens-menu a.is-lit { color: #0b1220 !important; }
+  .coens-menu-glider { position: absolute; top: 50%; left: 0; height: 36px; width: 0; transform: translateY(-50%); border-radius: 999px; background: var(--ln-ink); opacity: 0; z-index: 0; pointer-events: none; transition: left .4s cubic-bezier(.65,0,.35,1), width .4s cubic-bezier(.65,0,.35,1), opacity .25s ease; }
+  html[data-theme="dark"] .coens-menu-glider { background: #f3f1ea; }
+  .coens-menu-glider.on { opacity: 1; }
+  /* phone CTA as neon pill with pulsing dot */
+  .coens-nav .coens-desktop-nav .coens-btn-cta { background: var(--ln-neon) !important; color: var(--ln-neon-ink) !important; border: 1.5px solid var(--ln-neon) !important; padding: 11px 20px !important; position: relative; overflow: hidden; }
+  .coens-nav .coens-desktop-nav .coens-btn-cta::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #0b1220; margin-right: 8px; box-shadow: 0 0 0 0 rgba(11,18,32,.5); animation: coensPing 2.2s infinite; }
+  .coens-nav .coens-desktop-nav .coens-btn-cta .emoji { display: none !important; }
+  .coens-nav .coens-desktop-nav .coens-btn-cta:hover { background: var(--ln-ink) !important; color: #fff !important; border-color: var(--ln-ink) !important; transform: translateY(-2px); }
+  .coens-nav .coens-desktop-nav .coens-btn-cta:hover::before { background: var(--ln-neon); }
+}
+@keyframes coensPing { 0% { box-shadow: 0 0 0 0 rgba(11,18,32,.45); } 70% { box-shadow: 0 0 0 7px rgba(11,18,32,0); } 100% { box-shadow: 0 0 0 0 rgba(11,18,32,0); } }
+/* toggle + hamburger in capsule style */
+.coens-nav .coens-theme-toggle { border-radius: 999px; text-transform: uppercase; font-size: 0.68rem !important; letter-spacing: 1.5px; font-weight: 800; }
+html:not([data-theme="dark"]) .coens-nav .coens-theme-toggle:hover { background: var(--ln-ink) !important; color: #fff !important; }
+@media (max-width: 1139px) {
+  summary.coens-hamburger { border-radius: 999px !important; }
+  .coens-nav.is-scrolled .coens-nav-inner { padding: 6px 8px 6px 14px; }
+  .coens-nav .coens-mobile-drawer { border-radius: 18px !important; margin-top: 8px; box-shadow: 0 24px 60px rgba(11,18,32,.22) !important; }
+}
+/* mobile drawer links: uppercase labels like the desktop menu */
+.coens-mobile-links a { text-transform: uppercase; font-size: 0.78rem !important; font-weight: 800 !important; letter-spacing: 1.5px; border-radius: 999px !important; }
+html:not([data-theme="dark"]) .coens-mobile-links a.active { background: var(--ln-ink) !important; color: #f3f1ea !important; }
+@media (prefers-reduced-motion: reduce) { .coens-nav, .coens-nav .coens-nav-inner, .coens-menu-glider { transition: none !important; } .coens-nav .coens-desktop-nav .coens-btn-cta::before { animation: none; } }
+
+/* ========================================================
+   WINKELS & CONTACT - polish in the LN skin
+   ======================================================== */
+/* stores section on cream so the white cards lift off the page */
+html:not([data-theme="dark"]) .coens-section.light:has(.winkels-showcase-grid) { background: var(--ln-cream) !important; }
+.winkel-detail-card { border-radius: 14px !important; transition: transform .35s cubic-bezier(.65,0,.35,1), box-shadow .35s ease; }
+html:not([data-theme="dark"]) .winkel-detail-card { background: #fff !important; border: 1px solid var(--ln-line) !important; }
+.winkel-detail-card:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(11,18,32,0.14) !important; }
+.winkel-card-body { display: flex !important; flex-direction: column !important; flex: 1 1 auto !important; }
+.winkel-card-body > p:last-of-type { margin-top: auto !important; padding-top: 18px; }
+.winkel-card-banner--photo { min-height: 270px !important; border-bottom: none !important; }
+.winkel-card-banner--photo::before { background: linear-gradient(to top, rgba(11,18,32,0.94) 0%, rgba(11,18,32,0.35) 50%, rgba(11,18,32,0.05) 100%) !important; }
+.winkel-card-banner--photo::after { content: ""; position: absolute; left: 24px; bottom: 16px; width: 44px; height: 3px; background: var(--ln-neon); border-radius: 2px; }
+.winkel-card-banner--photo { padding-bottom: 30px !important; }
+.winkel-card-banner span { font-size: 0.62rem !important; letter-spacing: 2.5px !important; text-transform: uppercase; font-weight: 800 !important; color: var(--ln-neon) !important; }
+.winkel-card-banner h3 { text-transform: uppercase; letter-spacing: -0.03em !important; font-size: 1.75rem !important; font-weight: 800 !important; line-height: .95 !important; }
+.winkel-info-list { gap: 12px !important; }
+.winkel-info-list strong { text-transform: uppercase; font-size: 0.66rem; letter-spacing: 1.8px; font-weight: 800; }
+html:not([data-theme="dark"]) .winkel-info-list a { color: var(--ln-ink) !important; text-decoration: underline; text-decoration-color: var(--ln-neon); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+html:not([data-theme="dark"]) .winkel-hours-box { background: var(--ln-cream) !important; border: 1px solid var(--ln-line); border-radius: 10px !important; }
+.winkel-hours-box > strong { text-transform: uppercase; font-size: 0.66rem !important; letter-spacing: 2px; font-weight: 800; margin: 8px 0 8px !important; }
+.winkel-hours-row { padding: 6px 0 !important; }
+.winkel-hours-row strong { font-weight: 800; }
+.coens-store-status--light { text-transform: uppercase; font-size: 0.64rem !important; letter-spacing: 1.5px; font-weight: 800 !important; border-radius: 999px; }
+/* contact block: cream wash that lets the shop photo show on the right */
+.coens-contact-bg { background-color: var(--ln-cream) !important; }
+html:not([data-theme="dark"]) .coens-contact-bg::before { background: linear-gradient(100deg, rgba(243,241,234,0.98) 0%, rgba(243,241,234,0.94) 48%, rgba(243,241,234,0.62) 100%) !important; }
+.coens-contact-bg .coens-form-card { border-radius: 14px !important; }
+html:not([data-theme="dark"]) .coens-contact-bg .coens-form-card { background: #fff !important; border: 1px solid var(--ln-line) !important; }
+.coens-contact-bg .coens-form-card h3 { text-transform: uppercase; letter-spacing: -0.035em !important; line-height: .95 !important; font-size: clamp(1.7rem, 3.2vw, 2.5rem) !important; font-weight: 800 !important; margin-bottom: 12px !important; }
+.coens-contact-bg .coens-form-card h3 em, .coens-pakbon-card h3 em { font-family: 'Instrument Serif', Georgia, serif !important; font-style: italic !important; font-weight: 400 !important; letter-spacing: -0.01em !important; }
+.coens-contact-bg .coens-form-group label { text-transform: uppercase; font-size: 0.66rem !important; letter-spacing: 1.8px; font-weight: 800 !important; }
+html:not([data-theme="dark"]) .coens-contact-bg .coens-form-group :is(input, select, textarea) { background: var(--ln-cream) !important; border-color: var(--ln-line) !important; border-radius: 10px !important; }
+html:not([data-theme="dark"]) .coens-contact-bg .coens-form-group :is(input, select, textarea):focus { border-color: var(--ln-ink) !important; background: #fff !important; }
+.coens-pakbon-card { background: var(--ln-ink) !important; border-radius: 14px !important; position: relative; overflow: hidden; }
+.coens-pakbon-card::after { content: ""; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(63,216,255,.35) 0%, rgba(63,216,255,0) 70%); pointer-events: none; }
+.coens-pakbon-card h3 { text-transform: uppercase; letter-spacing: -0.03em !important; font-size: 1.6rem !important; font-weight: 800 !important; line-height: .95 !important; color: #fff !important; }
+.coens-pakbon-card h3 .emoji { display: none !important; }
+.coens-pakbon-card ul li strong { color: #fff; }
+.coens-pakbon-card .coens-btn-cta { background: var(--ln-neon) !important; color: var(--ln-neon-ink) !important; }
+.coens-pakbon-card .coens-btn-cta:hover { background: #7fe6ff !important; }
+/* status line under the form */
+.coens-form-status { border-radius: 10px; }
+@media (max-width: 600px) {
+  .winkel-card-banner--photo { min-height: 220px !important; }
+  .winkel-card-banner h3 { font-size: 1.5rem !important; }
+  .coens-contact-bg .coens-form-card h3 { font-size: 1.6rem !important; }
+}
