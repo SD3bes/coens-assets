@@ -256,8 +256,46 @@
     col.parentNode.appendChild(a);
   }
 
+  /* ---------- 9. Homepage advice wizard (provider + data usage) ---------- */
+  function adviesWizard() {
+    if (!document.getElementById('coens-advies-wizard')) return;
+    function current() {
+      var p = document.querySelector('input[name="coens_wiz_prov"]:checked'), d = document.querySelector('input[name="coens_wiz_data"]:checked');
+      return { prov: p ? p.value : 'KPN', data: d ? d.value : '10-50 GB' };
+    }
+    function sync(scrollToSteps) {
+      var c = current();
+      Array.prototype.forEach.call(document.querySelectorAll('[data-prov-card]'), function (el) { el.classList.toggle('is-active', el.getAttribute('data-prov-card') === c.prov); });
+      var heading = document.getElementById('coens-dynamic-prov-heading');
+      if (heading) heading.textContent = 'Abonnement bij ' + c.prov + '? Wij regelen het voor u.';
+      var msg = 'Hallo Coen’s, ik wil graag advies over een ' + c.prov + '-abonnement. Ik gebruik ongeveer ' + c.data.toLowerCase() + ' data per maand. Wat raden jullie aan?';
+      var cta = document.getElementById('wiz-cta-link');
+      if (cta) { cta.href = WA + '?text=' + encodeURIComponent(msg); cta.target = '_blank'; cta.rel = 'noopener'; }
+      var stepBtn = document.getElementById('coens-step-store-btn');
+      if (stepBtn) stepBtn.href = '/winkels/?provider=' + encodeURIComponent(c.prov) + '&data=' + encodeURIComponent(c.data) + '#contact';
+      if (scrollToSteps) { var sec = document.getElementById('abonnementen'); if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    }
+    document.addEventListener('change', function (e) { if (e.target && (e.target.name === 'coens_wiz_prov' || e.target.name === 'coens_wiz_data')) sync(false); });
+    document.addEventListener('click', function (e) {
+      var pill = e.target.closest('[data-prov-card]');
+      if (pill) { var r = document.querySelector('input[name="coens_wiz_prov"][value="' + pill.getAttribute('data-prov-card') + '"]'); if (r) r.checked = true; sync(true); return; }
+      var navCard = e.target.closest('[data-nav-href]');
+      if (navCard && !e.target.closest('a')) window.location.href = navCard.getAttribute('data-nav-href');
+    });
+    document.addEventListener('keydown', function (e) { var pill = e.target.closest && e.target.closest('[data-prov-card]'); if (pill && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pill.click(); } });
+    sync(false);
+  }
+
+  /* ---------- 10. Winkels contact form: prefill from ?provider=&data= ---------- */
+  function prefillContact() {
+    var q = new URLSearchParams(location.search), prov = q.get('provider'), data = q.get('data');
+    if (!prov) return;
+    var ta = document.querySelector('textarea[name="Bericht"]');
+    if (ta && !ta.value) ta.value = 'Ik wil graag advies over een ' + prov + '-abonnement' + (data ? ' (ik gebruik ongeveer ' + data.toLowerCase() + ' data per maand)' : '') + '.';
+  }
+
   ready(function () {
-    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema].forEach(function (fn) {
+    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact].forEach(function (fn) {
       try { fn(); } catch (e) { if (window.console) console.warn('coens-ui:', fn.name, e); }
     });
   });
