@@ -2330,3 +2330,48 @@ html[data-theme="dark"] .coens-gallery-foot p { color: rgba(255,255,255,0.72); }
 .coens-form-grid .is-invalid { border-color: #ef4444 !important; box-shadow: 0 0 0 2px rgba(239,68,68,0.18) !important; }
 html[data-theme="dark"] .coens-form-status.is-ok { background: rgba(16,185,129,0.18); color: #34d399; }
 html[data-theme="dark"] .coens-form-status.is-error { background: rgba(239,68,68,0.15); color: #f87171; }
+
+/* ========================================================
+   STORE SHOWCASE: feature photo + polaroids + film strip
+   ======================================================== */
+.coens-showcase { background: linear-gradient(135deg, #081220 0%, #0d2142 60%, #0a2754 100%) !important; color: #fff; padding: 85px 0 0 !important; overflow: hidden; }
+html[data-theme="light"] .coens-showcase, html[data-theme="dark"] .coens-showcase { background: linear-gradient(135deg, #081220 0%, #0d2142 60%, #0a2754 100%) !important; }
+.coens-showcase .coens-container { padding: 0 6%; }
+.coens-showcase-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 54px; align-items: center; }
+.coens-showcase .coens-tag, html[data-theme="light"] .coens-showcase .coens-tag { color: #8db8ff !important; }
+.coens-showcase .coens-title, html[data-theme="light"] .coens-showcase .coens-title { color: #ffffff !important; }
+.coens-showcase .coens-sub, html[data-theme="light"] .coens-showcase .coens-sub { color: rgba(255,255,255,0.78) !important; }
+.coens-showcase-points { list-style: none; margin: 22px 0 26px; padding: 0; display: grid; gap: 10px; }
+.coens-showcase-points li { color: rgba(255,255,255,0.9) !important; font-size: 0.95rem; padding: 10px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; }
+.coens-showcase-collage { position: relative; aspect-ratio: 4 / 3; }
+.coens-showcase-collage figure { margin: 0; }
+.cs-main { position: absolute; inset: 0 8% 6% 0; border-radius: 22px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.55); }
+.cs-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cs-main figcaption { position: absolute; left: 16px; bottom: 16px; padding: 8px 14px; border-radius: 10px; background: rgba(8,18,32,0.72); backdrop-filter: blur(6px); color: #fff; font-size: 0.82rem; font-weight: 600; }
+.cs-polaroid { position: absolute; width: 40%; background: #fff; padding: 8px 8px 30px; border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transition: transform .45s ease, opacity .7s ease; }
+.cs-polaroid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 4px; }
+.cs-polaroid figcaption { position: absolute; left: 0; right: 0; bottom: 7px; text-align: center; font-size: 0.78rem; font-weight: 700; color: #081220; }
+.cs-p1 { left: -4%; bottom: -8%; transform: rotate(-6deg); }
+.cs-p2 { right: -2%; top: -9%; width: 36%; transform: rotate(5deg); }
+.cs-polaroid:hover { transform: rotate(0deg) scale(1.04); z-index: 3; }
+.reveal { opacity: 0; transition: opacity .7s ease, transform .7s ease; }
+.cs-main.reveal { transform: translateY(26px); } .cs-main.reveal.in { opacity: 1; transform: none; }
+.cs-p1.reveal { transform: rotate(-6deg) translateY(30px); } .cs-p1.reveal.in { opacity: 1; transform: rotate(-6deg); }
+.cs-p2.reveal { transform: rotate(5deg) translateY(-30px); } .cs-p2.reveal.in { opacity: 1; transform: rotate(5deg); }
+.reveal.in { opacity: 1; }
+.coens-filmstrip { margin-top: 70px; padding: 22px 0 28px; background: rgba(0,0,0,0.25); border-top: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
+.coens-filmstrip-track { display: flex; gap: 14px; width: max-content; animation: coens-marquee 70s linear infinite; }
+.coens-filmstrip:hover .coens-filmstrip-track { animation-play-state: paused; }
+.coens-filmstrip img { height: 170px; width: auto; border-radius: 14px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+@keyframes coens-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .coens-filmstrip-track { animation: none; } .reveal { opacity: 1 !important; transform: none !important; } }
+@media (max-width: 1024px) { .coens-showcase-grid { grid-template-columns: 1fr; gap: 40px; } .coens-showcase-collage { margin: 0 4% 6%; } }
+@media (max-width: 600px) {
+  .coens-showcase { padding-top: 60px !important; }
+  .coens-showcase-collage { aspect-ratio: auto; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cs-main { position: relative; inset: auto; grid-column: span 2; aspect-ratio: 4 / 3; }
+  .cs-polaroid, .cs-p1, .cs-p2 { position: relative; left: auto; right: auto; top: auto; bottom: auto; width: auto; }
+  .cs-p1 { transform: rotate(-3deg); } .cs-p2 { transform: rotate(3deg); }
+  .cs-p1.reveal.in { transform: rotate(-3deg); } .cs-p2.reveal.in { transform: rotate(3deg); }
+  .coens-filmstrip { margin-top: 44px; } .coens-filmstrip img { height: 120px; border-radius: 10px; }
+}

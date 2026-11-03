@@ -305,6 +305,10 @@
         try { grecaptcha.ready(function () { grecaptcha.execute(cfg.sitekey, { action: 'contactform' }).then(res, function () { res(''); }); }); } catch (e) { res(''); }
       });
     }
+    function waText(form) {
+      var g = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value : ''; };
+      return 'Hallo Coen\u2019s, ik stuur dit via de website.\n\nNaam: ' + g('your-name') + '\nTelefoon: ' + g('your-phone') + (g('your-email') ? '\nE-mail: ' + g('your-email') : '') + '\nWinkel: ' + g('your-store') + '\n\n' + g('your-message');
+    }
     Array.prototype.forEach.call(forms, function (form) {
       var id = form.getAttribute('data-cf7'), status = form.querySelector('.coens-form-status'), btn = form.querySelector('[type="submit"]');
       if (!status) { status = document.createElement('div'); status.className = 'coens-form-status'; status.setAttribute('aria-live', 'polite'); form.appendChild(status); }
@@ -322,9 +326,15 @@
         token().then(function (tk) {
           if (tk) fd.append('_wpcf7_recaptcha_response', tk);
           return fetch('/wp-json/contact-form-7/v1/contact-forms/' + id + '/feedback', { method: 'POST', body: fd, credentials: 'same-origin' });
-        }).then(function (r) { return r.json(); }).then(function (res) {
+        }).then(function (r) { return r.text().then(function (t) { try { return JSON.parse(t); } catch (e) { return { status: 'blocked', http: r.status }; } }); }).then(function (res) {
           if (btn) { btn.disabled = false; btn.textContent = label; }
           if (res.status === 'mail_sent') { show('ok', res.message); form.reset(); return; }
+          if (res.status === 'blocked' || res.http === 415) {
+            // The hosting firewall rejects form uploads to WordPress: hand the message to WhatsApp instead.
+            window.open(WA + '?text=' + encodeURIComponent(waText(form)), '_blank', 'noopener');
+            show('ok', 'Uw bericht staat klaar in WhatsApp: druk daar op verzenden. Liever bellen? 0497-550560.');
+            return;
+          }
           if (res.status === 'validation_failed' && res.invalid_fields) {
             res.invalid_fields.forEach(function (f) { var el = form.querySelector('[name="' + f.field + '"]'); if (el) el.classList.add('is-invalid'); });
             var first = res.invalid_fields[0]; show('error', (first && first.message) || res.message); return;
@@ -332,14 +342,24 @@
           show('error', res.message || 'Het versturen is mislukt. Bel of app ons gerust op 0497-550560.');
         }).catch(function () {
           if (btn) { btn.disabled = false; btn.textContent = label; }
-          show('error', 'Geen verbinding. Bel of app ons gerust op 0497-550560.');
+          window.open(WA + '?text=' + encodeURIComponent(waText(form)), '_blank', 'noopener');
+          show('ok', 'Uw bericht staat klaar in WhatsApp: druk daar op verzenden. Liever bellen? 0497-550560.');
         });
       });
     });
   }
 
+  /* ---------- 12. Scroll reveal for .reveal elements ---------- */
+  function reveal() {
+    var els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+    if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }); }, { threshold: 0.15 });
+    Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+  }
+
   ready(function () {
-    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact, cf7Forms].forEach(function (fn) {
+    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact, cf7Forms, reveal].forEach(function (fn) {
       try { fn(); } catch (e) { if (window.console) console.warn('coens-ui:', fn.name, e); }
     });
   });
