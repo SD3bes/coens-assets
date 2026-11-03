@@ -2408,3 +2408,8 @@ html[data-theme="dark"] .coens-contact-bg::before { background: rgba(8,18,32,0.9
 html[data-theme="light"] .coens-hero.coens-hero--photo :is(h1, h2, h3, p, li, span, div, small, strong, #coens-hero-photo-never):not(.coens-btn-cta):not(.coens-btn-whatsapp):not(.coens-eyebrow):not(.coens-chip):not(:is(.coens-btn-cta, .coens-btn-whatsapp, .coens-eyebrow, .coens-chip, .coens-address-ticket, .gsm-hero-showcase-card, #coens-wizard) *) { color: #ffffff !important; }
 html[data-theme="light"] .coens-hero.coens-hero--photo :is(p, li, .coens-hero-sub, #coens-hero-photo-never):not(:is(.coens-address-ticket, .gsm-hero-showcase-card, #coens-wizard) *) { color: rgba(255,255,255,0.85) !important; }
 html[data-theme="light"] .coens-hero.coens-hero--photo h1 em { color: #ffffff !important; }
+
+/* Stores page: bigger photo banners */
+.winkel-card-banner--photo { min-height: 250px !important; padding-bottom: 20px !important; }
+.winkel-card-banner--photo h3 { font-size: 1.5rem !important; }
+@media (max-width: 600px) { .winkel-card-banner--photo { min-height: 200px !important; } }
