@@ -7,8 +7,8 @@
 
   var STORES = [
     { id: 'bergeijk', name: "Coen's Bergeijk", street: 'Hof 31', zip: '5571 CB', city: 'Bergeijk', email: 'bergeijk@coens.nl', tip: 'Gratis parkeren (blauwe zone) voor de deur op het Hof.', dest: "Coen's Bergeijk, Hof 31, 5571 CB Bergeijk" },
-    { id: 'bladel', name: "Coen's Bladel", street: 'Sniederslaan 55 A', zip: '5531 EH', city: 'Bladel', email: 'bladel@coens.nl', tip: 'Ruime parkeergelegenheid in het centrum.', dest: "Coen's Bladel, Sniederslaan 55 A, 5531 EH Bladel" },
-    { id: 'valkenswaard', name: "Coen's Valkenswaard", street: 'Passage 1', zip: '5554 AH', city: 'Valkenswaard', email: 'valkenswaard@coens.nl', tip: 'In de overdekte Passage in het winkelhart.', dest: "Coen's Valkenswaard, Passage 1, 5554 AH Valkenswaard" }
+    { id: 'bladel', name: "Coen's Bladel", street: 'Sniederslaan 55 A', zip: '5531 EH', city: 'Bladel', email: 'bladel@coens.nl', tip: 'Ruime parkeergelegenheid in het centrum (blauwe zone).', dest: "Coen's Bladel, Sniederslaan 55 A, 5531 EH Bladel" },
+    { id: 'valkenswaard', name: "Coen's Valkenswaard", street: 'Passage 1', zip: '5554 AH', city: 'Valkenswaard', email: 'valkenswaard@coens.nl', tip: 'Ruime parkeergelegenheid in het centrum.', dest: "Coen's Valkenswaard, Passage 1, 5554 AH Valkenswaard" }
   ];
   var HOURS = '09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:00|-';
   var DAYS = ['maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag', 'zondag'];

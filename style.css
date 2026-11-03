@@ -2793,3 +2793,47 @@ body.admin-bar .coens-nav { top: 32px !important; }
 /* drawer: active link text must be readable on the ink pill (beats the generic nav link colour rule) */
 html:not([data-theme="dark"]) .coens-nav .coens-mobile-drawer .coens-mobile-links a.active { color: #f3f1ea !important; background: var(--ln-ink) !important; }
 html:not([data-theme="dark"]) .coens-nav .coens-mobile-drawer .coens-mobile-links a.active .emoji { filter: grayscale(1) brightness(3); }
+
+
+/* ===== 4 Nov 2026: grid cleanup, brand logos, normal accent font, nav WhatsApp icon ===== */
+/* WordPress wpautop wraps HTML comments / blank lines in <p>; those stole grid cells and staggered the cards */
+:where(.gsm-device-grid, .alle-merken, .tk-grade-grid, .coens-step-grid-4, .coens-problem-grid, .coens-parts-grid, .ln-tiles, .coens-prov-row, .winkels-showcase-grid, .ln-store-grid, .coens-wiz-grid-4, .coens-wiz-grid-3, .coens-form-grid, .coens-footer-grid, .coens-hero-grid, .coens-why-grid, .coens-services-grid, .coens-stores-grid, .coens-steps-grid, .coens-menu, .coens-mobile-links, .tk-spec-pills, .coens-brands-row, .coens-stores-grid-4, .coens-toestellen-grid, .coens-facts-strip, .gsm-brand-bar, .gsm-device-card-top, .gsm-device-repairs, .ln-hero-collage, .coens-hero-grid) > p { display: none !important; }
+.coens-nav-inner > p:empty, .coens-site-wrapper section > p:empty, .coens-site-wrapper .coens-container > p:empty { display: none !important; }
+
+/* Reparaties: brand grid, 4 per row, simple cards */
+.alle-merken { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 18px !important; }
+.alle-merken__item { padding: 30px 18px 24px !important; gap: 12px !important; }
+.alle-merken__item__img { height: 64px !important; }
+.alle-merken__item__img img.brand-logo { display: block; max-height: 40px; max-width: 120px; width: auto; height: auto; object-fit: contain; }
+.alle-merken__item__title { font-size: 1.05rem !important; }
+.alle-merken__item--post { border-color: var(--coens-blue) !important; }
+html[data-theme="dark"] .alle-merken__item__img { background: #ffffff; border-radius: 12px; padding: 8px 14px; width: auto; min-width: 128px; }
+@media (max-width: 1024px) { .alle-merken { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 14px !important; } }
+@media (max-width: 420px) { .alle-merken { grid-template-columns: 1fr !important; } }
+
+/* Provider pills show the provider logos instead of names */
+.coens-prov-pill { display: flex; align-items: center; justify-content: center; min-height: 60px; }
+.coens-prov-pill img { display: block; height: 28px; width: auto; max-width: 124px; margin: 0 auto; }
+.coens-prov-pill img[alt="Odido"] { height: 22px; }
+.coens-prov-pill img[alt="Ben"] { height: 32px; }
+.coens-prov-pill img[alt="Lebara"] { height: 24px; }
+.ln-advies .coens-prov-pill { background: #ffffff !important; border: 2px solid transparent !important; padding: 12px 22px !important; min-height: 58px; border-radius: 14px !important; }
+.ln-advies .coens-prov-pill:hover { border-color: rgba(255,255,255,0.7) !important; transform: translateY(-2px); }
+.ln-advies .coens-prov-pill.is-active { background: #ffffff !important; border-color: var(--ln-neon) !important; box-shadow: 0 0 0 4px rgba(63,216,255,0.35); }
+html[data-theme="dark"] .coens-prov-pill, html[data-theme="dark"] .coens-prov-pill.is-active { background: #ffffff !important; }
+@media (max-width: 600px) { .ln-advies .coens-prov-row { gap: 10px !important; } .ln-advies .coens-prov-pill { padding: 10px 16px !important; min-height: 50px; } .coens-prov-pill img { height: 24px; max-width: 100px; } }
+
+/* Normal font: accent words use the same Inter font as the rest of the heading (no serif italic) */
+.ln-h .it, .coens-hero:not(.ln-hero) h1 em, .coens-title em, .coens-contact-bg .coens-form-card h3 em, .coens-pakbon-card h3 em { font-family: 'Inter', sans-serif !important; font-style: normal !important; font-weight: 800 !important; letter-spacing: inherit !important; }
+.ln-steps li b, .ln-tile .n, .ln-sig { font-family: 'Inter', sans-serif !important; font-style: normal !important; font-weight: 800 !important; }
+.ln-sig { font-size: 1rem !important; letter-spacing: 1.5px; text-transform: uppercase; }
+
+/* Nav: a real WhatsApp icon on the WhatsApp button (desktop pill and drawer button) */
+.coens-nav .coens-btn-cta .coens-wa-ico { width: 18px; height: 18px; flex: 0 0 auto; fill: currentColor; display: inline-block; }
+.coens-nav .coens-btn-cta .emoji { display: none !important; }
+.coens-nav .coens-desktop-nav .coens-btn-cta::before { display: none !important; content: none !important; }
+.coens-nav .coens-desktop-nav .coens-btn-cta { background: #25d366 !important; border-color: #25d366 !important; color: #06250f !important; gap: 8px !important; }
+.coens-nav .coens-desktop-nav .coens-btn-cta:hover { background: var(--ln-ink) !important; border-color: var(--ln-ink) !important; color: #ffffff !important; }
+.coens-nav .coens-mobile-drawer .coens-btn-cta { display: flex !important; width: 100% !important; min-height: 50px !important; font-size: 0.95rem !important; gap: 10px !important; background: #25d366 !important; color: #06250f !important; border-radius: 999px !important; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 800 !important; }
+.coens-nav .coens-mobile-drawer .coens-btn-cta .coens-wa-ico { width: 22px; height: 22px; }
+html[data-theme="dark"] .coens-nav .coens-btn-cta { color: #06250f !important; }

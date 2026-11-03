@@ -241,7 +241,7 @@
           <div class="coens-brand-card active" data-brand="apple">
             <div class="icon">🍏</div>
             <h3>Apple</h3>
-            <span style="font-size:0.8rem; color:var(--coens-gray-600);">iPhone &amp; iPad</span>
+            <span style="font-size:0.8rem; color:var(--coens-gray-600);">iPhone</span>
           </div>
           <div class="coens-brand-card" data-brand="samsung">
             <div class="icon">📱</div>
