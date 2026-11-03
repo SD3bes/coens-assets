@@ -2911,3 +2911,7 @@ html[data-theme="dark"] .coens-wiz-choice.has-logo span { background: #ffffff !i
 .alle-merken__item__link { position: absolute; inset: 0; z-index: 2; border-radius: inherit; text-indent: -9999px; overflow: hidden; }
 .alle-merken__item__img, .alle-merken__item__title, .alle-merken__item__sub { display: flex; align-items: center; justify-content: center; }
 .alle-merken__item__title { text-align: center; }
+
+/* Drawer store rows: status wraps under the name instead of overflowing the drawer */
+.coens-nav .coens-drawer-stores a { flex-wrap: wrap; row-gap: 2px; }
+.coens-nav .coens-drawer-stores a .coens-store-status { white-space: normal; max-width: 100%; }
