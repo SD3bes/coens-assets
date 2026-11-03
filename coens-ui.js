@@ -294,8 +294,52 @@
     if (ta && !ta.value) ta.value = 'Ik wil graag advies over een ' + prov + '-abonnement' + (data ? ' (ik gebruik ongeveer ' + data.toLowerCase() + ' data per maand)' : '') + '.';
   }
 
+  /* ---------- 11. Contact forms: submit to Contact Form 7 (server-side mail) instead of mailto: ---------- */
+  function cf7Forms() {
+    var forms = document.querySelectorAll('form[data-cf7]');
+    if (!forms.length) return;
+    function token() {
+      var cfg = window.wpcf7_recaptcha;
+      if (!cfg || !cfg.sitekey || typeof grecaptcha === 'undefined' || !grecaptcha.execute) return Promise.resolve('');
+      return new Promise(function (res) {
+        try { grecaptcha.ready(function () { grecaptcha.execute(cfg.sitekey, { action: 'contactform' }).then(res, function () { res(''); }); }); } catch (e) { res(''); }
+      });
+    }
+    Array.prototype.forEach.call(forms, function (form) {
+      var id = form.getAttribute('data-cf7'), status = form.querySelector('.coens-form-status'), btn = form.querySelector('[type="submit"]');
+      if (!status) { status = document.createElement('div'); status.className = 'coens-form-status'; status.setAttribute('aria-live', 'polite'); form.appendChild(status); }
+      function show(kind, msg) { status.className = 'coens-form-status is-' + kind; status.textContent = msg; status.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        Array.prototype.forEach.call(form.querySelectorAll('.is-invalid'), function (el) { el.classList.remove('is-invalid'); });
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var fd = new FormData(form);
+        fd.append('_wpcf7', id); fd.append('_wpcf7_version', '6.0'); fd.append('_wpcf7_locale', 'nl_NL');
+        fd.append('_wpcf7_unit_tag', 'wpcf7-f' + id + '-o1'); fd.append('_wpcf7_container_post', '0');
+        if (!fd.get('your-source')) fd.append('your-source', location.href);
+        if (!fd.get('avg')) fd.append('avg', '1');
+        var label = btn ? btn.textContent : ''; if (btn) { btn.disabled = true; btn.textContent = 'Versturen…'; }
+        token().then(function (tk) {
+          if (tk) fd.append('_wpcf7_recaptcha_response', tk);
+          return fetch('/wp-json/contact-form-7/v1/contact-forms/' + id + '/feedback', { method: 'POST', body: fd, credentials: 'same-origin' });
+        }).then(function (r) { return r.json(); }).then(function (res) {
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          if (res.status === 'mail_sent') { show('ok', res.message); form.reset(); return; }
+          if (res.status === 'validation_failed' && res.invalid_fields) {
+            res.invalid_fields.forEach(function (f) { var el = form.querySelector('[name="' + f.field + '"]'); if (el) el.classList.add('is-invalid'); });
+            var first = res.invalid_fields[0]; show('error', (first && first.message) || res.message); return;
+          }
+          show('error', res.message || 'Het versturen is mislukt. Bel of app ons gerust op 0497-550560.');
+        }).catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          show('error', 'Geen verbinding. Bel of app ons gerust op 0497-550560.');
+        });
+      });
+    });
+  }
+
   ready(function () {
-    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact].forEach(function (fn) {
+    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact, cf7Forms].forEach(function (fn) {
       try { fn(); } catch (e) { if (window.console) console.warn('coens-ui:', fn.name, e); }
     });
   });
