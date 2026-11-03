@@ -2905,3 +2905,9 @@ html[data-theme="dark"] .alle-merken__item--post .alle-merken__item__img { backg
 .coens-wiz-choice.has-logo img[alt="Lebara"] { height: 17px; }
 .coens-wiz-choice.has-logo input:checked + span { background: #eef4ff; border-color: var(--coens-blue); box-shadow: 0 0 0 3px rgba(30,111,255,0.18); }
 html[data-theme="dark"] .coens-wiz-choice.has-logo span { background: #ffffff !important; }
+
+/* Brand cards are plain blocks with a stretched link (WordPress paragraphs cannot split them) */
+.alle-merken__item { position: relative; text-decoration: none; }
+.alle-merken__item__link { position: absolute; inset: 0; z-index: 2; border-radius: inherit; text-indent: -9999px; overflow: hidden; }
+.alle-merken__item__img, .alle-merken__item__title, .alle-merken__item__sub { display: flex; align-items: center; justify-content: center; }
+.alle-merken__item__title { text-align: center; }
