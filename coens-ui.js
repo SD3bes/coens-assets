@@ -290,7 +290,7 @@
   function prefillContact() {
     var q = new URLSearchParams(location.search), prov = q.get('provider'), data = q.get('data');
     if (!prov) return;
-    var ta = document.querySelector('textarea[name="Bericht"]');
+    var ta = document.querySelector('textarea[name="your-message"], textarea[name="Bericht"]');
     if (ta && !ta.value) ta.value = 'Ik wil graag advies over een ' + prov + '-abonnement' + (data ? ' (ik gebruik ongeveer ' + data.toLowerCase() + ' data per maand)' : '') + '.';
   }
 
