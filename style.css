@@ -2403,3 +2403,8 @@ html[data-theme="dark"] .coens-contact-bg::before { background: rgba(8,18,32,0.9
 @media (max-width: 1024px) { .coens-contact-bg { background-attachment: scroll !important; } }
 
 .coens-store-photo { display: block; width: calc(100% + 52px); margin: -32px -26px 16px; height: 150px; object-fit: cover; border-radius: var(--coens-radius) var(--coens-radius) 0 0; }
+
+/* Photo hero: white text in light theme too (specificity raised above the light-theme hero rule) */
+html[data-theme="light"] .coens-hero.coens-hero--photo :is(h1, h2, h3, p, li, span, div, small, strong, #coens-hero-photo-never):not(.coens-btn-cta):not(.coens-btn-whatsapp):not(.coens-eyebrow):not(.coens-chip):not(:is(.coens-btn-cta, .coens-btn-whatsapp, .coens-eyebrow, .coens-chip, .coens-address-ticket, .gsm-hero-showcase-card, #coens-wizard) *) { color: #ffffff !important; }
+html[data-theme="light"] .coens-hero.coens-hero--photo :is(p, li, .coens-hero-sub, #coens-hero-photo-never):not(:is(.coens-address-ticket, .gsm-hero-showcase-card, #coens-wizard) *) { color: rgba(255,255,255,0.85) !important; }
+html[data-theme="light"] .coens-hero.coens-hero--photo h1 em { color: #ffffff !important; }

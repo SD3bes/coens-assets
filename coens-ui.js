@@ -306,8 +306,14 @@
       });
     }
     function waText(form) {
-      var g = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value : ''; };
-      return 'Hallo Coen\u2019s, ik stuur dit via de website.\n\nNaam: ' + g('your-name') + '\nTelefoon: ' + g('your-phone') + (g('your-email') ? '\nE-mail: ' + g('your-email') : '') + '\nWinkel: ' + g('your-store') + '\n\n' + g('your-message');
+      var lines = [];
+      Array.prototype.forEach.call(form.querySelectorAll('input, select, textarea'), function (el) {
+        if (!el.name || el.name.charAt(0) === '_' || el.type === 'checkbox' || el.type === 'hidden' || el.type === 'submit' || !el.value) return;
+        var grp = el.closest('.coens-form-group'), lab = grp && grp.querySelector('label');
+        var label = lab ? lab.textContent.replace(/\s*\*\s*$/, '').replace(/\s+/g, ' ').trim() : el.name;
+        lines.push(label + ': ' + el.value);
+      });
+      return 'Hallo Coen\u2019s, ik stuur dit via de website (' + (form.getAttribute('data-cf7-label') || document.title.split(' - ')[0]) + ').\n\n' + lines.join('\n');
     }
     Array.prototype.forEach.call(forms, function (form) {
       var id = form.getAttribute('data-cf7'), status = form.querySelector('.coens-form-status'), btn = form.querySelector('[type="submit"]');
