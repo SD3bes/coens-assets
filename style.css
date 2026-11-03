@@ -2895,3 +2895,13 @@ html[data-theme="dark"] .coens-footer :is(p, li, span, a:not(:hover)):not(.coens
 .alle-merken__item--post .alle-merken__item__title { color: #ffffff !important; }
 .alle-merken__item--post .alle-merken__item__sub { background: rgba(255,255,255,0.2) !important; color: #ffffff !important; }
 html[data-theme="dark"] .alle-merken__item--post .alle-merken__item__img { background: transparent; }
+
+/* Advice wizard: provider choices show logos */
+.coens-wiz-grid-4.coens-wiz-prov { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 16px; }
+.coens-wiz-choice.has-logo span { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 8px 6px; }
+.coens-wiz-choice.has-logo img { display: block; height: 20px; width: auto; max-width: 84px; }
+.coens-wiz-choice.has-logo img[alt="Odido"] { height: 16px; }
+.coens-wiz-choice.has-logo img[alt="Ben"] { height: 24px; }
+.coens-wiz-choice.has-logo img[alt="Lebara"] { height: 17px; }
+.coens-wiz-choice.has-logo input:checked + span { background: #eef4ff; border-color: var(--coens-blue); box-shadow: 0 0 0 3px rgba(30,111,255,0.18); }
+html[data-theme="dark"] .coens-wiz-choice.has-logo span { background: #ffffff !important; }
