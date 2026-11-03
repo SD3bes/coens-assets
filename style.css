@@ -2789,3 +2789,7 @@ body.admin-bar .coens-nav { top: 32px !important; }
 .coens-site-wrapper [id] { scroll-margin-top: 110px; }
 .coens-nav .coens-menu > li.coens-menu-glider { position: absolute !important; z-index: 0 !important; margin: 0 !important; padding: 0 !important; list-style: none !important; }
 .coens-nav .coens-menu > li { flex-shrink: 0; }
+
+/* drawer: active link text must be readable on the ink pill (beats the generic nav link colour rule) */
+html:not([data-theme="dark"]) .coens-nav .coens-mobile-drawer .coens-mobile-links a.active { color: #f3f1ea !important; background: var(--ln-ink) !important; }
+html:not([data-theme="dark"]) .coens-nav .coens-mobile-drawer .coens-mobile-links a.active .emoji { filter: grayscale(1) brightness(3); }
