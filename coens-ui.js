@@ -417,9 +417,8 @@
       rest(); window.addEventListener('resize', rest); window.addEventListener('load', rest);
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(rest);
     }
-    var last = window.pageYOffset || 0, ticking = false;
+    var last = window.pageYOffset || 0;
     var update = function () {
-      ticking = false;
       var y = window.pageYOffset || document.documentElement.scrollTop || 0;
       var h = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = (h > 0 ? Math.min(100, Math.max(0, y / h * 100)) : 0) + '%';
@@ -432,7 +431,7 @@
       } else nav.classList.remove('is-hidden');
       last = y;
     };
-    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener('scroll', update, { passive: true });
     update();
   }
 

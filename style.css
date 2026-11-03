@@ -2775,3 +2775,17 @@ html:not([data-theme="dark"]) .coens-contact-bg .coens-form-group :is(input, sel
   .winkel-card-banner h3 { font-size: 1.5rem !important; }
   .coens-contact-bg .coens-form-card h3 { font-size: 1.6rem !important; }
 }
+
+
+/* ---- Nav 2.0 fixes: sticky nav really sticks, glider is absolute, anchors clear the nav ---- */
+/* overflow-x:hidden on html/body/.coens-site-wrapper turned them into clipping scroll containers,
+   which silently disabled position:sticky on the nav. clip does the same clipping without that. */
+@supports (overflow: clip) {
+  html, body { overflow-x: visible !important; overflow-y: visible !important; }
+  .coens-site-wrapper { overflow: clip !important; }
+}
+body.admin-bar .coens-nav { top: 32px !important; }
+@media (max-width: 782px) { body.admin-bar .coens-nav { top: 46px !important; } }
+.coens-site-wrapper [id] { scroll-margin-top: 110px; }
+.coens-nav .coens-menu > li.coens-menu-glider { position: absolute !important; z-index: 0 !important; margin: 0 !important; padding: 0 !important; list-style: none !important; }
+.coens-nav .coens-menu > li { flex-shrink: 0; }
