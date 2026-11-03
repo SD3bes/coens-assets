@@ -2844,3 +2844,39 @@ html .coens-nav .coens-desktop-nav a.coens-btn-cta[href*="wa.me"] { background: 
 html .coens-nav .coens-desktop-nav a.coens-btn-cta[href*="wa.me"]:hover { background: var(--ln-ink) !important; border-color: var(--ln-ink) !important; color: #ffffff !important; }
 html .coens-nav .coens-mobile-drawer a.coens-btn-cta[href*="wa.me"] { background: #25d366 !important; color: #06250f !important; }
 html .coens-nav a.coens-btn-cta[href*="wa.me"] .coens-wa-ico { fill: currentColor; }
+
+/* ===== Legibility (4 Nov 2026): larger minimum text sizes, darker muted text ===== */
+:root { --coens-gray-600: #3f4d63; }
+.coens-site-wrapper p, .coens-site-wrapper li { line-height: 1.65; }
+.ln-kicker { font-size: 0.82rem; letter-spacing: 2.5px; opacity: .92; }
+.ln-p { font-size: 1.1rem; color: #1f2733; }
+.ln-pill { font-size: 0.84rem; }
+.ln-store .acts .ln-pill { font-size: 0.76rem; }
+.ln-statement .ln-meta div { font-size: 0.82rem; opacity: .92; }
+.ln-tile .t small { font-size: 0.74rem; opacity: .95; }
+.ln-tile .t strong { font-size: 1.15rem; }
+.ln-store .b p { font-size: 1rem; color: #1f2733; }
+.ln-steps li p, .ln-steps li span { font-size: 1rem; }
+.coens-eyebrow { font-size: 0.78rem !important; letter-spacing: 2px !important; }
+.coens-chip { font-size: 0.8rem !important; }
+.coens-tag { font-size: 0.78rem !important; letter-spacing: 2.5px !important; }
+.coens-sub { font-size: 1.1rem !important; color: #1f2733 !important; }
+.coens-hero-sub { font-size: 1.12rem !important; }
+.coens-step p { font-size: 1rem; color: #2a3443; }
+.coens-fact-text p { font-size: 0.95rem; color: rgba(255,255,255,0.85); }
+.gsm-device-code { font-size: 0.78rem; }
+.gsm-device-quickprice { font-size: 0.9rem; }
+.gsm-rep-item-left span { font-size: 0.84rem; }
+.tk-spec-pill { font-size: 0.82rem; }
+.coens-store-status, .coens-store-status--light { font-size: 0.84rem; }
+.alle-merken__item__sub { font-size: 0.84rem !important; }
+.coens-footer p, .coens-footer li, .coens-footer a, .coens-footer span { font-size: 0.96rem; }
+html:not([data-theme="dark"]) .coens-footer :is(p, li, span, a:not(:hover)):not(.coens-btn-cta):not(.coens-btn-whatsapp) { color: rgba(255,255,255,0.92) !important; }
+html[data-theme="dark"] :is(.coens-card, .coens-step, .coens-problem-card, .tk-grade-card, .coens-job-card, .coens-legal-card, .winkel-detail-card, .coens-form-card, .gsm-device-card, .alle-merken__item) :is(p, li, span, label, td, dd, dt, small) { color: rgba(255,255,255,0.88) !important; }
+html[data-theme="dark"] .coens-footer :is(p, li, span, a:not(:hover)):not(.coens-btn-cta):not(.coens-btn-whatsapp) { color: rgba(255,255,255,0.9) !important; }
+@media (min-width: 1140px) { html .coens-nav .coens-desktop-nav .coens-menu > li > a { font-size: 0.8rem !important; letter-spacing: 1.4px !important; padding: 10px 14px !important; } }
+.coens-nav .coens-mobile-links a { font-size: 0.92rem !important; }
+.coens-drawer-stores a, .coens-drawer-stores .coens-store-status { font-size: 0.9rem; }
+.coens-drawer-stores-title { font-size: 0.78rem; }
+.coens-nav .coens-theme-toggle { font-size: 0.78rem; }
+.winkel-info-list li, .winkel-hours-box, .coens-contact-bg label, .coens-form-card label { font-size: 1rem; }
