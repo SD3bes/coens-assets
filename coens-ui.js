@@ -21,9 +21,9 @@
   }
 
   /* ---------- 2. Live opening hours badge ---------- */
-  // Default week: Mon-Fri 09:00-17:30, Sat 09:00-17:00, Sun closed. Override per element with
-  // data-coens-hours="09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:00|-" (Mon..Sun)
-  var DEFAULT_HOURS = '09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:00|-';
+  // Default week: Mon-Fri 09:00-18:00, Sat 09:00-17:00, Sun closed. Override per element with
+  // data-coens-hours="09:00-18:00|09:00-18:00|09:00-18:00|09:00-18:00|09:00-18:00|09:00-17:00|-" (Mon..Sun)
+  var DEFAULT_HOURS = '09:00-18:00|09:00-18:00|09:00-18:00|09:00-18:00|09:00-18:00|09:00-17:00|-';
   var DAYS = ['maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag', 'zondag'];
   function amsterdamNow() {
     try {
@@ -178,7 +178,7 @@
   function businessSchema() {
     if (document.getElementById('coens-biz-ld')) return;
     var hours = [
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:30' },
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '18:00' },
       { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '17:00' }
     ];
     function store(id, name, street, zip, city, email) {
@@ -319,6 +319,18 @@
       var id = form.getAttribute('data-cf7'), status = form.querySelector('.coens-form-status'), btn = form.querySelector('[type="submit"]');
       if (!status) { status = document.createElement('div'); status.className = 'coens-form-status'; status.setAttribute('aria-live', 'polite'); form.appendChild(status); }
       function show(kind, msg) { status.className = 'coens-form-status is-' + kind; status.textContent = msg; status.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+      function handoff() {
+        // The hosting firewall rejects form uploads to WordPress: hand the message to WhatsApp and offer e-mail as well.
+        var text = waText(form);
+        window.open(WA + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+        show('ok', 'Uw bericht staat klaar in WhatsApp: druk daar op verzenden. ');
+        var mail = document.createElement('a');
+        mail.href = 'mailto:info@coens.nl?subject=' + encodeURIComponent('Bericht via coens.nl (' + (form.getAttribute('data-cf7-label') || document.title.split(' - ')[0]) + ')') + '&body=' + encodeURIComponent(text);
+        mail.textContent = 'Liever per e-mail? Klik hier';
+        mail.className = 'coens-form-mail';
+        status.appendChild(mail);
+        status.appendChild(document.createTextNode(' of bel 0497-550560.'));
+      }
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         Array.prototype.forEach.call(form.querySelectorAll('.is-invalid'), function (el) { el.classList.remove('is-invalid'); });
@@ -335,12 +347,7 @@
         }).then(function (r) { return r.text().then(function (t) { try { return JSON.parse(t); } catch (e) { return { status: 'blocked', http: r.status }; } }); }).then(function (res) {
           if (btn) { btn.disabled = false; btn.textContent = label; }
           if (res.status === 'mail_sent') { show('ok', res.message); form.reset(); return; }
-          if (res.status === 'blocked' || res.http === 415) {
-            // The hosting firewall rejects form uploads to WordPress: hand the message to WhatsApp instead.
-            window.open(WA + '?text=' + encodeURIComponent(waText(form)), '_blank', 'noopener');
-            show('ok', 'Uw bericht staat klaar in WhatsApp: druk daar op verzenden. Liever bellen? 0497-550560.');
-            return;
-          }
+          if (res.status === 'blocked' || res.http === 415) { handoff(); return; }
           if (res.status === 'validation_failed' && res.invalid_fields) {
             res.invalid_fields.forEach(function (f) { var el = form.querySelector('[name="' + f.field + '"]'); if (el) el.classList.add('is-invalid'); });
             var first = res.invalid_fields[0]; show('error', (first && first.message) || res.message); return;
@@ -348,8 +355,7 @@
           show('error', res.message || 'Het versturen is mislukt. Bel of app ons gerust op 0497-550560.');
         }).catch(function () {
           if (btn) { btn.disabled = false; btn.textContent = label; }
-          window.open(WA + '?text=' + encodeURIComponent(waText(form)), '_blank', 'noopener');
-          show('ok', 'Uw bericht staat klaar in WhatsApp: druk daar op verzenden. Liever bellen? 0497-550560.');
+          handoff();
         });
       });
     });

@@ -10,7 +10,7 @@
     { id: 'bladel', name: "Coen's Bladel", street: 'Sniederslaan 55 A', zip: '5531 EH', city: 'Bladel', email: 'bladel@coens.nl', tip: 'Ruime parkeergelegenheid in het centrum (blauwe zone).', dest: "Coen's Bladel, Sniederslaan 55 A, 5531 EH Bladel" },
     { id: 'valkenswaard', name: "Coen's Valkenswaard", street: 'Passage 1', zip: '5554 AH', city: 'Valkenswaard', email: 'valkenswaard@coens.nl', tip: 'Ruime parkeergelegenheid in het centrum.', dest: "Coen's Valkenswaard, Passage 1, 5554 AH Valkenswaard" }
   ];
-  var HOURS = '09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:30|09:00-17:00|-';
+  var HOURS = '09:00-18:00|09:00-18:00|09:00-18:00|09:00-18:00|09:00-18:00|09:00-17:00|-';
   var DAYS = ['maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag', 'zondag'];
   var PROBLEMS = ['Scherm gebarsten', 'Accu / batterij', 'Laadpoort', 'Camera', 'Speaker / microfoon', 'Waterschade', 'Software', 'Backcover / glas', 'Anders'];
   var BRANDS = { apple: { label: 'Apple iPhone', url: '/reparaties/apple/' }, samsung: { label: 'Samsung Galaxy', url: '/reparaties/samsung/' } };
@@ -163,7 +163,7 @@
     var s = status();
     return '<h1 class="ca-h1">Winkels</h1><p class="ca-sub">Loop binnen zonder afspraak. De koffie staat klaar.</p>' + STORES.map(function (st) {
       return '<div class="ca-card ca-store"><span class="ca-badge ' + s.cls + '">' + esc(s.text) + '</span><h3>' + esc(st.name) + '</h3><div class="ca-addr">' + esc(st.street) + ', ' + esc(st.zip) + ' ' + esc(st.city) + '<br>🅿️ ' + esc(st.tip) + '</div>' +
-        '<table class="ca-hours"><tr><td>Maandag t/m vrijdag</td><td>09:00 – 17:30</td></tr><tr><td>Zaterdag</td><td>09:00 – 17:00</td></tr><tr><td>Zondag</td><td>Gesloten</td></tr></table>' +
+        '<table class="ca-hours"><tr><td>Maandag t/m vrijdag</td><td>09:00 – 18:00</td></tr><tr><td>Zaterdag</td><td>09:00 – 17:00</td></tr><tr><td>Zondag</td><td>Gesloten</td></tr></table>' +
         '<div class="ca-store-actions"><a class="ca-btn sm" href="https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(st.dest) + '" target="_blank" rel="noopener">🗺️ Route</a><a class="ca-btn ghost sm" href="' + TEL + '">📞 ' + PHONE + '</a></div>' +
         '<p class="ca-note" style="margin:10px 0 0">✉️ <a href="mailto:' + st.email + '" style="color:var(--blue)">' + st.email + '</a></p></div>';
     }).join('') + '<div class="ca-card"><strong>Toestel opsturen?</strong><p class="ca-note" style="margin:6px 0 10px">Niet in de buurt? Stuur uw toestel veilig op via PostNL. Meestal binnen 24 tot 48 uur gerepareerd retour.</p><a class="ca-btn ghost" href="/opsturen/">📦 Naar toestel opsturen</a></div>';
@@ -207,12 +207,12 @@
     el.classList.add('show');
   }
   function setupHead() {
-    // Prefer a same-origin manifest (uploaded to /coens-app/manifest.json for the store builds); fall back to the CDN copy.
+    // Prefer the same-origin manifest at /coens-app-manifest.json (a physical /coens-app/ folder would shadow the WordPress page); fall back to the CDN copy.
     var l = document.createElement('link'); l.rel = 'manifest'; l.href = MANIFEST; l.crossOrigin = 'anonymous'; document.head.appendChild(l);
-    fetch('/coens-app/manifest.json', { method: 'HEAD' }).then(function (r) { if (r.ok && /json/.test(r.headers.get('content-type') || '')) { l.removeAttribute('crossorigin'); l.href = '/coens-app/manifest.json'; } }).catch(function () {});
-    // Offline support: register the service worker when it has been uploaded to /coens-app/sw.js
+    fetch('/coens-app-manifest.json', { method: 'HEAD' }).then(function (r) { if (r.ok && /json/.test(r.headers.get('content-type') || '')) { l.removeAttribute('crossorigin'); l.href = '/coens-app-manifest.json'; } }).catch(function () {});
+    // Offline support: the service worker lives at /sw.js (site root) and is scoped to /coens-app/
     if ('serviceWorker' in navigator) {
-      fetch('/coens-app/sw.js', { method: 'HEAD' }).then(function (r) { if (r.ok && /javascript/.test(r.headers.get('content-type') || '')) navigator.serviceWorker.register('/coens-app/sw.js', { scope: '/coens-app/' }).catch(function () {}); }).catch(function () {});
+      fetch('/sw.js', { method: 'HEAD' }).then(function (r) { if (r.ok && /javascript/.test(r.headers.get('content-type') || '')) navigator.serviceWorker.register('/sw.js', { scope: '/coens-app/' }).catch(function () {}); }).catch(function () {});
     }
     [['apple-mobile-web-app-capable', 'yes'], ['apple-mobile-web-app-status-bar-style', 'black-translucent'], ['apple-mobile-web-app-title', "Coen's"], ['theme-color', '#081220'], ['mobile-web-app-capable', 'yes']].forEach(function (m) { var e = document.createElement('meta'); e.name = m[0]; e.content = m[1]; document.head.appendChild(e); });
     var ic = document.createElement('link'); ic.rel = 'apple-touch-icon'; ic.href = ICON; document.head.appendChild(ic);

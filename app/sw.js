@@ -1,6 +1,6 @@
-/* Coen's app service worker. Upload to: /coens-app/sw.js (so it is served at https://www.coens.nl/coens-app/sw.js) */
-var CACHE = 'coens-app-v1';
-var SHELL = ['/coens-app/', '/coens-app/manifest.json'];
+/* Coen's app service worker. Lives at https://www.coens.nl/sw.js, registered with scope /coens-app/ */
+var CACHE = 'coens-app-v2';
+var SHELL = ['/coens-app/', '/coens-app-manifest.json'];
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(SHELL).catch(function () {}); }).then(function () { return self.skipWaiting(); }));
 });

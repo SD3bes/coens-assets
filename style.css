@@ -2915,3 +2915,6 @@ html[data-theme="dark"] .coens-wiz-choice.has-logo span { background: #ffffff !i
 /* Drawer store rows: status wraps under the name instead of overflowing the drawer */
 .coens-nav .coens-drawer-stores a { flex-wrap: wrap; row-gap: 2px; }
 .coens-nav .coens-drawer-stores a .coens-store-status { white-space: normal; max-width: 100%; }
+
+/* Form hand-off: e-mail link in the status line */
+.coens-form-status .coens-form-mail { font-weight: 800; text-decoration: underline; color: inherit; margin-left: 4px; }
