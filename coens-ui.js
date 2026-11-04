@@ -440,13 +440,18 @@
       var rest = function () { glider.style.transition = 'none'; moveTo(active); setTimeout(function () { glider.style.transition = ''; }, 50); };
       rest(); window.addEventListener('resize', rest); window.addEventListener('load', rest);
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(rest);
+      // Re-measure whenever the menu changes size (capsule padding transition, font swap, zoom)
+      if (window.ResizeObserver) { new ResizeObserver(function () { moveTo(active); }).observe(menu); }
+      inner.addEventListener('transitionend', function () { moveTo(active); });
     }
     var last = window.pageYOffset || 0;
     var update = function () {
       var y = window.pageYOffset || document.documentElement.scrollTop || 0;
       var h = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = (h > 0 ? Math.min(100, Math.max(0, y / h * 100)) : 0) + '%';
+      var wasScrolled = nav.classList.contains('is-scrolled');
       nav.classList.toggle('is-scrolled', y > 60);
+      if (glider && wasScrolled !== nav.classList.contains('is-scrolled')) setTimeout(function () { moveTo(active); }, 400);
       var drawer = nav.querySelector('details.coens-mobile-nav');
       var open = drawer && drawer.open;
       if (!open) {

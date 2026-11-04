@@ -2927,3 +2927,19 @@ html[data-theme="dark"] .coens-wiz-choice.has-logo span { background: #ffffff !i
 /* Scrolled nav capsule: solid, crisp bar instead of a see-through one */
 .coens-nav.is-scrolled .coens-nav-inner { background: rgba(243,241,234,0.985) !important; -webkit-backdrop-filter: none; backdrop-filter: none; border: 1px solid rgba(11,18,32,0.14); box-shadow: 0 10px 30px rgba(11,18,32,0.14); }
 html[data-theme="dark"] .coens-nav.is-scrolled .coens-nav-inner { background: rgba(11,18,32,0.985) !important; border-color: rgba(255,255,255,0.14); }
+
+/* Desktop nav must fit inside the capsule: compact labels, icon-only theme toggle below 1500px */
+@media (min-width: 1140px) {
+  html .coens-nav .coens-nav-inner { gap: 12px; }
+  html .coens-nav .coens-logo { flex: 0 0 auto; margin-right: 8px !important; }
+  html .coens-nav .coens-desktop-nav { flex: 1 1 auto !important; min-width: 0; display: flex !important; align-items: center; justify-content: flex-end !important; gap: 10px !important; }
+  html .coens-nav .coens-desktop-nav > p { margin: 0 !important; display: flex !important; flex: 0 0 auto; }
+  html .coens-nav .coens-menu { gap: 2px !important; margin: 0 !important; flex-wrap: nowrap; }
+  html .coens-nav .coens-desktop-nav .coens-menu > li > a { font-size: 0.72rem !important; letter-spacing: 1.2px !important; padding: 10px 11px !important; white-space: nowrap; }
+  html .coens-nav .coens-desktop-nav .coens-btn-cta { padding: 10px 16px !important; font-size: 0.7rem !important; letter-spacing: 1.2px; white-space: nowrap; flex: 0 0 auto; }
+  html .coens-nav .coens-theme-toggle { flex: 0 0 auto; }
+}
+@media (min-width: 1140px) and (max-width: 1500px) {
+  html .coens-nav .coens-theme-toggle .ctt-label { display: none; }
+  html .coens-nav .coens-theme-toggle { padding: 0 11px; }
+}
