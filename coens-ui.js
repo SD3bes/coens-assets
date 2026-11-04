@@ -378,7 +378,7 @@
     var seen = false; try { seen = sessionStorage.getItem('coens-loaded') === '1'; } catch (e) {}
     if (!seen) {
       var l = document.createElement('div'); l.className = 'ln-loader';
-      l.innerHTML = '<img src="https://www.coens.nl/wp-content/uploads/2017/10/coens_for_dark_72dpi.png" alt="Coen\u2019s"><span>Telecom &amp; More</span>';
+      l.innerHTML = '<img src="https://www.coens.nl/wp-content/uploads/2017/10/coens_for_dark_72dpi.png" alt="Coen\u2019s">';
       document.body.appendChild(l);
       var hide = function () { l.classList.add('done'); try { sessionStorage.setItem('coens-loaded', '1'); } catch (e) {} setTimeout(function () { l.remove(); }, 700); };
       if (document.readyState === 'complete') setTimeout(hide, 900); else window.addEventListener('load', function () { setTimeout(hide, 700); });
