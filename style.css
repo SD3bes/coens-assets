@@ -2920,10 +2920,9 @@ html[data-theme="dark"] .coens-wiz-choice.has-logo span { background: #ffffff !i
 .coens-form-status .coens-form-mail { font-weight: 800; text-decoration: underline; color: inherit; margin-left: 4px; }
 
 /* Hero heading: cap the size on the column width so a long word never breaks (no lone "." on its own line) */
-.ln-hero .ln-wrap > div:first-child { container-type: inline-size; }
-.ln-hero .ln-h { overflow-wrap: normal; word-break: keep-all; hyphens: none; }
-.ln-hero .ln-h.xl { font-size: min(clamp(2.9rem, 8.2vw, 8rem), 16.5cqw); }
-.coens-hero:not(.ln-hero) h1 { overflow-wrap: normal; word-break: keep-all; hyphens: none; }
+.ln-hero .ln-h.xl { font-size: clamp(2.9rem, 7vw, 5.6rem); }
+@media (max-width: 1100px) { .ln-hero .ln-h.xl { font-size: clamp(2.9rem, 9.5vw, 5.6rem); } }
+@media (max-width: 600px) { .ln-hero .ln-h.xl { font-size: clamp(2.6rem, 12.5vw, 4rem); } }
 
 /* Scrolled nav capsule: solid, crisp bar instead of a see-through one */
 .coens-nav.is-scrolled .coens-nav-inner { background: rgba(243,241,234,0.985) !important; -webkit-backdrop-filter: none; backdrop-filter: none; border: 1px solid rgba(11,18,32,0.14); box-shadow: 0 10px 30px rgba(11,18,32,0.14); }
