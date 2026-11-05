@@ -2943,3 +2943,6 @@ html[data-theme="dark"] .coens-nav.is-scrolled .coens-nav-inner { background: rg
   html .coens-nav .coens-theme-toggle .ctt-label { display: none; }
   html .coens-nav .coens-theme-toggle { padding: 0 11px; }
 }
+
+/* 5 Nov 2026: footer contact lines must break (the global reset hides <br>) */
+.coens-footer p br, .coens-footer li br { display: inline !important; }
