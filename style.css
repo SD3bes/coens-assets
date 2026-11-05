@@ -2946,3 +2946,14 @@ html[data-theme="dark"] .coens-nav.is-scrolled .coens-nav-inner { background: rg
 
 /* 5 Nov 2026: footer contact lines must break (the global reset hides <br>) */
 .coens-footer p br, .coens-footer li br { display: inline !important; }
+
+/* 5 Nov 2026: split headings ("Scherm kapot?" / "Nieuw abonnement?") never break mid-word.
+   The heading column = half the wrap minus the reserved photo padding; cap the font so the
+   longest word (ABONNEMENT?, ~7.7em wide) always fits that column on two-column layouts. */
+@media (min-width: 1025px) {
+  .ln-split-item .ln-h.lg {
+    font-size: min(clamp(1.9rem, 3.4vw, 4rem), calc(((min(1320px, 100vw) - 10vw - 40px) / 2 - min(19vw, 290px)) / 7.7));
+    overflow-wrap: normal;
+    hyphens: manual;
+  }
+}
