@@ -2957,3 +2957,15 @@ html[data-theme="dark"] .coens-nav.is-scrolled .coens-nav-inner { background: rg
     hyphens: manual;
   }
 }
+
+/* 5 Nov 2026: advice wizard — wpautop <br>/<p> must never become grid cells (the .ln-advies br
+   re-enable made them visible); 5 provider logos sit 3 + 2 centred; the big heading never
+   breaks mid-word (also when the browser auto-translates it to a longer language). */
+.coens-wiz-grid-4 > br, .coens-wiz-grid-3 > br, .coens-wiz-grid-4 > p:empty, .coens-wiz-grid-3 > p:empty { display: none !important; }
+.coens-wiz-grid-4 > p:not(:empty), .coens-wiz-grid-3 > p:not(:empty) { display: contents !important; }
+.coens-wiz-grid-4.coens-wiz-prov { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 8px !important; }
+.coens-wiz-grid-4.coens-wiz-prov .coens-wiz-choice { flex: 0 0 calc((100% - 16px) / 3); width: auto !important; }
+.coens-wiz-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+.coens-wiz-grid-3 .coens-wiz-choice span { white-space: nowrap; padding-left: 6px; padding-right: 6px; }
+.ln-advies .ln-h.lg { font-size: clamp(2.3rem, 4.9vw, 5.6rem); overflow-wrap: normal; hyphens: manual; }
+@media (max-width: 640px) { .coens-wiz-grid-4.coens-wiz-prov .coens-wiz-choice { flex-basis: calc((100% - 16px) / 3); } }
