@@ -2969,3 +2969,6 @@ html[data-theme="dark"] .coens-nav.is-scrolled .coens-nav-inner { background: rg
 .coens-wiz-grid-3 .coens-wiz-choice span { white-space: nowrap; padding-left: 6px; padding-right: 6px; }
 .ln-advies .ln-h.lg { font-size: clamp(2.3rem, 4.9vw, 5.6rem); overflow-wrap: normal; hyphens: manual; }
 @media (max-width: 640px) { .coens-wiz-grid-4.coens-wiz-prov .coens-wiz-choice { flex-basis: calc((100% - 16px) / 3); } }
+
+/* 10 Nov 2026: customer wants the wavy topographic background lines gone (light + dark) */
+html .ln-topo, html[data-theme="dark"] .ln-topo { background-image: none !important; }
