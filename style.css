@@ -2972,3 +2972,5 @@ html[data-theme="dark"] .coens-nav.is-scrolled .coens-nav-inner { background: rg
 
 /* 10 Nov 2026: customer wants the wavy topographic background lines gone (light + dark) */
 html .ln-topo, html[data-theme="dark"] .ln-topo { background-image: none !important; }
+/* 10 Nov 2026: the page heroes (Reparaties, Tweede Kansjes, Opsturen, ...) drew the same wavy lines */
+html:not([data-theme="dark"]) .coens-hero:not(.coens-hero--photo):not(.ln-hero) { background-image: none !important; }
