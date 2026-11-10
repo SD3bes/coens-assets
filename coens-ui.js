@@ -396,6 +396,25 @@
   }
 
 
+  /* 16. Botpress chat widget (added by the customer, lives in an open shadow root): on phones lift the
+     bubble above our sticky bar and let the open chat window cover the nav so its close button stays reachable */
+  function botpressFx() {
+    var css = '@media (max-width: 768px) { body.has-coens-sticky-bar .bpFabWrapper, .bpFabWrapper { bottom: 90px !important; } }' +
+              '.bpWebchat { z-index: 2147483000 !important; }';
+    function patch(host) {
+      if (!host || !host.shadowRoot || host.shadowRoot.querySelector('style[data-coens]')) return false;
+      var st = document.createElement('style'); st.setAttribute('data-coens', ''); st.textContent = css;
+      host.shadowRoot.appendChild(st); return true;
+    }
+    var tries = 0;
+    function scan() {
+      var done = patch(document.getElementById('fab-root')) | patch(document.getElementById('webchat-root'));
+      if (!done && tries++ < 40) setTimeout(scan, 500);
+    }
+    scan();
+    if (window.MutationObserver) new MutationObserver(function () { patch(document.getElementById('fab-root')); patch(document.getElementById('webchat-root')); }).observe(document.body, { childList: true });
+  }
+
   /* ---------- 14. Nav 2.0: capsule on scroll, sliding pill, progress line, hide on scroll down ---------- */
   /* 15. Nav WhatsApp icon: replace the emoji image with an inline WhatsApp glyph */
   function navWaIcon() {
@@ -465,7 +484,7 @@
   }
 
   ready(function () {
-    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact, cf7Forms, reveal, landoFx, navFx, navWaIcon].forEach(function (fn) {
+    [footerAppLink, themeToggle, stickyBar, drawerStores, openingHours, wizard, faqSchema, businessSchema, adviesWizard, prefillContact, cf7Forms, reveal, landoFx, navFx, navWaIcon, botpressFx].forEach(function (fn) {
       try { fn(); } catch (e) { if (window.console) console.warn('coens-ui:', fn.name, e); }
     });
   });
