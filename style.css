@@ -2974,3 +2974,5 @@ html[data-theme="dark"] .coens-nav.is-scrolled .coens-nav-inner { background: rg
 html .ln-topo, html[data-theme="dark"] .ln-topo { background-image: none !important; }
 /* 10 Nov 2026: the page heroes (Reparaties, Tweede Kansjes, Opsturen, ...) drew the same wavy lines */
 html:not([data-theme="dark"]) .coens-hero:not(.coens-hero--photo):not(.ln-hero) { background-image: none !important; }
+/* 10 Nov 2026: reCAPTCHA badge above the (lifted) Botpress chat bubble on phones */
+@media (max-width: 768px) { body.has-coens-sticky-bar .grecaptcha-badge { bottom: 168px !important; } }
