@@ -3041,3 +3041,16 @@ html .ln-store .acts .ln-pill { min-height: 50px !important; padding: 0 16px !im
 .alle-merken__item--post .alle-merken__item__img { background: rgba(255,255,255,0.14) !important; border-radius: 14px; width: 64px; min-width: 0; padding: 0; }
 html .alle-merken__item__sub { white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
 .alle-merken__item--post .alle-merken__item__title { text-align: center; }
+
+/* 19 Nov 2026: brand grid — every logo box the same size, every pill full width, and the send-in card
+   stays blue in the dark theme too */
+html .alle-merken__item__img { width: 128px !important; height: 56px !important; min-width: 0 !important; padding: 0 !important; border-radius: 14px !important; display: flex !important; align-items: center !important; justify-content: center !important; box-sizing: border-box; }
+html:not([data-theme="dark"]) .alle-merken__item__img { background: #f3f5f9; }
+html[data-theme="dark"] .alle-merken__item__img { background: #ffffff; }
+html .alle-merken__item__img img.brand-logo { width: 100px !important; height: 34px !important; max-width: 100px; object-fit: contain; display: block; }
+html .alle-merken__item__sub { width: 100% !important; justify-content: center !important; box-sizing: border-box; }
+html .alle-merken__item.alle-merken__item--post, html[data-theme="dark"] .alle-merken__item.alle-merken__item--post { background: var(--coens-blue) !important; border-color: var(--coens-blue) !important; }
+html .alle-merken__item.alle-merken__item--post:hover, html[data-theme="dark"] .alle-merken__item.alle-merken__item--post:hover { background: var(--coens-blue-hover, #155fe0) !important; border-color: var(--coens-blue-hover, #155fe0) !important; }
+html .alle-merken__item--post .alle-merken__item__img, html[data-theme="dark"] .alle-merken__item--post .alle-merken__item__img { background: rgba(255,255,255,0.18) !important; }
+html .alle-merken__item--post .alle-merken__item__title, html[data-theme="dark"] .alle-merken__item--post .alle-merken__item__title { color: #ffffff !important; }
+html .alle-merken__item--post .alle-merken__item__sub, html[data-theme="dark"] .alle-merken__item--post .alle-merken__item__sub { background: rgba(255,255,255,0.22) !important; color: #ffffff !important; border-color: transparent !important; }
