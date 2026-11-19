@@ -2976,3 +2976,45 @@ html .ln-topo, html[data-theme="dark"] .ln-topo { background-image: none !import
 html:not([data-theme="dark"]) .coens-hero:not(.coens-hero--photo):not(.ln-hero) { background-image: none !important; }
 /* 10 Nov 2026: reCAPTCHA badge above the (lifted) Botpress chat bubble on phones */
 @media (max-width: 768px) { body.has-coens-sticky-bar .grecaptcha-badge { bottom: 168px !important; } }
+
+/* 19 Nov 2026: one button size site-wide. Every CTA (solid, ghost, WhatsApp, LN pill, form submit)
+   is 50px high with the same type and padding; button groups are equal-width grids and stack full-width
+   on phones. The compact nav button and the store-card mini pills keep their own (uniform) sizes. */
+:root { --coens-btn-h: 50px; --coens-btn-fs: 0.8rem; --coens-btn-px: 22px; }
+html .coens-btn-cta, html .coens-btn-whatsapp, html .coens-btn-outline, html .coens-btn-ghost, html .ln-pill, html .coens-wiz-btn, html .wpcf7-submit {
+  display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 8px;
+  box-sizing: border-box !important; min-height: var(--coens-btn-h) !important; padding: 0 var(--coens-btn-px) !important;
+  font-size: var(--coens-btn-fs) !important; font-weight: 800 !important; letter-spacing: 1.3px !important; line-height: 1.15 !important;
+  text-align: center !important; text-transform: uppercase !important; border-radius: 999px !important; white-space: normal;
+}
+html .coens-btn-cta .emoji, html .coens-btn-whatsapp .emoji, html .coens-btn-ghost .emoji { width: 1.1em; height: 1.1em; margin: 0; }
+/* nav: stays compact */
+html .coens-nav .coens-desktop-nav .coens-btn-cta, html .coens-nav .coens-desktop-nav .coens-btn-whatsapp { min-height: 40px !important; padding: 0 16px !important; font-size: 0.7rem !important; letter-spacing: 1.2px !important; }
+html .coens-nav .coens-drawer .coens-btn-cta { width: 100%; }
+/* store cards: two equal mini pills */
+html .ln-store .acts { display: flex !important; gap: 8px; }
+html .ln-store .acts .ln-pill { flex: 1 1 0; min-height: 40px !important; padding: 0 14px !important; font-size: 0.72rem !important; letter-spacing: 1.2px !important; }
+/* button groups: equal-width columns, full-width on phones */
+.ln-hero-cta, .coens-hero div[style*="display:flex"], .coens-form-group.full[style*="display:flex"], .coens-chips {
+  display: grid !important; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px !important; max-width: 660px;
+}
+.coens-chips { gap: 8px !important; }
+.coens-chips > span { grid-column: 1 / -1; }
+.coens-chips > br, .coens-hero div[style*="display:flex"] > br, .coens-form-group.full[style*="display:flex"] > br { display: none !important; }
+html .coens-chip { display: inline-flex !important; align-items: center; justify-content: center; gap: 6px; min-height: 42px; padding: 0 14px !important; box-sizing: border-box; text-align: center; }
+.ln-hero-cta .ln-pill, .coens-hero div[style*="display:flex"] > a, .coens-form-group.full[style*="display:flex"] > a, .coens-form-group.full[style*="display:flex"] > button { width: 100%; }
+.coens-hero.coens-hero--center .ln-hero-cta, .coens-hero.coens-hero--center div[style*="display:flex"], .coens-hero.coens-hero--center .coens-chips { margin-left: auto; margin-right: auto; }
+@media (max-width: 600px) {
+  .ln-hero-cta, .coens-hero div[style*="display:flex"], .coens-form-group.full[style*="display:flex"], .coens-chips { grid-template-columns: 1fr; max-width: none; }
+  html .coens-btn-cta, html .coens-btn-whatsapp, html .coens-btn-outline, html .coens-btn-ghost, html .ln-pill, html .coens-wiz-btn, html .wpcf7-submit { width: 100%; }
+  html .ln-split-item .ln-pill, html .ln-grid .ln-pill { width: auto; }
+}
+
+/* 19 Nov 2026: price rows in the repair cards: the price never drops to its own line; the label
+   shrinks/wraps instead and the price stays right-aligned on the first line */
+html .gsm-rep-item { display: flex !important; flex-wrap: nowrap !important; align-items: flex-start !important; justify-content: space-between !important; gap: 12px; }
+html .gsm-rep-item .gsm-rep-item-left { flex: 1 1 auto !important; min-width: 0; }
+html .gsm-rep-item .gsm-rep-item-left strong, html .gsm-rep-item .gsm-rep-item-left span { display: block; overflow-wrap: anywhere; }
+html .gsm-rep-item .gsm-rep-item-price { flex: 0 0 auto !important; white-space: nowrap !important; text-align: right; margin-left: auto; padding-top: 1px; }
+html .gsm-rep-item > p:empty { display: none !important; }
+@media (max-width: 420px) { html .gsm-rep-item .gsm-rep-item-price { font-size: 0.92em; } }
