@@ -3034,3 +3034,10 @@ html .ln-store .acts .ln-pill { min-height: 50px !important; padding: 0 16px !im
   html .ln-advies .coens-prov-row { max-width: none; justify-content: center !important; }
   html .ln-advies .coens-prov-pill { flex: 0 0 calc((100% - 20px) / 3) !important; }
 }
+
+/* 19 Nov 2026: blue "Toestel opsturen" card in the brand grid: emoji on top, title, pill — like the other cards */
+.alle-merken__item__emoji { display: inline-flex; align-items: center; justify-content: center; font-size: 2.6rem; line-height: 1; }
+.alle-merken__item__emoji .emoji { width: 1em !important; height: 1em !important; margin: 0 !important; }
+.alle-merken__item--post .alle-merken__item__img { background: rgba(255,255,255,0.14) !important; border-radius: 14px; width: 64px; min-width: 0; padding: 0; }
+html .alle-merken__item__sub { white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.alle-merken__item--post .alle-merken__item__title { text-align: center; }
