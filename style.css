@@ -3067,3 +3067,10 @@ html[data-theme="dark"] .alle-merken__item__img img.brand-logo[alt="Huawei"],
 html[data-theme="dark"] .alle-merken__item__img img.brand-logo[alt="Motorola"],
 html[data-theme="dark"] .alle-merken__item__img img.brand-logo[alt="Apple"] { filter: brightness(0) invert(1); }
 html[data-theme="dark"] .alle-merken__item__img svg, html[data-theme="dark"] .alle-merken__item__img svg path { fill: #ffffff !important; }
+
+/* 20 Nov 2026: repair cards — secondary (OEM) price as a small line under the main price; the
+   "bekijk alle" buttons sit on the bottom edge of every card so the three cards line up */
+html .gsm-rep-item-price small { display: block; font-size: 0.7rem; font-weight: 600; opacity: 0.8; margin-top: 2px; white-space: nowrap; letter-spacing: 0; }
+html .gsm-device-card { display: flex !important; flex-direction: column !important; }
+html .gsm-device-repairs { display: flex !important; flex-direction: column !important; flex: 1 1 auto !important; }
+html .gsm-device-repairs > p:last-child { margin-top: auto !important; padding-top: 6px; }
