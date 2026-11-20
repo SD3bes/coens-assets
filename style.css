@@ -3062,4 +3062,8 @@ html .ln-store .acts { margin-top: auto !important; padding-top: 10px; }
 html:not([data-theme="dark"]) .alle-merken__item:not(.alle-merken__item--post) .alle-merken__item__img,
 html[data-theme="dark"] .alle-merken__item:not(.alle-merken__item--post) .alle-merken__item__img { background: transparent !important; }
 html .alle-merken__item__img img.brand-logo { width: 116px !important; height: 42px !important; max-width: 116px; }
-html[data-theme="dark"] .alle-merken__item:not(.alle-merken__item--post) .alle-merken__item__img img.brand-logo { filter: brightness(0) invert(1); }
+/* dark theme: only the black wordmarks turn white; coloured logos (Samsung, Google, Xiaomi, Realme) keep their colours */
+html[data-theme="dark"] .alle-merken__item__img img.brand-logo[alt="Huawei"],
+html[data-theme="dark"] .alle-merken__item__img img.brand-logo[alt="Motorola"],
+html[data-theme="dark"] .alle-merken__item__img img.brand-logo[alt="Apple"] { filter: brightness(0) invert(1); }
+html[data-theme="dark"] .alle-merken__item__img svg, html[data-theme="dark"] .alle-merken__item__img svg path { fill: #ffffff !important; }
