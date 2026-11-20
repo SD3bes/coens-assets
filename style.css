@@ -3054,3 +3054,12 @@ html .alle-merken__item.alle-merken__item--post:hover, html[data-theme="dark"] .
 html .alle-merken__item--post .alle-merken__item__img, html[data-theme="dark"] .alle-merken__item--post .alle-merken__item__img { background: rgba(255,255,255,0.18) !important; }
 html .alle-merken__item--post .alle-merken__item__title, html[data-theme="dark"] .alle-merken__item--post .alle-merken__item__title { color: #ffffff !important; }
 html .alle-merken__item--post .alle-merken__item__sub, html[data-theme="dark"] .alle-merken__item--post .alle-merken__item__sub { background: rgba(255,255,255,0.22) !important; color: #ffffff !important; border-color: transparent !important; }
+
+/* 20 Nov 2026: store cards — Filiaal/Route always on the bottom edge, whatever the text length */
+html .ln-store .b { flex: 1 1 auto !important; }
+html .ln-store .acts { margin-top: auto !important; padding-top: 10px; }
+/* brand grid — logos without a box: original colours on the light cards, white on the dark cards */
+html:not([data-theme="dark"]) .alle-merken__item:not(.alle-merken__item--post) .alle-merken__item__img,
+html[data-theme="dark"] .alle-merken__item:not(.alle-merken__item--post) .alle-merken__item__img { background: transparent !important; }
+html .alle-merken__item__img img.brand-logo { width: 116px !important; height: 42px !important; max-width: 116px; }
+html[data-theme="dark"] .alle-merken__item:not(.alle-merken__item--post) .alle-merken__item__img img.brand-logo { filter: brightness(0) invert(1); }
